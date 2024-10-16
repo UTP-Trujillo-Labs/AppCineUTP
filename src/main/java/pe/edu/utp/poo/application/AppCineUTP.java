@@ -4,13 +4,22 @@
 
 package pe.edu.utp.poo.application;
 
+import pe.edu.utp.poo.application.ui.UIMainMenu;
+
 /**
  *
  * @author manuelguarniz
  */
 public class AppCineUTP {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World UTP!");
+   
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(() -> {
+            UIMainMenu uiMain = new UIMainMenu();
+            uiMain.setVisible(true);
+            uiMain.setLocationRelativeTo(null);
+        });
     }
 }
