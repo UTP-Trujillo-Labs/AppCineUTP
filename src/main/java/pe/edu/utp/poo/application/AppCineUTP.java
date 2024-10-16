@@ -11,6 +11,6 @@ package pe.edu.utp.poo.application;
 public class AppCineUTP {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello World UTP!");
     }
 }
