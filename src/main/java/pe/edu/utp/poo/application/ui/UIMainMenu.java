@@ -8,14 +8,26 @@ package pe.edu.utp.poo.application.ui;
  *
  * @author manuelguarniz
  */
-public class ViewMainMenu extends javax.swing.JFrame {
+public class UIMainMenu extends javax.swing.JFrame {
+    MenuActionListener menuActionListener;
 
     /**
      * Creates new form ViewMainMenu
      */
-    public ViewMainMenu() {
+    public UIMainMenu() {
         initComponents();
+        configMenuItems();
     }
+    
+    private void configMenuItems() {
+        menuActionListener = new MenuActionListener(jdpMain);
+        jmiAcercaDe.addActionListener(menuActionListener);
+        jmiBoleteria.addActionListener(menuActionListener);
+        jmiPeliculas.addActionListener(menuActionListener);
+        jmiSalir.addActionListener(menuActionListener);
+        jmiUsuarios.addActionListener(menuActionListener);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,9 +47,14 @@ public class ViewMainMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jmuPerfil = new javax.swing.JMenuItem();
+        jmiSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jmiUsuarios = new javax.swing.JMenuItem();
+        jmiPeliculas = new javax.swing.JMenuItem();
+        jmiBoleteria = new javax.swing.JMenu();
+        jmHelp = new javax.swing.JMenu();
+        jmiAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -119,16 +136,41 @@ public class ViewMainMenu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Inicio");
+
+        jmuPerfil.setText("Perfil");
+        jmuPerfil.setActionCommand("ui_inicio_perfil");
+        jMenu1.add(jmuPerfil);
+
+        jmiSalir.setText("Salir");
+        jmiSalir.setActionCommand("ui_inicio_salir");
+        jMenu1.add(jmiSalir);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Mantenimientos");
+
+        jmiUsuarios.setText("Usuarios");
+        jmiUsuarios.setActionCommand("ui_mantenimiento_usuarios");
+        jMenu2.add(jmiUsuarios);
+
+        jmiPeliculas.setText("Peliculas");
+        jmiPeliculas.setActionCommand("ui_mantenimiento_peliculas");
+        jMenu2.add(jmiPeliculas);
+
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Boleteria");
-        jMenuBar1.add(jMenu3);
+        jmiBoleteria.setText("Boleteria");
+        jmiBoleteria.setActionCommand("ui_boleteria");
+        jMenuBar1.add(jmiBoleteria);
 
-        jMenu4.setText("Acerca de");
-        jMenuBar1.add(jMenu4);
+        jmHelp.setText("Ayuda");
+        jmHelp.setActionCommand("ui_acerca_de");
+
+        jmiAcercaDe.setText("Acerca de");
+        jmiAcercaDe.setActionCommand("ui_ayuda_acerca_de");
+        jmHelp.add(jmiAcercaDe);
+
+        jMenuBar1.add(jmHelp);
 
         setJMenuBar(jMenuBar1);
 
@@ -155,10 +197,15 @@ public class ViewMainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JDesktopPane jdpMain;
+    private javax.swing.JMenu jmHelp;
+    private javax.swing.JMenuItem jmiAcercaDe;
+    private javax.swing.JMenu jmiBoleteria;
+    private javax.swing.JMenuItem jmiPeliculas;
+    private javax.swing.JMenuItem jmiSalir;
+    private javax.swing.JMenuItem jmiUsuarios;
+    private javax.swing.JMenuItem jmuPerfil;
     private javax.swing.JPanel jpAppName;
     private javax.swing.JPanel jpFooter;
     private javax.swing.JPanel jpLocaltime;

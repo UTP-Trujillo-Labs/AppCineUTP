@@ -8,21 +8,59 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Inicio"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmuPerfil">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Perfil"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_inicio_perfil"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiSalir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salir"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_inicio_salir"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mantenimientos"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiUsuarios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Usuarios"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_mantenimiento_usuarios"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiPeliculas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Peliculas"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_mantenimiento_peliculas"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="jmiBoleteria">
           <Properties>
             <Property name="text" type="java.lang.String" value="Boleteria"/>
+            <Property name="actionCommand" type="java.lang.String" value="ui_boleteria"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="jmHelp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Acerca de"/>
+            <Property name="text" type="java.lang.String" value="Ayuda"/>
+            <Property name="actionCommand" type="java.lang.String" value="ui_acerca_de"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiAcercaDe">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Acerca de"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_ayuda_acerca_de"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
