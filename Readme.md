@@ -30,3 +30,15 @@
 1. Menu principal
 
 ![1729054398387](image/Readme/1729054398387.png)
+
+2. Login
+
+![1729055773897](image/Readme/1729055773897.png)
+
+3. Mantenimiento usuarios
+
+![1729055794517](image/Readme/1729055794517.png)
+
+4. Mantenimiento peliculas
+
+![1729055819657](image/Readme/1729055819657.png)
