@@ -15,4 +15,7 @@ public class Constant {
     public static final String UI_MANTENIMIENTO_PELICULAS = "ui_mantenimiento_peliculas";
     public static final String UI_INICIO_PERFIL = "ui_inicio_perfil";
     public static final String UI_INICIO_SALIR = "ui_inicio_salir";
+    
+    
+    public static final String  DEFAULT_LOCALDATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 }
