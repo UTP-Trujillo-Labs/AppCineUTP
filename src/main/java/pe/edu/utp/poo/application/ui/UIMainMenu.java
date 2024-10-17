@@ -190,6 +190,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmHelp.setActionCommand("ui_acerca_de");
 
         jmiAcercaDe.setText("Acerca de");
+        jmiAcercaDe.setActionCommand("ui_ayuda_acerca_de");
         jmHelp.add(jmiAcercaDe);
 
         jMenuBar1.add(jmHelp);
