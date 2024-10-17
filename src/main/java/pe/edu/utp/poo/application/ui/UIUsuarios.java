@@ -4,17 +4,58 @@
  */
 package pe.edu.utp.poo.application.ui;
 
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import pe.edu.utp.poo.application.lib.UsuarioLogica;
+import pe.edu.utp.poo.application.pojo.Usuario;
+
 /**
  *
  * @author manuelguarniz
  */
 public class UIUsuarios extends javax.swing.JInternalFrame {
+    
+    private UsuarioLogica usuarioLogica;
 
     /**
      * Creates new form UIUsuarios
      */
     public UIUsuarios() {
         initComponents();
+        this.usuarioLogica = new UsuarioLogica();
+        cargarDatos();
+    }
+    
+    private void cargarDatos() {
+        DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
+        
+        List<Usuario> usuarios = this.usuarioLogica.listaUsuarios();
+        usuarios.forEach(e -> {
+            tableModel.addRow(new Object[] {
+                e.getNombres(),
+                e.getApellidos(),
+                e.getDni(),
+                e.getRol(),
+                e.isEstado() ? "Activo" : "Inactivo"
+            });
+        });
+    }
+    
+    private void seleccionarFila() {
+        DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
+        
+        String nombres = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0).toString();
+        String apellidos = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 1).toString();
+        String dni = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 2).toString();
+        String rol = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 3).toString();
+        String estado = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 4).toString();
+        
+        txtNombres.setText(nombres);
+        txtApellidos.setText(apellidos);
+        txtDNI.setText(dni);
+        cboRol.setSelectedItem(rol);
+        cbxEstado.setSelected(estado.equalsIgnoreCase("Activo"));
     }
 
     /**
@@ -44,7 +85,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         cbxEstado = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtUsuarios = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -156,7 +197,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -164,7 +205,12 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
                 "Nombres", "Apellidos", "DNI", "Rol", "Estado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jtUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtUsuariosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtUsuarios);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -257,6 +303,10 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jtUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtUsuariosMouseClicked
+        seleccionarFila();
+    }//GEN-LAST:event_jtUsuariosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cboRol;
@@ -276,7 +326,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtUsuarios;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtEdad;
