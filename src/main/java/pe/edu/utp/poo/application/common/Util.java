@@ -6,6 +6,7 @@ package pe.edu.utp.poo.application.common;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 import static pe.edu.utp.poo.application.common.Constant.DEFAULT_LOCALDATETIME_FORMAT;
 
 /**
@@ -20,5 +21,17 @@ public class Util {
     public static String parseDate(LocalDateTime datetime, String pattern) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern(pattern);
         return format.format(datetime);
+    }
+    
+    public static String generateShortUUID() {
+        return UUID.randomUUID().toString().split("-")[0].toUpperCase();
+    }
+    
+    public static String generateUUID() {
+        return UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
+    }
+    
+    public static boolean isNullOrEmpty(String value) {
+        return value == null || "".equalsIgnoreCase(value.trim());
     }
 }

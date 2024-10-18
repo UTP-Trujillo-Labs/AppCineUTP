@@ -57,6 +57,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jmiAcercaDe">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Acerca de"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_ayuda_acerca_de"/>
               </Properties>
             </MenuItem>
           </SubComponents>
