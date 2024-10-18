@@ -22,7 +22,16 @@ public class Util {
         DateTimeFormatter format = DateTimeFormatter.ofPattern(pattern);
         return format.format(datetime);
     }
-    public static String getID() {
+    
+    public static String generateShortUUID() {
         return UUID.randomUUID().toString().split("-")[0].toUpperCase();
+    }
+    
+    public static String generateUUID() {
+        return UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
+    }
+    
+    public static boolean isNullOrEmpty(String value) {
+        return value == null || "".equalsIgnoreCase(value.trim());
     }
 }

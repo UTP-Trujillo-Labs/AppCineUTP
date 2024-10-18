@@ -24,9 +24,12 @@ public class Database {
     }
     
     private void loadData() {
-        Usuario usuario1 = new Usuario("Manuel", "Guarniz", "71850001", 29, RolesEnum.Admin, true);
-        Usuario usuario2 = new Usuario("Esteban", "Cruz", "71850002", 30, RolesEnum.Vendedor, true);
-        Usuario usuario3 = new Usuario("Juan", "Perez", "71850003", 31, RolesEnum.Vendedor, false);
+        Usuario usuario1 = new Usuario("Manuel", "Guarniz", "71850001", 29,
+                "manuel.guarniz", "123456", RolesEnum.Admin, true);
+        Usuario usuario2 = new Usuario("Esteban", "Cruz", "71850002", 30,
+                "esteban.cruz", "123456", RolesEnum.Vendedor, true);
+        Usuario usuario3 = new Usuario("Juan", "Perez", "71850003", 31,
+                "juan.perez", "123456", RolesEnum.Vendedor, false);
         this.agregarUsuario(usuario1);
         this.agregarUsuario(usuario2);
         this.agregarUsuario(usuario3);
@@ -60,8 +63,12 @@ public class Database {
     }
     
     public Usuario agregarUsuario(Usuario usuario) {
-        usuario.setId(Util.getID());
+        usuario.setId(Util.generateUUID());
         dbUsuarios.add(usuario);
+        System.out.println("\n");
+        System.out.printf(">>> Usuario: [%s] Clave: [%s] <<<",
+                usuario.getUsuarioAcceso(), usuario.getClaveAcceso());
+        System.out.println("\n");
         return usuario;
     }
     

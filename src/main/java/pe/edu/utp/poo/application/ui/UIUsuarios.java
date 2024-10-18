@@ -5,7 +5,10 @@
 package pe.edu.utp.poo.application.ui;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pe.edu.utp.poo.application.common.Util;
+import pe.edu.utp.poo.application.enums.RolesEnum;
 import pe.edu.utp.poo.application.lib.UsuarioLogica;
 import pe.edu.utp.poo.application.pojo.Usuario;
 
@@ -15,6 +18,7 @@ import pe.edu.utp.poo.application.pojo.Usuario;
  */
 public class UIUsuarios extends javax.swing.JInternalFrame {
     
+    private String idUsuarioSeleccionado;
     private UsuarioLogica usuarioLogica;
 
     /**
@@ -28,7 +32,9 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
     }
     
     private void cargarDatos() {
+        
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
+        tableModel.setRowCount(0);
         
         List<Usuario> usuarios = this.usuarioLogica.listaUsuarios();
         usuarios.forEach(e -> {
@@ -58,21 +64,121 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
     }
     
     private void guardar() {
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        String dni = txtDNI.getText();
+        String edadText = txtEdad.getText();
+        
+        if (!this.validarCampos()) {
+            return;
+        }
+        
+        int edad = Integer.parseInt(edadText);
+        RolesEnum rol = RolesEnum.valueOf(cboRol.getSelectedItem().toString());
+        boolean estado = cbxEstado.isSelected();
+        
+        Usuario usuario = new Usuario(this.usuarioLogica);
+        usuario.setId(idUsuarioSeleccionado);
+        usuario.setNombres(nombres);
+        usuario.setApellidos(apellidos);
+        usuario.setDni(dni);
+        usuario.setEdad(edad);
+        usuario.setRol(rol);
+        usuario.setEstado(estado);
+        
+        usuario.guardar();
+        
+        
+        JOptionPane.showMessageDialog(this, "Registro con éxito!");
+        
         desabilitarControles(true);
         limpiarCampos();
+        cargarDatos();
+    }
+    
+    private boolean validarCampos() {
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        String dni = txtDNI.getText();
+        String edadText = txtEdad.getText();
+        
+        if (Util.isNullOrEmpty(nombres) || nombres.length() <= 1) {
+            JOptionPane.showMessageDialog(this, "Los nombres son inválidos!");
+            txtNombres.requestFocus();
+            return false;
+        }
+        
+        if (Util.isNullOrEmpty(apellidos) || apellidos.length() <= 1) {
+            JOptionPane.showMessageDialog(this, "Los apellidos son inválidos!");
+            txtApellidos.requestFocus();
+            return false;
+        }
+        
+        if (Util.isNullOrEmpty(dni) || dni.length() != 8) {
+            JOptionPane.showMessageDialog(this, "El DNI es inválidos!");
+            txtDNI.requestFocus();
+            return false;
+        }
+        
+        try {
+            int edad = Integer.parseInt(edadText);
+            if (edad < 18) {
+                JOptionPane.showMessageDialog(this, "El usuario no puede ser menor de 18 años!");
+                txtEdad.requestFocus();
+                return false;
+            }
+            if (edad > 75) {
+                JOptionPane.showMessageDialog(this, "El usuario no puede ser mayor de 75 años!");
+                txtEdad.requestFocus();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "La edad es inválida!");
+            txtEdad.requestFocus();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    private void eliminar() {
+        DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
+        int filaSeleccionada = jtUsuarios.getSelectedRow();
+        
+        if (jtUsuarios.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(this, "Seleccione solo una fila para eliminar.");
+            return;
+        }
+        Usuario usuario = (Usuario) tableModel.getValueAt(filaSeleccionada, 0);
+        
+        int quiereEliminar = JOptionPane
+                .showConfirmDialog(this, "¿Está seguro que quiere eliminar a " + usuario.getNombres(),
+                        "Confirmar para eliminar", JOptionPane.YES_NO_OPTION);
+        
+        if (JOptionPane.YES_OPTION == quiereEliminar) {
+            this.usuarioLogica.elimiarUsuario(usuario.getId());
+
+            JOptionPane.showMessageDialog(this, "Registro eliminado con éxito!");
+            limpiarCampos();
+            tableModel.removeRow(filaSeleccionada);
+        }
     }
     
     private void seleccionarFila() {
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
         
-        Usuario usuario = (Usuario) tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0);
+        if (jtUsuarios.getSelectedRow() != -1) {
         
-        txtNombres.setText(usuario.getNombres());
-        txtApellidos.setText(usuario.getApellidos());
-        txtDNI.setText(usuario.getDni());
-        txtEdad.setText(String.valueOf(usuario.getEdad()));
-        cboRol.setSelectedItem(usuario.getRol().toString());
-        cbxEstado.setSelected(usuario.isEstado());
+            Usuario usuario = (Usuario) tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0);
+
+            idUsuarioSeleccionado = usuario.getId();
+            txtNombres.setText(usuario.getNombres());
+            txtApellidos.setText(usuario.getApellidos());
+            txtDNI.setText(usuario.getDni());
+            txtEdad.setText(String.valueOf(usuario.getEdad()));
+            cboRol.setSelectedItem(usuario.getRol().toString());
+            cbxEstado.setSelected(usuario.isEstado());
+        }
     }
     
     private void desabilitarControles(boolean disabilitar) {
@@ -85,11 +191,15 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         
         btnNuevo.setEnabled(disabilitar);
         btnModificar.setEnabled(disabilitar);
+        btnEliminar.setEnabled(disabilitar);
         btnGuardar.setEnabled(!disabilitar);
         btnCancelar.setEnabled(!disabilitar);
+        
+        jtUsuarios.setEnabled(disabilitar);
     }
     
     private void limpiarCampos() {
+        idUsuarioSeleccionado = "";
         txtNombres.setText("");
         txtApellidos.setText("");
         txtDNI.setText("");
@@ -131,6 +241,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         btnModificar = new javax.swing.JToggleButton();
         btnNuevo = new javax.swing.JToggleButton();
+        btnEliminar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -256,8 +367,8 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             }
         });
         jtUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtUsuariosMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jtUsuariosMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(jtUsuarios);
@@ -314,6 +425,13 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -323,6 +441,8 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
                 .addComponent(btnNuevo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -337,7 +457,8 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(btnGuardar)
                     .addComponent(btnCancelar)
                     .addComponent(btnModificar)
-                    .addComponent(btnNuevo))
+                    .addComponent(btnNuevo)
+                    .addComponent(btnEliminar))
                 .addContainerGap())
         );
 
@@ -387,10 +508,6 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtUsuariosMouseClicked
-        seleccionarFila();
-    }//GEN-LAST:event_jtUsuariosMouseClicked
-
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         registrarUsuario();
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -407,9 +524,18 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void jtUsuariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtUsuariosMousePressed
+        seleccionarFila();
+    }//GEN-LAST:event_jtUsuariosMousePressed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        eliminar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JToggleButton btnModificar;
     private javax.swing.JToggleButton btnNuevo;

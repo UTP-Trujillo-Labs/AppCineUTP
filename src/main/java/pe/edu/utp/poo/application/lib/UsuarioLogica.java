@@ -5,6 +5,7 @@
 package pe.edu.utp.poo.application.lib;
 
 import java.util.List;
+import pe.edu.utp.poo.application.common.Util;
 import pe.edu.utp.poo.application.db.Database;
 import pe.edu.utp.poo.application.pojo.Usuario;
 
@@ -28,7 +29,9 @@ public class UsuarioLogica {
     }
     
     public Usuario guardarUsuario(Usuario usuario) throws RuntimeException {
-        if (this.db.obtenerUsuario(usuario.getId()) != null) {
+        if (usuario.getId() == null || "".equalsIgnoreCase(usuario.getId())) {
+            usuario.setUsuarioAcceso(autogenerarUsuario(usuario));
+            usuario.setClaveAcceso(Util.generateShortUUID());
             return this.db.agregarUsuario(usuario);
         } else {
             boolean resultado = this.db.modificarUsuario(usuario.getId(), usuario);
@@ -46,5 +49,12 @@ public class UsuarioLogica {
             throw new RuntimeException("Usuario no existe");
         }
         return this.db.eliminarUsuario(usuario);
+    }
+    
+    private String autogenerarUsuario(Usuario usuario) {
+        String primerNombre = usuario.getNombres().trim().split(" ")[0];
+        String primerApellido = usuario.getApellidos().trim().split(" ")[0];
+        
+        return (primerNombre + "." + primerApellido).toLowerCase();
     }
 }
