@@ -5,7 +5,6 @@
 package pe.edu.utp.poo.application.ui;
 
 import java.util.List;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.utp.poo.application.lib.UsuarioLogica;
 import pe.edu.utp.poo.application.pojo.Usuario;
@@ -25,6 +24,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         initComponents();
         this.usuarioLogica = new UsuarioLogica();
         cargarDatos();
+        desabilitarControles(true);
     }
     
     private void cargarDatos() {
@@ -33,29 +33,69 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         List<Usuario> usuarios = this.usuarioLogica.listaUsuarios();
         usuarios.forEach(e -> {
             tableModel.addRow(new Object[] {
+                e,
                 e.getNombres(),
                 e.getApellidos(),
                 e.getDni(),
                 e.getRol(),
-                e.isEstado() ? "Activo" : "Inactivo"
+                e.isEstado() ? "Activo" : "Inactivo",
             });
         });
+    }
+    
+    private void registrarUsuario() {
+        desabilitarControles(false);
+        limpiarCampos();
+    }
+    
+    private void modificarUsuario() {
+        desabilitarControles(false);
+    }
+    
+    private void cancelarRegistro() {
+        desabilitarControles(true);
+        limpiarCampos();
+    }
+    
+    private void guardar() {
+        desabilitarControles(true);
+        limpiarCampos();
     }
     
     private void seleccionarFila() {
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
         
-        String nombres = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0).toString();
-        String apellidos = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 1).toString();
-        String dni = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 2).toString();
-        String rol = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 3).toString();
-        String estado = tableModel.getValueAt(jtUsuarios.getSelectedRow(), 4).toString();
+        Usuario usuario = (Usuario) tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0);
         
-        txtNombres.setText(nombres);
-        txtApellidos.setText(apellidos);
-        txtDNI.setText(dni);
-        cboRol.setSelectedItem(rol);
-        cbxEstado.setSelected(estado.equalsIgnoreCase("Activo"));
+        txtNombres.setText(usuario.getNombres());
+        txtApellidos.setText(usuario.getApellidos());
+        txtDNI.setText(usuario.getDni());
+        txtEdad.setText(String.valueOf(usuario.getEdad()));
+        cboRol.setSelectedItem(usuario.getRol().toString());
+        cbxEstado.setSelected(usuario.isEstado());
+    }
+    
+    private void desabilitarControles(boolean disabilitar) {
+        txtNombres.setEnabled(!disabilitar);
+        txtApellidos.setEnabled(!disabilitar);
+        txtDNI.setEnabled(!disabilitar);
+        txtEdad.setEnabled(!disabilitar);
+        cboRol.setEnabled(!disabilitar);
+        cbxEstado.setEnabled(!disabilitar);
+        
+        btnNuevo.setEnabled(disabilitar);
+        btnModificar.setEnabled(disabilitar);
+        btnGuardar.setEnabled(!disabilitar);
+        btnCancelar.setEnabled(!disabilitar);
+    }
+    
+    private void limpiarCampos() {
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtDNI.setText("");
+        txtEdad.setText("");
+        cboRol.setSelectedIndex(0);
+        cbxEstado.setSelected(false);
     }
 
     /**
@@ -69,7 +109,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jpDatosPersonales = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -87,8 +127,10 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtUsuarios = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JToggleButton();
+        btnNuevo = new javax.swing.JToggleButton();
 
         setClosable(true);
 
@@ -98,8 +140,8 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Mantenimiento Usuarios");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Personales"));
+        jpDatosPersonales.setBackground(new java.awt.Color(255, 255, 255));
+        jpDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Personales"));
 
         jLabel2.setText("Nombres:");
 
@@ -109,48 +151,48 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Edad:");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpDatosPersonalesLayout = new javax.swing.GroupLayout(jpDatosPersonales);
+        jpDatosPersonales.setLayout(jpDatosPersonalesLayout);
+        jpDatosPersonalesLayout.setHorizontalGroup(
+            jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpDatosPersonalesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDatosPersonalesLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(60, 60, 60)
                         .addComponent(txtNombres))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(jpDatosPersonalesLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(59, 59, 59)
                         .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDatosPersonalesLayout.createSequentialGroup()
+                        .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addGap(82, 82, 82)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEdad)
                             .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jpDatosPersonalesLayout.setVerticalGroup(
+            jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpDatosPersonalesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -202,15 +244,27 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nombres", "Apellidos", "DNI", "Rol", "Estado"
+                "OBJ", "Nombres", "Apellidos", "DNI", "Rol", "Estado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jtUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtUsuariosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jtUsuarios);
+        if (jtUsuarios.getColumnModel().getColumnCount() > 0) {
+            jtUsuarios.getColumnModel().getColumn(0).setMinWidth(0);
+            jtUsuarios.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -232,19 +286,47 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jButton1.setText("Guardar");
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancelar");
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addContainerGap()
+                .addComponent(btnNuevo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardar)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -252,8 +334,10 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnGuardar)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnNuevo))
                 .addContainerGap())
         );
 
@@ -269,7 +353,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jpDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -282,7 +366,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpDatosPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -307,12 +391,30 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         seleccionarFila();
     }//GEN-LAST:event_jtUsuariosMouseClicked
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        registrarUsuario();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        modificarUsuario();
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        cancelarRegistro();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        guardar();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JToggleButton btnModificar;
+    private javax.swing.JToggleButton btnNuevo;
     private javax.swing.JComboBox<String> cboRol;
     private javax.swing.JCheckBox cbxEstado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,11 +423,11 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpDatosPersonales;
     private javax.swing.JTable jtUsuarios;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDNI;
