@@ -22,6 +22,8 @@
    4. Mostrar bustacas disponibles
    5. Permitir seleccionar butacas
    6. Simular pagos
+   7. Registrar orden de compra (opcional)
+   8. Mostrar ordenes (opcional)
 4. Autenticación
    1. Permitir ingreso con el usuario creado, las credenciales se autoasignaran
 
@@ -37,8 +39,28 @@
 
 3. Mantenimiento usuarios
 
-![1729055794517](image/Readme/1729055794517.png)
+![1729750596392](image/Readme/1729750596392.png)
 
 4. Mantenimiento peliculas
 
-![1729055819657](image/Readme/1729055819657.png)
+![1729750610438](image/Readme/1729750610438.png)
+
+5. Boleteria - venta
+
+![1729750637691](image/Readme/1729750637691.png)
+
+6. Selección de butacas
+
+![1729750686806](image/Readme/1729750686806.png)
+
+7. Mantenimiento de ordenes (registro de ventas por boleteria)
+
+![1729750712855](image/Readme/1729750712855.png)
+
+8. Vista previa de la venta (misma ventana que la venta, solo con campos bloqueados)
+
+![1729750751749](image/Readme/1729750751749.png)
+
+9. Informativo, acerca de
+
+![1729750509139](image/Readme/1729750509139.png)
