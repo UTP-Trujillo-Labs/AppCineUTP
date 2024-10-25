@@ -52,30 +52,30 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         btnReiniciar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        btnButacaA5 = new javax.swing.JButton();
-        btnButacaA6 = new javax.swing.JButton();
-        btnButacaA7 = new javax.swing.JButton();
-        btnButacaA8 = new javax.swing.JButton();
-        btnButacaA9 = new javax.swing.JButton();
-        btnButacaA10 = new javax.swing.JButton();
-        btnButacaA11 = new javax.swing.JButton();
-        btnButacaA12 = new javax.swing.JButton();
+        btnButacaA = new javax.swing.JButton();
+        btnButacaB = new javax.swing.JButton();
+        btnButacaC = new javax.swing.JButton();
+        btnButacaD = new javax.swing.JButton();
+        btnButacaE = new javax.swing.JButton();
+        btnButacaF = new javax.swing.JButton();
+        btnButacaG = new javax.swing.JButton();
+        btnButacaH = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        btnButacaH6 = new javax.swing.JButton();
-        btnButacaH7 = new javax.swing.JButton();
-        btnButacaH8 = new javax.swing.JButton();
-        btnButacaH9 = new javax.swing.JButton();
-        btnButacaH10 = new javax.swing.JButton();
-        btnButacaH11 = new javax.swing.JButton();
-        btnButacaH12 = new javax.swing.JButton();
-        btnButacaH13 = new javax.swing.JButton();
-        btnButacaH14 = new javax.swing.JButton();
-        btnButacaH15 = new javax.swing.JButton();
-        btnButacaH16 = new javax.swing.JButton();
-        btnButacaH17 = new javax.swing.JButton();
+        btnButaca12 = new javax.swing.JButton();
+        btnButaca1 = new javax.swing.JButton();
+        btnButaca2 = new javax.swing.JButton();
+        btnButaca3 = new javax.swing.JButton();
+        btnButaca4 = new javax.swing.JButton();
+        btnButaca5 = new javax.swing.JButton();
+        btnButaca6 = new javax.swing.JButton();
+        btnButaca7 = new javax.swing.JButton();
+        btnButaca8 = new javax.swing.JButton();
+        btnButaca9 = new javax.swing.JButton();
+        btnButaca10 = new javax.swing.JButton();
+        btnButaca11 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         btnButacaA1 = new javax.swing.JButton();
         btnButacaB1 = new javax.swing.JButton();
@@ -89,14 +89,6 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         btnButacaH3 = new javax.swing.JButton();
         btnButacaH4 = new javax.swing.JButton();
         btnButacaH5 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
         btnButacaG2 = new javax.swing.JButton();
         btnButacaF2 = new javax.swing.JButton();
         btnButacaE2 = new javax.swing.JButton();
@@ -124,63 +116,63 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         btnButacaD5 = new javax.swing.JButton();
         btnButacaC5 = new javax.swing.JButton();
         btnButacaB5 = new javax.swing.JButton();
-        jButton57 = new javax.swing.JButton();
-        jButton58 = new javax.swing.JButton();
-        jButton59 = new javax.swing.JButton();
-        jButton60 = new javax.swing.JButton();
-        jButton61 = new javax.swing.JButton();
-        jButton62 = new javax.swing.JButton();
-        jButton63 = new javax.swing.JButton();
-        jButton64 = new javax.swing.JButton();
-        jButton65 = new javax.swing.JButton();
-        jButton66 = new javax.swing.JButton();
-        jButton67 = new javax.swing.JButton();
-        jButton68 = new javax.swing.JButton();
-        jButton69 = new javax.swing.JButton();
-        jButton70 = new javax.swing.JButton();
-        jButton71 = new javax.swing.JButton();
-        jButton72 = new javax.swing.JButton();
-        jButton73 = new javax.swing.JButton();
-        jButton74 = new javax.swing.JButton();
-        jButton75 = new javax.swing.JButton();
-        jButton76 = new javax.swing.JButton();
-        jButton77 = new javax.swing.JButton();
-        jButton78 = new javax.swing.JButton();
-        jButton86 = new javax.swing.JButton();
-        jButton87 = new javax.swing.JButton();
-        jButton88 = new javax.swing.JButton();
-        jButton89 = new javax.swing.JButton();
-        jButton90 = new javax.swing.JButton();
-        jButton91 = new javax.swing.JButton();
-        jButton92 = new javax.swing.JButton();
-        jButton93 = new javax.swing.JButton();
-        jButton94 = new javax.swing.JButton();
-        jButton95 = new javax.swing.JButton();
-        jButton96 = new javax.swing.JButton();
-        jButton97 = new javax.swing.JButton();
-        jButton98 = new javax.swing.JButton();
-        jButton99 = new javax.swing.JButton();
-        jButton100 = new javax.swing.JButton();
-        jButton101 = new javax.swing.JButton();
-        jButton102 = new javax.swing.JButton();
-        jButton103 = new javax.swing.JButton();
-        jButton104 = new javax.swing.JButton();
-        jButton105 = new javax.swing.JButton();
-        jButton106 = new javax.swing.JButton();
-        jButton107 = new javax.swing.JButton();
-        jButton108 = new javax.swing.JButton();
-        jButton109 = new javax.swing.JButton();
-        jButton110 = new javax.swing.JButton();
-        jButton111 = new javax.swing.JButton();
-        jButton112 = new javax.swing.JButton();
-        jButton113 = new javax.swing.JButton();
-        jButton114 = new javax.swing.JButton();
-        jButton115 = new javax.swing.JButton();
-        jButton116 = new javax.swing.JButton();
-        jButton117 = new javax.swing.JButton();
-        jButton118 = new javax.swing.JButton();
-        jButton119 = new javax.swing.JButton();
-        jButton120 = new javax.swing.JButton();
+        btnButacaA5 = new javax.swing.JButton();
+        btnButacaH6 = new javax.swing.JButton();
+        btnButacaG6 = new javax.swing.JButton();
+        btnButacaF6 = new javax.swing.JButton();
+        btnButacaE6 = new javax.swing.JButton();
+        btnButacaD6 = new javax.swing.JButton();
+        btnButacaC6 = new javax.swing.JButton();
+        btnButacaB6 = new javax.swing.JButton();
+        btnButacaA6 = new javax.swing.JButton();
+        btnButacaG7 = new javax.swing.JButton();
+        btnButacaH7 = new javax.swing.JButton();
+        btnButacaF7 = new javax.swing.JButton();
+        btnButacaE7 = new javax.swing.JButton();
+        btnButacaD7 = new javax.swing.JButton();
+        btnButacaC7 = new javax.swing.JButton();
+        btnButacaB7 = new javax.swing.JButton();
+        btnButacaA7 = new javax.swing.JButton();
+        btnButacaH8 = new javax.swing.JButton();
+        btnButacaF8 = new javax.swing.JButton();
+        btnButacaG8 = new javax.swing.JButton();
+        btnButacaE8 = new javax.swing.JButton();
+        btnButacaD8 = new javax.swing.JButton();
+        btnButacaC8 = new javax.swing.JButton();
+        btnButacaB8 = new javax.swing.JButton();
+        btnButacaA8 = new javax.swing.JButton();
+        btnButacaA9 = new javax.swing.JButton();
+        btnButacaB9 = new javax.swing.JButton();
+        btnButacaC9 = new javax.swing.JButton();
+        btnButacaD9 = new javax.swing.JButton();
+        btnButacaE9 = new javax.swing.JButton();
+        btnButacaF9 = new javax.swing.JButton();
+        btnButacaG9 = new javax.swing.JButton();
+        btnButacaH9 = new javax.swing.JButton();
+        btnButacaA10 = new javax.swing.JButton();
+        btnButacaB10 = new javax.swing.JButton();
+        btnButacaC10 = new javax.swing.JButton();
+        btnButacaD10 = new javax.swing.JButton();
+        btnButacaE10 = new javax.swing.JButton();
+        btnButacaF10 = new javax.swing.JButton();
+        btnButacaG10 = new javax.swing.JButton();
+        btnButacaH10 = new javax.swing.JButton();
+        btnButacaA11 = new javax.swing.JButton();
+        btnButacaB11 = new javax.swing.JButton();
+        btnButacaC11 = new javax.swing.JButton();
+        btnButacaD11 = new javax.swing.JButton();
+        btnButacaE11 = new javax.swing.JButton();
+        btnButacaF11 = new javax.swing.JButton();
+        btnButacaG11 = new javax.swing.JButton();
+        btnButacaH11 = new javax.swing.JButton();
+        btnButacaA12 = new javax.swing.JButton();
+        btnButacaB12 = new javax.swing.JButton();
+        btnButacaC12 = new javax.swing.JButton();
+        btnButacaD12 = new javax.swing.JButton();
+        btnButacaE12 = new javax.swing.JButton();
+        btnButacaF12 = new javax.swing.JButton();
+        btnButacaG12 = new javax.swing.JButton();
+        btnButacaH12 = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -289,21 +281,21 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnButacaA5.setText("A");
+        btnButacaA.setText("A");
 
-        btnButacaA6.setText("B");
+        btnButacaB.setText("B");
 
-        btnButacaA7.setText("C");
+        btnButacaC.setText("C");
 
-        btnButacaA8.setText("D");
+        btnButacaD.setText("D");
 
-        btnButacaA9.setText("E");
+        btnButacaE.setText("E");
 
-        btnButacaA10.setText("F");
+        btnButacaF.setText("F");
 
-        btnButacaA11.setText("G");
+        btnButacaG.setText("G");
 
-        btnButacaA12.setText("H");
+        btnButacaH.setText("H");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -312,36 +304,36 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnButacaA6)
-                    .addComponent(btnButacaA7)
-                    .addComponent(btnButacaA5)
-                    .addComponent(btnButacaA8)
-                    .addComponent(btnButacaA9)
-                    .addComponent(btnButacaA10)
-                    .addComponent(btnButacaA11)
-                    .addComponent(btnButacaA12))
+                    .addComponent(btnButacaB)
+                    .addComponent(btnButacaC)
+                    .addComponent(btnButacaA)
+                    .addComponent(btnButacaD)
+                    .addComponent(btnButacaE)
+                    .addComponent(btnButacaF)
+                    .addComponent(btnButacaG)
+                    .addComponent(btnButacaH))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnButacaA5)
+                .addComponent(btnButacaA)
                 .addGap(12, 12, 12)
-                .addComponent(btnButacaA6)
+                .addComponent(btnButacaB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnButacaA7)
+                .addComponent(btnButacaC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnButacaA8)
+                .addComponent(btnButacaD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnButacaA9)
+                .addComponent(btnButacaE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnButacaA10)
+                .addComponent(btnButacaF)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnButacaA11)
+                .addComponent(btnButacaG)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnButacaA12)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btnButacaH)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -356,7 +348,9 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,7 +366,7 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
+            .addGap(0, 121, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,29 +376,29 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnButacaH6.setText("12");
+        btnButaca12.setText("12");
 
-        btnButacaH7.setText("1");
+        btnButaca1.setText("1");
 
-        btnButacaH8.setText("2");
+        btnButaca2.setText("2");
 
-        btnButacaH9.setText("3");
+        btnButaca3.setText("3");
 
-        btnButacaH10.setText("4");
+        btnButaca4.setText("4");
 
-        btnButacaH11.setText("5");
+        btnButaca5.setText("5");
 
-        btnButacaH12.setText("6");
+        btnButaca6.setText("6");
 
-        btnButacaH13.setText("7");
+        btnButaca7.setText("7");
 
-        btnButacaH14.setText("8");
+        btnButaca8.setText("8");
 
-        btnButacaH15.setText("9");
+        btnButaca9.setText("9");
 
-        btnButacaH16.setText("10");
+        btnButaca10.setText("10");
 
-        btnButacaH17.setText("11");
+        btnButaca11.setText("11");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -412,29 +406,29 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnButacaH7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH17, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnButacaH6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnButaca12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -442,19 +436,19 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnButacaH6)
-                    .addComponent(btnButacaH7)
-                    .addComponent(btnButacaH8)
-                    .addComponent(btnButacaH9)
-                    .addComponent(btnButacaH10)
-                    .addComponent(btnButacaH11)
-                    .addComponent(btnButacaH12)
-                    .addComponent(btnButacaH13)
-                    .addComponent(btnButacaH14)
-                    .addComponent(btnButacaH15)
-                    .addComponent(btnButacaH16)
-                    .addComponent(btnButacaH17))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(btnButaca12)
+                    .addComponent(btnButaca1)
+                    .addComponent(btnButaca2)
+                    .addComponent(btnButaca3)
+                    .addComponent(btnButaca4)
+                    .addComponent(btnButaca5)
+                    .addComponent(btnButaca6)
+                    .addComponent(btnButaca7)
+                    .addComponent(btnButaca8)
+                    .addComponent(btnButaca9)
+                    .addComponent(btnButaca10)
+                    .addComponent(btnButaca11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -483,22 +477,6 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         btnButacaH4.setText(" ");
 
         btnButacaH5.setText(" ");
-
-        jButton15.setText("X");
-
-        jButton16.setText("X");
-
-        jButton17.setText("X");
-
-        jButton18.setText("X");
-
-        jButton19.setText("X");
-
-        jButton20.setText("X");
-
-        jButton21.setText("X");
-
-        jButton22.setText("X");
 
         btnButacaG2.setText(" ");
 
@@ -554,120 +532,120 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
 
         btnButacaB5.setText(" ");
 
-        jButton57.setForeground(new java.awt.Color(153, 204, 255));
-        jButton57.setText(" ");
+        btnButacaA5.setForeground(new java.awt.Color(153, 204, 255));
+        btnButacaA5.setText(" ");
 
-        jButton58.setText("X");
+        btnButacaH6.setText(" ");
 
-        jButton59.setText("X");
+        btnButacaG6.setText(" ");
 
-        jButton60.setText("X");
+        btnButacaF6.setText(" ");
 
-        jButton61.setText("X");
+        btnButacaE6.setText(" ");
 
-        jButton62.setText("X");
+        btnButacaD6.setText(" ");
 
-        jButton63.setText("X");
+        btnButacaC6.setText(" ");
 
-        jButton64.setText("X");
+        btnButacaB6.setText(" ");
 
-        jButton65.setText("X");
+        btnButacaA6.setText(" ");
 
-        jButton66.setText("X");
+        btnButacaG7.setText(" ");
 
-        jButton67.setText("X");
+        btnButacaH7.setText(" ");
 
-        jButton68.setText("X");
+        btnButacaF7.setText(" ");
 
-        jButton69.setText("X");
+        btnButacaE7.setText(" ");
 
-        jButton70.setText("X");
+        btnButacaD7.setText(" ");
 
-        jButton71.setText("X");
+        btnButacaC7.setText(" ");
 
-        jButton72.setText("X");
+        btnButacaB7.setText(" ");
 
-        jButton73.setText("X");
+        btnButacaA7.setText(" ");
 
-        jButton74.setText("X");
+        btnButacaH8.setText(" ");
 
-        jButton75.setText("X");
+        btnButacaF8.setText(" ");
 
-        jButton76.setText("X");
+        btnButacaG8.setText(" ");
 
-        jButton77.setText("X");
+        btnButacaE8.setText(" ");
 
-        jButton78.setText("X");
+        btnButacaD8.setText(" ");
 
-        jButton86.setText("X");
+        btnButacaC8.setText(" ");
 
-        jButton87.setText("X");
+        btnButacaB8.setText(" ");
 
-        jButton88.setText("X");
+        btnButacaA8.setText(" ");
 
-        jButton89.setText("X");
+        btnButacaA9.setText(" ");
 
-        jButton90.setText("X");
+        btnButacaB9.setText(" ");
 
-        jButton91.setText("X");
+        btnButacaC9.setText(" ");
 
-        jButton92.setText("X");
+        btnButacaD9.setText(" ");
 
-        jButton93.setText("X");
+        btnButacaE9.setText(" ");
 
-        jButton94.setText("X");
+        btnButacaF9.setText(" ");
 
-        jButton95.setText("X");
+        btnButacaG9.setText(" ");
 
-        jButton96.setText("X");
+        btnButacaH9.setText(" ");
 
-        jButton97.setText("X");
+        btnButacaA10.setText(" ");
 
-        jButton98.setText("X");
+        btnButacaB10.setText(" ");
 
-        jButton99.setText("X");
+        btnButacaC10.setText(" ");
 
-        jButton100.setText("X");
+        btnButacaD10.setText(" ");
 
-        jButton101.setText("X");
+        btnButacaE10.setText(" ");
 
-        jButton102.setText("X");
+        btnButacaF10.setText(" ");
 
-        jButton103.setText("X");
+        btnButacaG10.setText(" ");
 
-        jButton104.setText("X");
+        btnButacaH10.setText(" ");
 
-        jButton105.setText("X");
+        btnButacaA11.setText(" ");
 
-        jButton106.setText("X");
+        btnButacaB11.setText(" ");
 
-        jButton107.setText("X");
+        btnButacaC11.setText(" ");
 
-        jButton108.setText("X");
+        btnButacaD11.setText(" ");
 
-        jButton109.setText("X");
+        btnButacaE11.setText(" ");
 
-        jButton110.setText("X");
+        btnButacaF11.setText(" ");
 
-        jButton111.setText("X");
+        btnButacaG11.setText(" ");
 
-        jButton112.setText("X");
+        btnButacaH11.setText(" ");
 
-        jButton113.setText("X");
+        btnButacaA12.setText(" ");
 
-        jButton114.setText("X");
+        btnButacaB12.setText(" ");
 
-        jButton115.setText("X");
+        btnButacaC12.setText(" ");
 
-        jButton116.setText("X");
+        btnButacaD12.setText(" ");
 
-        jButton117.setText("X");
+        btnButacaE12.setText(" ");
 
-        jButton118.setText("X");
+        btnButacaF12.setText(" ");
 
-        jButton119.setText("X");
+        btnButacaG12.setText(" ");
 
-        jButton120.setText("X");
+        btnButacaH12.setText(" ");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -703,30 +681,7 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                             .addComponent(btnButacaE4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnButacaF4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnButacaG4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnButacaH4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton64))
-                                    .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnButacaE5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnButacaF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnButacaD5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jButton59)))
-                                .addGap(4, 4, 4))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnButacaG5, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                    .addComponent(btnButacaH5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton15, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton58, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addComponent(btnButacaH4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnButacaA1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
@@ -739,239 +694,187 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                             .addComponent(btnButacaC2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnButacaB3, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                            .addComponent(btnButacaB3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnButacaC3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnButacaA3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnButacaA4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                            .addComponent(btnButacaC4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnButacaB4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnButacaC4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                            .addComponent(btnButacaB4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnButacaA4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(btnButacaF5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton63)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton61)
-                                    .addComponent(jButton60)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnButacaC5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton57, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnButacaB5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                                        .addComponent(jButton62)))
-                                .addGap(4, 4, 4)))))
+                        .addComponent(btnButacaF6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                            .addComponent(btnButacaA5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnButacaA6, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnButacaH5, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addComponent(btnButacaG5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnButacaH6, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addComponent(btnButacaG6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnButacaE5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addComponent(btnButacaD5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnButacaC5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnButacaB5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnButacaD6, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addComponent(btnButacaC6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnButacaB6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnButacaE6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnButacaB7, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaA7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaC7, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaD7, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaE7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaF7, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaG7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaH7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnButacaB8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaC8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaD8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaE8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaG8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaF8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaA8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaH8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnButacaB9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaA9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaC9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaD9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaE9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaF9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaG9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaH9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnButacaA10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaB10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaC10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaD10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaE10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaF10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaG10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton16)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton17)
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton65)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton72)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton86))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton71)
-                            .addComponent(jButton70)
-                            .addComponent(jButton69)
-                            .addComponent(jButton68)
-                            .addComponent(jButton67)
-                            .addComponent(jButton66))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton73)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton87))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton74)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton88))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton75)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton89))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton76)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton90))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton77)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton91))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jButton78)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton92)))))
-                .addGap(18, 18, 18)
+                        .addComponent(btnButacaH10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton19)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton20)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton22))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton93)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton100)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton107)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton108))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton94)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton101)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton109)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton110))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton95)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton102)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton111)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton112))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton96)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton103)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton113)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton114))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton97)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton104)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton115)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton116))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton98)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton105)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton117)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton118))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton99)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton106)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton119)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton120)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(btnButacaA11, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnButacaB11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaC11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaD11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaE11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaF11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaG11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnButacaH11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnButacaA12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnButacaB12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnButacaC12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnButacaD12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnButacaE12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnButacaF12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnButacaG12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnButacaH12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnButacaA1)
-                            .addComponent(jButton78)
-                            .addComponent(jButton92)
-                            .addComponent(jButton99)
-                            .addComponent(jButton106)
-                            .addComponent(jButton119)
-                            .addComponent(jButton120)
-                            .addComponent(btnButacaA2)
-                            .addComponent(btnButacaA3)
-                            .addComponent(btnButacaA4)
-                            .addComponent(jButton57))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnButacaB1)
-                            .addComponent(jButton77)
-                            .addComponent(jButton91)
-                            .addComponent(jButton98)
-                            .addComponent(jButton105)
-                            .addComponent(jButton117)
-                            .addComponent(jButton118)
-                            .addComponent(btnButacaB2)
-                            .addComponent(btnButacaB3)
-                            .addComponent(btnButacaB4)
-                            .addComponent(btnButacaB5))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnButacaC1)
-                            .addComponent(jButton76)
-                            .addComponent(jButton90)
-                            .addComponent(jButton97)
-                            .addComponent(jButton104)
-                            .addComponent(jButton115)
-                            .addComponent(jButton116)
-                            .addComponent(btnButacaC2)
-                            .addComponent(btnButacaC3)
-                            .addComponent(btnButacaC4)
-                            .addComponent(btnButacaC5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnButacaD1)
-                            .addComponent(jButton89)
-                            .addComponent(jButton96)
-                            .addComponent(jButton103)
-                            .addComponent(jButton113)
-                            .addComponent(jButton114)
-                            .addComponent(btnButacaD2)
-                            .addComponent(btnButacaD3)
-                            .addComponent(btnButacaD4)
-                            .addComponent(btnButacaD5))
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton71)
-                            .addComponent(jButton64))
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton70)
-                                    .addComponent(jButton63))
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton75)
-                                    .addComponent(jButton68)
-                                    .addComponent(jButton61)))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton69)
-                                    .addComponent(jButton62))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnButacaA1)
+                    .addComponent(btnButacaA2)
+                    .addComponent(btnButacaA3)
+                    .addComponent(btnButacaA4)
+                    .addComponent(btnButacaA5)
+                    .addComponent(btnButacaA6)
+                    .addComponent(btnButacaA7)
+                    .addComponent(btnButacaA8)
+                    .addComponent(btnButacaA9)
+                    .addComponent(btnButacaA10)
+                    .addComponent(btnButacaA11)
+                    .addComponent(btnButacaA12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnButacaB1)
+                    .addComponent(btnButacaB2)
+                    .addComponent(btnButacaB3)
+                    .addComponent(btnButacaB4)
+                    .addComponent(btnButacaB5)
+                    .addComponent(btnButacaB6)
+                    .addComponent(btnButacaB7)
+                    .addComponent(btnButacaB8)
+                    .addComponent(btnButacaB9)
+                    .addComponent(btnButacaB10)
+                    .addComponent(btnButacaB11)
+                    .addComponent(btnButacaB12))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnButacaC1)
+                    .addComponent(btnButacaC2)
+                    .addComponent(btnButacaC3)
+                    .addComponent(btnButacaC4)
+                    .addComponent(btnButacaC5)
+                    .addComponent(btnButacaC6)
+                    .addComponent(btnButacaC7)
+                    .addComponent(btnButacaC8)
+                    .addComponent(btnButacaC9)
+                    .addComponent(btnButacaC10)
+                    .addComponent(btnButacaC11)
+                    .addComponent(btnButacaC12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnButacaD1)
+                    .addComponent(btnButacaD2)
+                    .addComponent(btnButacaD3)
+                    .addComponent(btnButacaD4)
+                    .addComponent(btnButacaD5)
+                    .addComponent(btnButacaD6)
+                    .addComponent(btnButacaD7)
+                    .addComponent(btnButacaD8)
+                    .addComponent(btnButacaD9)
+                    .addComponent(btnButacaD10)
+                    .addComponent(btnButacaD11)
+                    .addComponent(btnButacaD12))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnButacaE1)
                     .addComponent(btnButacaE2)
                     .addComponent(btnButacaE3)
                     .addComponent(btnButacaE4)
                     .addComponent(btnButacaE5)
-                    .addComponent(jButton60)
-                    .addComponent(jButton67)
-                    .addComponent(jButton74)
-                    .addComponent(jButton88)
-                    .addComponent(jButton95)
-                    .addComponent(jButton102)
-                    .addComponent(jButton111)
-                    .addComponent(jButton112))
+                    .addComponent(btnButacaE6)
+                    .addComponent(btnButacaE7)
+                    .addComponent(btnButacaE8)
+                    .addComponent(btnButacaE9)
+                    .addComponent(btnButacaE10)
+                    .addComponent(btnButacaE11)
+                    .addComponent(btnButacaE12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnButacaF1)
@@ -979,14 +882,13 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                     .addComponent(btnButacaF3)
                     .addComponent(btnButacaF4)
                     .addComponent(btnButacaF5)
-                    .addComponent(jButton59)
-                    .addComponent(jButton66)
-                    .addComponent(jButton73)
-                    .addComponent(jButton87)
-                    .addComponent(jButton94)
-                    .addComponent(jButton101)
-                    .addComponent(jButton109)
-                    .addComponent(jButton110))
+                    .addComponent(btnButacaF6)
+                    .addComponent(btnButacaF7)
+                    .addComponent(btnButacaF8)
+                    .addComponent(btnButacaF9)
+                    .addComponent(btnButacaF10)
+                    .addComponent(btnButacaF11)
+                    .addComponent(btnButacaF12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnButacaG1)
@@ -994,14 +896,13 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                     .addComponent(btnButacaG3)
                     .addComponent(btnButacaG4)
                     .addComponent(btnButacaG5)
-                    .addComponent(jButton58)
-                    .addComponent(jButton65)
-                    .addComponent(jButton72)
-                    .addComponent(jButton86)
-                    .addComponent(jButton93)
-                    .addComponent(jButton100)
-                    .addComponent(jButton107)
-                    .addComponent(jButton108))
+                    .addComponent(btnButacaG6)
+                    .addComponent(btnButacaG7)
+                    .addComponent(btnButacaG8)
+                    .addComponent(btnButacaG9)
+                    .addComponent(btnButacaG10)
+                    .addComponent(btnButacaG11)
+                    .addComponent(btnButacaG12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnButacaH1)
@@ -1009,15 +910,14 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                     .addComponent(btnButacaH3)
                     .addComponent(btnButacaH4)
                     .addComponent(btnButacaH5)
-                    .addComponent(jButton15)
-                    .addComponent(jButton16)
-                    .addComponent(jButton17)
-                    .addComponent(jButton18)
-                    .addComponent(jButton19)
-                    .addComponent(jButton20)
-                    .addComponent(jButton21)
-                    .addComponent(jButton22))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(btnButacaH6)
+                    .addComponent(btnButacaH7)
+                    .addComponent(btnButacaH8)
+                    .addComponent(btnButacaH9)
+                    .addComponent(btnButacaH10)
+                    .addComponent(btnButacaH11)
+                    .addComponent(btnButacaH12))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1031,9 +931,9 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1044,21 +944,17 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 46, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1083,8 +979,8 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1111,6 +1007,19 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnButaca1;
+    private javax.swing.JButton btnButaca10;
+    private javax.swing.JButton btnButaca11;
+    private javax.swing.JButton btnButaca12;
+    private javax.swing.JButton btnButaca2;
+    private javax.swing.JButton btnButaca3;
+    private javax.swing.JButton btnButaca4;
+    private javax.swing.JButton btnButaca5;
+    private javax.swing.JButton btnButaca6;
+    private javax.swing.JButton btnButaca7;
+    private javax.swing.JButton btnButaca8;
+    private javax.swing.JButton btnButaca9;
+    private javax.swing.JButton btnButacaA;
     private javax.swing.JButton btnButacaA1;
     private javax.swing.JButton btnButacaA10;
     private javax.swing.JButton btnButacaA11;
@@ -1123,45 +1032,89 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnButacaA7;
     private javax.swing.JButton btnButacaA8;
     private javax.swing.JButton btnButacaA9;
+    private javax.swing.JButton btnButacaB;
     private javax.swing.JButton btnButacaB1;
+    private javax.swing.JButton btnButacaB10;
+    private javax.swing.JButton btnButacaB11;
+    private javax.swing.JButton btnButacaB12;
     private javax.swing.JButton btnButacaB2;
     private javax.swing.JButton btnButacaB3;
     private javax.swing.JButton btnButacaB4;
     private javax.swing.JButton btnButacaB5;
+    private javax.swing.JButton btnButacaB6;
+    private javax.swing.JButton btnButacaB7;
+    private javax.swing.JButton btnButacaB8;
+    private javax.swing.JButton btnButacaB9;
+    private javax.swing.JButton btnButacaC;
     private javax.swing.JButton btnButacaC1;
+    private javax.swing.JButton btnButacaC10;
+    private javax.swing.JButton btnButacaC11;
+    private javax.swing.JButton btnButacaC12;
     private javax.swing.JButton btnButacaC2;
     private javax.swing.JButton btnButacaC3;
     private javax.swing.JButton btnButacaC4;
     private javax.swing.JButton btnButacaC5;
+    private javax.swing.JButton btnButacaC6;
+    private javax.swing.JButton btnButacaC7;
+    private javax.swing.JButton btnButacaC8;
+    private javax.swing.JButton btnButacaC9;
+    private javax.swing.JButton btnButacaD;
     private javax.swing.JButton btnButacaD1;
+    private javax.swing.JButton btnButacaD10;
+    private javax.swing.JButton btnButacaD11;
+    private javax.swing.JButton btnButacaD12;
     private javax.swing.JButton btnButacaD2;
     private javax.swing.JButton btnButacaD3;
     private javax.swing.JButton btnButacaD4;
     private javax.swing.JButton btnButacaD5;
+    private javax.swing.JButton btnButacaD6;
+    private javax.swing.JButton btnButacaD7;
+    private javax.swing.JButton btnButacaD8;
+    private javax.swing.JButton btnButacaD9;
+    private javax.swing.JButton btnButacaE;
     private javax.swing.JButton btnButacaE1;
+    private javax.swing.JButton btnButacaE10;
+    private javax.swing.JButton btnButacaE11;
+    private javax.swing.JButton btnButacaE12;
     private javax.swing.JButton btnButacaE2;
     private javax.swing.JButton btnButacaE3;
     private javax.swing.JButton btnButacaE4;
     private javax.swing.JButton btnButacaE5;
+    private javax.swing.JButton btnButacaE6;
+    private javax.swing.JButton btnButacaE7;
+    private javax.swing.JButton btnButacaE8;
+    private javax.swing.JButton btnButacaE9;
+    private javax.swing.JButton btnButacaF;
     private javax.swing.JButton btnButacaF1;
+    private javax.swing.JButton btnButacaF10;
+    private javax.swing.JButton btnButacaF11;
+    private javax.swing.JButton btnButacaF12;
     private javax.swing.JButton btnButacaF2;
     private javax.swing.JButton btnButacaF3;
     private javax.swing.JButton btnButacaF4;
     private javax.swing.JButton btnButacaF5;
+    private javax.swing.JButton btnButacaF6;
+    private javax.swing.JButton btnButacaF7;
+    private javax.swing.JButton btnButacaF8;
+    private javax.swing.JButton btnButacaF9;
+    private javax.swing.JButton btnButacaG;
     private javax.swing.JButton btnButacaG1;
+    private javax.swing.JButton btnButacaG10;
+    private javax.swing.JButton btnButacaG11;
+    private javax.swing.JButton btnButacaG12;
     private javax.swing.JButton btnButacaG2;
     private javax.swing.JButton btnButacaG3;
     private javax.swing.JButton btnButacaG4;
     private javax.swing.JButton btnButacaG5;
+    private javax.swing.JButton btnButacaG6;
+    private javax.swing.JButton btnButacaG7;
+    private javax.swing.JButton btnButacaG8;
+    private javax.swing.JButton btnButacaG9;
+    private javax.swing.JButton btnButacaH;
     private javax.swing.JButton btnButacaH1;
     private javax.swing.JButton btnButacaH10;
     private javax.swing.JButton btnButacaH11;
     private javax.swing.JButton btnButacaH12;
-    private javax.swing.JButton btnButacaH13;
-    private javax.swing.JButton btnButacaH14;
-    private javax.swing.JButton btnButacaH15;
-    private javax.swing.JButton btnButacaH16;
-    private javax.swing.JButton btnButacaH17;
     private javax.swing.JButton btnButacaH2;
     private javax.swing.JButton btnButacaH3;
     private javax.swing.JButton btnButacaH4;
@@ -1172,71 +1125,6 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnButacaH9;
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnReiniciar;
-    private javax.swing.JButton jButton100;
-    private javax.swing.JButton jButton101;
-    private javax.swing.JButton jButton102;
-    private javax.swing.JButton jButton103;
-    private javax.swing.JButton jButton104;
-    private javax.swing.JButton jButton105;
-    private javax.swing.JButton jButton106;
-    private javax.swing.JButton jButton107;
-    private javax.swing.JButton jButton108;
-    private javax.swing.JButton jButton109;
-    private javax.swing.JButton jButton110;
-    private javax.swing.JButton jButton111;
-    private javax.swing.JButton jButton112;
-    private javax.swing.JButton jButton113;
-    private javax.swing.JButton jButton114;
-    private javax.swing.JButton jButton115;
-    private javax.swing.JButton jButton116;
-    private javax.swing.JButton jButton117;
-    private javax.swing.JButton jButton118;
-    private javax.swing.JButton jButton119;
-    private javax.swing.JButton jButton120;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton58;
-    private javax.swing.JButton jButton59;
-    private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton61;
-    private javax.swing.JButton jButton62;
-    private javax.swing.JButton jButton63;
-    private javax.swing.JButton jButton64;
-    private javax.swing.JButton jButton65;
-    private javax.swing.JButton jButton66;
-    private javax.swing.JButton jButton67;
-    private javax.swing.JButton jButton68;
-    private javax.swing.JButton jButton69;
-    private javax.swing.JButton jButton70;
-    private javax.swing.JButton jButton71;
-    private javax.swing.JButton jButton72;
-    private javax.swing.JButton jButton73;
-    private javax.swing.JButton jButton74;
-    private javax.swing.JButton jButton75;
-    private javax.swing.JButton jButton76;
-    private javax.swing.JButton jButton77;
-    private javax.swing.JButton jButton78;
-    private javax.swing.JButton jButton86;
-    private javax.swing.JButton jButton87;
-    private javax.swing.JButton jButton88;
-    private javax.swing.JButton jButton89;
-    private javax.swing.JButton jButton90;
-    private javax.swing.JButton jButton91;
-    private javax.swing.JButton jButton92;
-    private javax.swing.JButton jButton93;
-    private javax.swing.JButton jButton94;
-    private javax.swing.JButton jButton95;
-    private javax.swing.JButton jButton96;
-    private javax.swing.JButton jButton97;
-    private javax.swing.JButton jButton98;
-    private javax.swing.JButton jButton99;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel29;

@@ -63,8 +63,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -263,10 +263,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jPanel11" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel11" max="32767" attributes="0"/>
+                                  <Component id="jPanel6" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -282,27 +282,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jPanel11" max="32767" attributes="0"/>
-                                          <Component id="jPanel4" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jPanel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel11" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -326,14 +319,14 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnButacaA6" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA9" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA11" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaA12" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -343,63 +336,63 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaA5" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaA" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="btnButacaA6" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnButacaA7" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaC" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnButacaA8" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaD" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnButacaA9" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaE" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnButacaA10" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaF" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnButacaA11" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnButacaG" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnButacaA12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnButacaH" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnButacaA5">
+                <Component class="javax.swing.JButton" name="btnButacaA">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="A"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA6">
+                <Component class="javax.swing.JButton" name="btnButacaB">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="B"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA7">
+                <Component class="javax.swing.JButton" name="btnButacaC">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA8">
+                <Component class="javax.swing.JButton" name="btnButacaD">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="D"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA9">
+                <Component class="javax.swing.JButton" name="btnButacaE">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="E"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA10">
+                <Component class="javax.swing.JButton" name="btnButacaF">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="F"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA11">
+                <Component class="javax.swing.JButton" name="btnButacaG">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="G"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaA12">
+                <Component class="javax.swing.JButton" name="btnButacaH">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="H"/>
                   </Properties>
@@ -421,7 +414,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel29" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel29" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -463,7 +459,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="93" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="121" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -490,29 +486,29 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH7" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca1" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH8" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca2" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH9" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca3" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH10" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca4" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH11" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca5" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH12" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca6" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH13" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca7" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH14" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca8" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH15" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca9" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH16" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca10" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH17" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca11" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnButacaH6" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnButaca12" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -522,81 +518,81 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnButacaH6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnButacaH17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButaca11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnButacaH6">
+                <Component class="javax.swing.JButton" name="btnButaca12">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="12"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH7">
+                <Component class="javax.swing.JButton" name="btnButaca1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH8">
+                <Component class="javax.swing.JButton" name="btnButaca2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH9">
+                <Component class="javax.swing.JButton" name="btnButaca3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH10">
+                <Component class="javax.swing.JButton" name="btnButaca4">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="4"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH11">
+                <Component class="javax.swing.JButton" name="btnButaca5">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="5"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH12">
+                <Component class="javax.swing.JButton" name="btnButaca6">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="6"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH13">
+                <Component class="javax.swing.JButton" name="btnButaca7">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="7"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH14">
+                <Component class="javax.swing.JButton" name="btnButaca8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="8"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH15">
+                <Component class="javax.swing.JButton" name="btnButaca9">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="9"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH16">
+                <Component class="javax.swing.JButton" name="btnButaca10">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="10"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnButacaH17">
+                <Component class="javax.swing.JButton" name="btnButaca11">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="11"/>
                   </Properties>
@@ -653,38 +649,6 @@
                                       <Component id="btnButacaG4" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnButacaH4" alignment="1" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                  <Component id="jButton64" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="btnButacaE5" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="btnButacaF5" max="32767" attributes="0"/>
-                                                      <Component id="btnButacaD5" alignment="1" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <Component id="jButton59" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="btnButacaG5" pref="44" max="32767" attributes="0"/>
-                                              <Component id="btnButacaH5" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="26" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jButton15" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton58" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -700,179 +664,139 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnButacaB3" pref="44" max="32767" attributes="0"/>
+                                      <Component id="btnButacaB3" max="32767" attributes="0"/>
                                       <Component id="btnButacaC3" max="32767" attributes="0"/>
                                       <Component id="btnButacaA3" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="btnButacaA4" pref="44" max="32767" attributes="0"/>
-                                      <Component id="btnButacaC4" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btnButacaC4" pref="44" max="32767" attributes="0"/>
                                       <Component id="btnButacaB4" max="32767" attributes="0"/>
+                                      <Component id="btnButacaA4" alignment="0" max="32767" attributes="0"/>
                                   </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btnButacaF5" min="-2" pref="44" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jButton63" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jButton61" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton60" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="btnButacaC5" min="-2" pref="44" max="-2" attributes="0"/>
-                                                      <Component id="jButton57" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                      <Component id="btnButacaB5" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace pref="22" max="32767" attributes="0"/>
-                                                  <Component id="jButton62" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                  <Component id="btnButacaF6" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnButacaA5" min="-2" pref="44" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnButacaA6" pref="44" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnButacaH5" pref="44" max="32767" attributes="0"/>
+                                          <Component id="btnButacaG5" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnButacaH6" pref="44" max="32767" attributes="0"/>
+                                          <Component id="btnButacaG6" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="btnButacaE5" alignment="0" pref="44" max="32767" attributes="0"/>
+                                          <Component id="btnButacaD5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnButacaC5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnButacaB5" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnButacaD6" pref="44" max="32767" attributes="0"/>
+                                          <Component id="btnButacaC6" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnButacaB6" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnButacaE6" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnButacaB7" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaA7" max="32767" attributes="0"/>
+                              <Component id="btnButacaC7" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaD7" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaE7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaF7" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaG7" max="32767" attributes="0"/>
+                              <Component id="btnButacaH7" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnButacaB8" alignment="1" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaC8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaD8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaE8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaG8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaF8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaA8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaH8" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnButacaB9" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaA9" max="32767" attributes="0"/>
+                              <Component id="btnButacaC9" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaD9" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaE9" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaF9" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaG9" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaH9" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnButacaA10" max="32767" attributes="0"/>
+                              <Component id="btnButacaB10" max="32767" attributes="0"/>
+                              <Component id="btnButacaC10" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaD10" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaE10" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaF10" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaG10" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton16" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton17" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="jButton18" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton65" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton72" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton86" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="28" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jButton71" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton70" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton69" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton68" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton67" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton66" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton73" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton87" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton74" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton88" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton75" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton89" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton76" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton90" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton77" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton91" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton78" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButton92" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="btnButacaH10" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton19" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton20" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton21" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton22" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton93" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton100" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton107" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton108" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton94" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton101" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton109" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton110" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton95" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton102" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton111" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton112" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton96" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton103" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton113" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton114" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton97" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton104" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton115" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton116" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton98" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton105" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton117" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton118" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton99" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton106" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton119" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton120" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnButacaA11" pref="44" max="32767" attributes="0"/>
+                              <Component id="btnButacaB11" max="32767" attributes="0"/>
+                              <Component id="btnButacaC11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaD11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaE11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaF11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaG11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnButacaH11" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="btnButacaA12" min="-2" pref="44" max="-2" attributes="0"/>
+                                                  <Component id="btnButacaB12" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="btnButacaC12" min="-2" pref="44" max="-2" attributes="0"/>
+                                              <Component id="btnButacaD12" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="btnButacaE12" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="btnButacaF12" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnButacaG12" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnButacaH12" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -880,107 +804,79 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnButacaA1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton78" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton92" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton99" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton106" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton119" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton120" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaA2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaA3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaA4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton57" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnButacaB1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton77" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton91" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton98" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton105" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton117" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton118" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaB2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaB3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaB4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaB5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnButacaC1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton76" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton90" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton97" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton104" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton115" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton116" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaC2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaC3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaC4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaC5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnButacaD1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton89" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton96" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton103" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton113" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton114" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaD2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaD3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaD4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnButacaD5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton71" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton64" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jButton70" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton63" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jButton75" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton68" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton61" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jButton69" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton62" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnButacaA1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaA12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnButacaB1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaB12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnButacaC1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaC12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnButacaD1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaD12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnButacaE1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaE2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaE3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaE4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaE5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton60" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton67" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton74" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton88" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton95" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton102" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton111" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton112" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaE12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -989,14 +885,13 @@
                               <Component id="btnButacaF3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaF4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaF5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton59" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton66" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton73" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton87" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton94" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton101" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton109" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton110" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaF12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1005,14 +900,13 @@
                               <Component id="btnButacaG3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaG4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaG5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton58" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton65" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton72" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton86" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton93" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton100" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton107" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton108" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaG12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1021,16 +915,15 @@
                               <Component id="btnButacaH3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaH4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnButacaH5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton21" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton22" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnButacaH12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1094,46 +987,6 @@
                 <Component class="javax.swing.JButton" name="btnButacaH5">
                   <Properties>
                     <Property name="text" type="java.lang.String" value=" "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton15">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton16">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton17">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton18">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton19">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton20">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton21">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton22">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnButacaG2">
@@ -1271,7 +1124,7 @@
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton57">
+                <Component class="javax.swing.JButton" name="btnButacaA5">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -1279,284 +1132,284 @@
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton58">
+                <Component class="javax.swing.JButton" name="btnButacaH6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton59">
+                <Component class="javax.swing.JButton" name="btnButacaG6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton60">
+                <Component class="javax.swing.JButton" name="btnButacaF6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton61">
+                <Component class="javax.swing.JButton" name="btnButacaE6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton62">
+                <Component class="javax.swing.JButton" name="btnButacaD6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton63">
+                <Component class="javax.swing.JButton" name="btnButacaC6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton64">
+                <Component class="javax.swing.JButton" name="btnButacaB6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton65">
+                <Component class="javax.swing.JButton" name="btnButacaA6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton66">
+                <Component class="javax.swing.JButton" name="btnButacaG7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton67">
+                <Component class="javax.swing.JButton" name="btnButacaH7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton68">
+                <Component class="javax.swing.JButton" name="btnButacaF7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton69">
+                <Component class="javax.swing.JButton" name="btnButacaE7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton70">
+                <Component class="javax.swing.JButton" name="btnButacaD7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton71">
+                <Component class="javax.swing.JButton" name="btnButacaC7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton72">
+                <Component class="javax.swing.JButton" name="btnButacaB7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton73">
+                <Component class="javax.swing.JButton" name="btnButacaA7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton74">
+                <Component class="javax.swing.JButton" name="btnButacaH8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton75">
+                <Component class="javax.swing.JButton" name="btnButacaF8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton76">
+                <Component class="javax.swing.JButton" name="btnButacaG8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton77">
+                <Component class="javax.swing.JButton" name="btnButacaE8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton78">
+                <Component class="javax.swing.JButton" name="btnButacaD8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton86">
+                <Component class="javax.swing.JButton" name="btnButacaC8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton87">
+                <Component class="javax.swing.JButton" name="btnButacaB8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton88">
+                <Component class="javax.swing.JButton" name="btnButacaA8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton89">
+                <Component class="javax.swing.JButton" name="btnButacaA9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton90">
+                <Component class="javax.swing.JButton" name="btnButacaB9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton91">
+                <Component class="javax.swing.JButton" name="btnButacaC9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton92">
+                <Component class="javax.swing.JButton" name="btnButacaD9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton93">
+                <Component class="javax.swing.JButton" name="btnButacaE9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton94">
+                <Component class="javax.swing.JButton" name="btnButacaF9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton95">
+                <Component class="javax.swing.JButton" name="btnButacaG9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton96">
+                <Component class="javax.swing.JButton" name="btnButacaH9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton97">
+                <Component class="javax.swing.JButton" name="btnButacaA10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton98">
+                <Component class="javax.swing.JButton" name="btnButacaB10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton99">
+                <Component class="javax.swing.JButton" name="btnButacaC10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton100">
+                <Component class="javax.swing.JButton" name="btnButacaD10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton101">
+                <Component class="javax.swing.JButton" name="btnButacaE10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton102">
+                <Component class="javax.swing.JButton" name="btnButacaF10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton103">
+                <Component class="javax.swing.JButton" name="btnButacaG10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton104">
+                <Component class="javax.swing.JButton" name="btnButacaH10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton105">
+                <Component class="javax.swing.JButton" name="btnButacaA11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton106">
+                <Component class="javax.swing.JButton" name="btnButacaB11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton107">
+                <Component class="javax.swing.JButton" name="btnButacaC11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton108">
+                <Component class="javax.swing.JButton" name="btnButacaD11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton109">
+                <Component class="javax.swing.JButton" name="btnButacaE11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton110">
+                <Component class="javax.swing.JButton" name="btnButacaF11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton111">
+                <Component class="javax.swing.JButton" name="btnButacaG11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton112">
+                <Component class="javax.swing.JButton" name="btnButacaH11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton113">
+                <Component class="javax.swing.JButton" name="btnButacaA12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton114">
+                <Component class="javax.swing.JButton" name="btnButacaB12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton115">
+                <Component class="javax.swing.JButton" name="btnButacaC12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton116">
+                <Component class="javax.swing.JButton" name="btnButacaD12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton117">
+                <Component class="javax.swing.JButton" name="btnButacaE12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton118">
+                <Component class="javax.swing.JButton" name="btnButacaF12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton119">
+                <Component class="javax.swing.JButton" name="btnButacaG12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton120">
+                <Component class="javax.swing.JButton" name="btnButacaH12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="X"/>
+                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
               </SubComponents>
