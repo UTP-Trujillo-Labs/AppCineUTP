@@ -11,6 +11,7 @@ import java.awt.Color;
  * @author manuelguarniz
  */
 public enum EstadoBustacaEnum {
+    NULL("NULL", new Color(0, 0, 0)),
     Disponible("Disponible", new Color(255, 255, 255)),
     Ocupado("Ocupado", new Color(204, 204, 204)),
     Seleccion("Seleccion", new Color(153, 204, 255)),

@@ -5,21 +5,65 @@
 package pe.edu.utp.poo.application.ui;
 
 import java.awt.Component;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
-import pe.edu.utp.poo.application.common.Util;
 import pe.edu.utp.poo.application.enums.EstadoBustacaEnum;
+import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Disponible;
+import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.NULL;
 
 /**
  *
  * @author manuelguarniz
  */
 public class UISeleccionButacas extends javax.swing.JInternalFrame {
+    private Map<String, EstadoBustacaEnum[]> butacas = new HashMap<>();
 
     /**
      * Creates new form UISeleccionButacas
      */
     public UISeleccionButacas() {
         initComponents();
+        defaultButacas();
+        reloadButacas();
+    }
+    
+    private void defaultButacas() {
+        butacas.clear();
+        butacas.put("A", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("B", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("C", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("D", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("E", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("F", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("G", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("H", new EstadoBustacaEnum[] {Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible});
+
+    }
+    
+    private void reloadButacas() {
+        Component[] component = jplButacas.getComponents();
+        for (Component c : component) {
+            if (c instanceof javax.swing.JLabel) {
+                javax.swing.JLabel label = (javax.swing.JLabel) c;
+                
+                String butaca = label.getText();
+                
+                String fila = butaca.substring(0, 1);
+                int columna = Integer.parseInt(butaca.substring(1, butaca.length())) - 1;
+                           
+                EstadoBustacaEnum estadoButaca = butacas.get(fila)[columna];
+
+                if (EstadoBustacaEnum.NULL.equals(estadoButaca)) {
+                    label.setVisible(false);
+                } else {
+                    label.setBackground(estadoButaca.getColor());
+                    label.setForeground(estadoButaca.getColor());
+                }
+                
+            }
+        }
+        
     }
     
     private void seleccionarButaca(java.awt.event.MouseEvent evt) {
@@ -56,7 +100,7 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     }
     
     private void reiniciar() {
-        
+        reloadButacas();
     }
 
     /**
@@ -124,7 +168,7 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         jLabel44 = new javax.swing.JLabel();
         jplButacas = new javax.swing.JPanel();
         lblH1 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
+        lblH6 = new javax.swing.JLabel();
         lblB1 = new javax.swing.JLabel();
         lblC1 = new javax.swing.JLabel();
         lblD1 = new javax.swing.JLabel();
@@ -164,95 +208,93 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         lblF5 = new javax.swing.JLabel();
         lblG5 = new javax.swing.JLabel();
         lblH5 = new javax.swing.JLabel();
-        jLabel86 = new javax.swing.JLabel();
-        jLabel87 = new javax.swing.JLabel();
-        jLabel88 = new javax.swing.JLabel();
-        jLabel89 = new javax.swing.JLabel();
-        jLabel90 = new javax.swing.JLabel();
-        jLabel91 = new javax.swing.JLabel();
-        jLabel92 = new javax.swing.JLabel();
-        jLabel93 = new javax.swing.JLabel();
-        jLabel94 = new javax.swing.JLabel();
-        jLabel95 = new javax.swing.JLabel();
-        jLabel96 = new javax.swing.JLabel();
-        jLabel97 = new javax.swing.JLabel();
-        jLabel98 = new javax.swing.JLabel();
-        jLabel99 = new javax.swing.JLabel();
-        jLabel100 = new javax.swing.JLabel();
-        jLabel101 = new javax.swing.JLabel();
-        jLabel102 = new javax.swing.JLabel();
-        jLabel103 = new javax.swing.JLabel();
-        jLabel104 = new javax.swing.JLabel();
-        jLabel105 = new javax.swing.JLabel();
-        jLabel106 = new javax.swing.JLabel();
-        jLabel107 = new javax.swing.JLabel();
-        jLabel108 = new javax.swing.JLabel();
-        jLabel109 = new javax.swing.JLabel();
-        jLabel110 = new javax.swing.JLabel();
-        jLabel111 = new javax.swing.JLabel();
-        jLabel112 = new javax.swing.JLabel();
-        jLabel113 = new javax.swing.JLabel();
-        jLabel114 = new javax.swing.JLabel();
-        jLabel115 = new javax.swing.JLabel();
-        jLabel116 = new javax.swing.JLabel();
-        jLabel117 = new javax.swing.JLabel();
-        jLabel118 = new javax.swing.JLabel();
-        jLabel119 = new javax.swing.JLabel();
-        jLabel120 = new javax.swing.JLabel();
-        jLabel121 = new javax.swing.JLabel();
-        jLabel122 = new javax.swing.JLabel();
-        jLabel123 = new javax.swing.JLabel();
-        jLabel124 = new javax.swing.JLabel();
-        jLabel125 = new javax.swing.JLabel();
-        jLabel126 = new javax.swing.JLabel();
-        jLabel127 = new javax.swing.JLabel();
-        jLabel128 = new javax.swing.JLabel();
-        jLabel129 = new javax.swing.JLabel();
-        jLabel130 = new javax.swing.JLabel();
-        jLabel131 = new javax.swing.JLabel();
-        jLabel132 = new javax.swing.JLabel();
-        jLabel133 = new javax.swing.JLabel();
-        jLabel134 = new javax.swing.JLabel();
-        jLabel135 = new javax.swing.JLabel();
-        jLabel136 = new javax.swing.JLabel();
-        jLabel137 = new javax.swing.JLabel();
-        jLabel138 = new javax.swing.JLabel();
-        jLabel139 = new javax.swing.JLabel();
-        jLabel140 = new javax.swing.JLabel();
-        jLabel141 = new javax.swing.JLabel();
-        jLabel142 = new javax.swing.JLabel();
-        jLabel143 = new javax.swing.JLabel();
-        jLabel144 = new javax.swing.JLabel();
-        jLabel145 = new javax.swing.JLabel();
-        jLabel146 = new javax.swing.JLabel();
-        jLabel147 = new javax.swing.JLabel();
-        jLabel148 = new javax.swing.JLabel();
-        jLabel149 = new javax.swing.JLabel();
-        jLabel150 = new javax.swing.JLabel();
-        jLabel151 = new javax.swing.JLabel();
-        jLabel152 = new javax.swing.JLabel();
-        jLabel153 = new javax.swing.JLabel();
-        jLabel154 = new javax.swing.JLabel();
-        jLabel155 = new javax.swing.JLabel();
-        jLabel156 = new javax.swing.JLabel();
-        jLabel157 = new javax.swing.JLabel();
-        jLabel158 = new javax.swing.JLabel();
-        jLabel159 = new javax.swing.JLabel();
-        jLabel160 = new javax.swing.JLabel();
-        jLabel161 = new javax.swing.JLabel();
-        jLabel162 = new javax.swing.JLabel();
-        jLabel163 = new javax.swing.JLabel();
-        jLabel164 = new javax.swing.JLabel();
-        jLabel165 = new javax.swing.JLabel();
-        jLabel166 = new javax.swing.JLabel();
-        jLabel167 = new javax.swing.JLabel();
-        jLabel168 = new javax.swing.JLabel();
-        jLabel169 = new javax.swing.JLabel();
-        jLabel170 = new javax.swing.JLabel();
-        jLabel171 = new javax.swing.JLabel();
-        jLabel172 = new javax.swing.JLabel();
-        jLabel173 = new javax.swing.JLabel();
-        jLabel174 = new javax.swing.JLabel();
+        lblA9 = new javax.swing.JLabel();
+        lblB6 = new javax.swing.JLabel();
+        lblC6 = new javax.swing.JLabel();
+        lblD6 = new javax.swing.JLabel();
+        lblE6 = new javax.swing.JLabel();
+        lblF6 = new javax.swing.JLabel();
+        lblG6 = new javax.swing.JLabel();
+        lblA6 = new javax.swing.JLabel();
+        lblA7 = new javax.swing.JLabel();
+        lblB7 = new javax.swing.JLabel();
+        lblC7 = new javax.swing.JLabel();
+        lblD7 = new javax.swing.JLabel();
+        lblE7 = new javax.swing.JLabel();
+        lblF7 = new javax.swing.JLabel();
+        lblG7 = new javax.swing.JLabel();
+        lblH7 = new javax.swing.JLabel();
+        lblA8 = new javax.swing.JLabel();
+        lblB8 = new javax.swing.JLabel();
+        lblC8 = new javax.swing.JLabel();
+        lblD8 = new javax.swing.JLabel();
+        lblE8 = new javax.swing.JLabel();
+        lblF8 = new javax.swing.JLabel();
+        lblG8 = new javax.swing.JLabel();
+        lblG10 = new javax.swing.JLabel();
+        lblH8 = new javax.swing.JLabel();
+        lblB9 = new javax.swing.JLabel();
+        lblC9 = new javax.swing.JLabel();
+        lblD9 = new javax.swing.JLabel();
+        lblE9 = new javax.swing.JLabel();
+        lblF9 = new javax.swing.JLabel();
+        lblG9 = new javax.swing.JLabel();
+        lblH9 = new javax.swing.JLabel();
+        lblA10 = new javax.swing.JLabel();
+        lblB10 = new javax.swing.JLabel();
+        lblC10 = new javax.swing.JLabel();
+        lblD10 = new javax.swing.JLabel();
+        lblE10 = new javax.swing.JLabel();
+        lblF10 = new javax.swing.JLabel();
+        lblH16 = new javax.swing.JLabel();
+        lblH10 = new javax.swing.JLabel();
+        lblA11 = new javax.swing.JLabel();
+        lblB11 = new javax.swing.JLabel();
+        lblC11 = new javax.swing.JLabel();
+        lblD11 = new javax.swing.JLabel();
+        lblE11 = new javax.swing.JLabel();
+        lblF11 = new javax.swing.JLabel();
+        lblG11 = new javax.swing.JLabel();
+        lblH11 = new javax.swing.JLabel();
+        lblA12 = new javax.swing.JLabel();
+        lblB12 = new javax.swing.JLabel();
+        lblC12 = new javax.swing.JLabel();
+        lblD12 = new javax.swing.JLabel();
+        lblE12 = new javax.swing.JLabel();
+        lblF12 = new javax.swing.JLabel();
+        lblG12 = new javax.swing.JLabel();
+        lblH12 = new javax.swing.JLabel();
+        lblA13 = new javax.swing.JLabel();
+        lblB13 = new javax.swing.JLabel();
+        lblC13 = new javax.swing.JLabel();
+        lblD13 = new javax.swing.JLabel();
+        lblE13 = new javax.swing.JLabel();
+        lblF13 = new javax.swing.JLabel();
+        lblG13 = new javax.swing.JLabel();
+        lblH13 = new javax.swing.JLabel();
+        lblA14 = new javax.swing.JLabel();
+        lblB14 = new javax.swing.JLabel();
+        lblC14 = new javax.swing.JLabel();
+        lblD14 = new javax.swing.JLabel();
+        lblE14 = new javax.swing.JLabel();
+        lblF14 = new javax.swing.JLabel();
+        lblG14 = new javax.swing.JLabel();
+        lblH14 = new javax.swing.JLabel();
+        lblA15 = new javax.swing.JLabel();
+        lblB15 = new javax.swing.JLabel();
+        lblC15 = new javax.swing.JLabel();
+        lblD15 = new javax.swing.JLabel();
+        lblE15 = new javax.swing.JLabel();
+        lblF15 = new javax.swing.JLabel();
+        lblG15 = new javax.swing.JLabel();
+        lblH15 = new javax.swing.JLabel();
+        lblA16 = new javax.swing.JLabel();
+        lblB16 = new javax.swing.JLabel();
+        lblC16 = new javax.swing.JLabel();
+        lblD16 = new javax.swing.JLabel();
+        lblE16 = new javax.swing.JLabel();
+        lblF16 = new javax.swing.JLabel();
+        lblG16 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -591,18 +633,18 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         });
         jplButacas.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
-        jLabel46.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel46.setText("H6");
-        jLabel46.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel46.setOpaque(true);
-        jLabel46.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel46.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH6.setBackground(new java.awt.Color(255, 255, 255));
+        lblH6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH6.setText("H6");
+        lblH6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH6.setOpaque(true);
+        lblH6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel46MousePressed(evt);
+                lblH6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
+        jplButacas.add(lblH6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
 
         lblB1.setBackground(new java.awt.Color(255, 255, 255));
         lblB1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1111,1150 +1153,1136 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         });
         jplButacas.add(lblH5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
-        jLabel86.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel86.setText("A9");
-        jLabel86.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel86.setOpaque(true);
-        jLabel86.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel86.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA9.setBackground(new java.awt.Color(255, 255, 255));
+        lblA9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA9.setText("A9");
+        lblA9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA9.setOpaque(true);
+        lblA9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel86MousePressed(evt);
+                lblA9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        jplButacas.add(lblA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        jLabel87.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel87.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel87.setText("B6");
-        jLabel87.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel87.setOpaque(true);
-        jLabel87.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel87.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB6.setBackground(new java.awt.Color(255, 255, 255));
+        lblB6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB6.setText("B6");
+        lblB6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB6.setOpaque(true);
+        lblB6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel87MousePressed(evt);
+                lblB6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+        jplButacas.add(lblB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
-        jLabel88.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel88.setText("C6");
-        jLabel88.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel88.setOpaque(true);
-        jLabel88.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel88.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC6.setBackground(new java.awt.Color(255, 255, 255));
+        lblC6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC6.setText("C6");
+        lblC6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC6.setOpaque(true);
+        lblC6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel88MousePressed(evt);
+                lblC6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
+        jplButacas.add(lblC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
-        jLabel89.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel89.setText("D6");
-        jLabel89.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel89.setOpaque(true);
-        jLabel89.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel89.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD6.setBackground(new java.awt.Color(255, 255, 255));
+        lblD6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD6.setText("D6");
+        lblD6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD6.setOpaque(true);
+        lblD6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel89MousePressed(evt);
+                lblD6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
+        jplButacas.add(lblD6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
 
-        jLabel90.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel90.setText("E6");
-        jLabel90.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel90.setOpaque(true);
-        jLabel90.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel90.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE6.setBackground(new java.awt.Color(255, 255, 255));
+        lblE6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE6.setText("E6");
+        lblE6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE6.setOpaque(true);
+        lblE6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel90MousePressed(evt);
+                lblE6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
+        jplButacas.add(lblE6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
 
-        jLabel91.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel91.setText("F6");
-        jLabel91.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel91.setOpaque(true);
-        jLabel91.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel91.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF6.setBackground(new java.awt.Color(255, 255, 255));
+        lblF6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF6.setText("F6");
+        lblF6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF6.setOpaque(true);
+        lblF6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel91MousePressed(evt);
+                lblF6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
+        jplButacas.add(lblF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
-        jLabel92.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel92.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel92.setText("G6");
-        jLabel92.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel92.setOpaque(true);
-        jLabel92.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel92.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG6.setBackground(new java.awt.Color(255, 255, 255));
+        lblG6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG6.setText("G6");
+        lblG6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG6.setOpaque(true);
+        lblG6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel92MousePressed(evt);
+                lblG6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+        jplButacas.add(lblG6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
-        jLabel93.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel93.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel93.setOpaque(true);
-        jLabel93.setPreferredSize(new java.awt.Dimension(32, 32));
-        jplButacas.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
-
-        jLabel94.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel94.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel94.setText("A6");
-        jLabel94.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel94.setOpaque(true);
-        jLabel94.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel94.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA6.setBackground(new java.awt.Color(255, 255, 255));
+        lblA6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA6.setText("A6");
+        lblA6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA6.setOpaque(true);
+        lblA6.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel94MousePressed(evt);
+                lblA6MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        jplButacas.add(lblA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        jLabel95.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel95.setText("A7");
-        jLabel95.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel95.setOpaque(true);
-        jLabel95.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel95.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA7.setBackground(new java.awt.Color(255, 255, 255));
+        lblA7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA7.setText("A7");
+        lblA7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA7.setOpaque(true);
+        lblA7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel95MousePressed(evt);
+                lblA7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        jplButacas.add(lblA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        jLabel96.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel96.setText("B7");
-        jLabel96.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel96.setOpaque(true);
-        jLabel96.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel96.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB7.setBackground(new java.awt.Color(255, 255, 255));
+        lblB7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB7.setText("B7");
+        lblB7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB7.setOpaque(true);
+        lblB7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel96MousePressed(evt);
+                lblB7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
+        jplButacas.add(lblB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
-        jLabel97.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel97.setText("C7");
-        jLabel97.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel97.setOpaque(true);
-        jLabel97.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel97.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC7.setBackground(new java.awt.Color(255, 255, 255));
+        lblC7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC7.setText("C7");
+        lblC7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC7.setOpaque(true);
+        lblC7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel97MousePressed(evt);
+                lblC7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        jplButacas.add(lblC7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
-        jLabel98.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel98.setText("D7");
-        jLabel98.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel98.setOpaque(true);
-        jLabel98.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel98.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD7.setBackground(new java.awt.Color(255, 255, 255));
+        lblD7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD7.setText("D7");
+        lblD7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD7.setOpaque(true);
+        lblD7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel98MousePressed(evt);
+                lblD7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
+        jplButacas.add(lblD7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
 
-        jLabel99.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel99.setText("E7");
-        jLabel99.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel99.setOpaque(true);
-        jLabel99.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel99.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE7.setBackground(new java.awt.Color(255, 255, 255));
+        lblE7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE7.setText("E7");
+        lblE7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE7.setOpaque(true);
+        lblE7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel99MousePressed(evt);
+                lblE7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+        jplButacas.add(lblE7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
-        jLabel100.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel100.setText("F7");
-        jLabel100.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel100.setOpaque(true);
-        jLabel100.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel100.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF7.setBackground(new java.awt.Color(255, 255, 255));
+        lblF7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF7.setText("F7");
+        lblF7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF7.setOpaque(true);
+        lblF7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel100MousePressed(evt);
+                lblF7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
+        jplButacas.add(lblF7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
-        jLabel101.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel101.setText("G7");
-        jLabel101.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel101.setOpaque(true);
-        jLabel101.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel101.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG7.setBackground(new java.awt.Color(255, 255, 255));
+        lblG7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG7.setText("G7");
+        lblG7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG7.setOpaque(true);
+        lblG7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel101MousePressed(evt);
+                lblG7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
+        jplButacas.add(lblG7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
-        jLabel102.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel102.setText("H7");
-        jLabel102.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel102.setOpaque(true);
-        jLabel102.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel102.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH7.setBackground(new java.awt.Color(255, 255, 255));
+        lblH7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH7.setText("H7");
+        lblH7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH7.setOpaque(true);
+        lblH7.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel102MousePressed(evt);
+                lblH7MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+        jplButacas.add(lblH7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
-        jLabel103.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel103.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel103.setText("A8");
-        jLabel103.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel103.setOpaque(true);
-        jLabel103.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel103.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA8.setBackground(new java.awt.Color(255, 255, 255));
+        lblA8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA8.setText("A8");
+        lblA8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA8.setOpaque(true);
+        lblA8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel103MousePressed(evt);
+                lblA8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+        jplButacas.add(lblA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
-        jLabel104.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel104.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel104.setText("B8");
-        jLabel104.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel104.setOpaque(true);
-        jLabel104.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel104.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB8.setBackground(new java.awt.Color(255, 255, 255));
+        lblB8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB8.setText("B8");
+        lblB8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB8.setOpaque(true);
+        lblB8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel104MousePressed(evt);
+                lblB8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        jplButacas.add(lblB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
-        jLabel105.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel105.setText("C8");
-        jLabel105.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel105.setOpaque(true);
-        jLabel105.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel105.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC8.setBackground(new java.awt.Color(255, 255, 255));
+        lblC8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC8.setText("C8");
+        lblC8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC8.setOpaque(true);
+        lblC8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel105MousePressed(evt);
+                lblC8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        jplButacas.add(lblC8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
-        jLabel106.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel106.setText("D8");
-        jLabel106.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel106.setOpaque(true);
-        jLabel106.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel106.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD8.setBackground(new java.awt.Color(255, 255, 255));
+        lblD8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD8.setText("D8");
+        lblD8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD8.setOpaque(true);
+        lblD8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel106MousePressed(evt);
+                lblD8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        jplButacas.add(lblD8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
-        jLabel107.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel107.setText("E8");
-        jLabel107.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel107.setOpaque(true);
-        jLabel107.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel107.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE8.setBackground(new java.awt.Color(255, 255, 255));
+        lblE8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE8.setText("E8");
+        lblE8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE8.setOpaque(true);
+        lblE8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel107MousePressed(evt);
+                lblE8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+        jplButacas.add(lblE8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
-        jLabel108.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel108.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel108.setText("F8");
-        jLabel108.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel108.setOpaque(true);
-        jLabel108.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel108.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF8.setBackground(new java.awt.Color(255, 255, 255));
+        lblF8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF8.setText("F8");
+        lblF8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF8.setOpaque(true);
+        lblF8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel108MousePressed(evt);
+                lblF8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        jplButacas.add(lblF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
-        jLabel109.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel109.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel109.setText("G8");
-        jLabel109.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel109.setOpaque(true);
-        jLabel109.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel109.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG8.setBackground(new java.awt.Color(255, 255, 255));
+        lblG8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG8.setText("G8");
+        lblG8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG8.setOpaque(true);
+        lblG8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel109MousePressed(evt);
+                lblG8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        jplButacas.add(lblG8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
 
-        jLabel110.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel110.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel110.setText("G10");
-        jLabel110.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel110.setOpaque(true);
-        jLabel110.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel110.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG10.setBackground(new java.awt.Color(255, 255, 255));
+        lblG10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG10.setText("G10");
+        lblG10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG10.setOpaque(true);
+        lblG10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel110MousePressed(evt);
+                lblG10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
+        jplButacas.add(lblG10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
 
-        jLabel111.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel111.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel111.setText("H8");
-        jLabel111.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel111.setOpaque(true);
-        jLabel111.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel111.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH8.setBackground(new java.awt.Color(255, 255, 255));
+        lblH8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH8.setText("H8");
+        lblH8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH8.setOpaque(true);
+        lblH8.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel111MousePressed(evt);
+                lblH8MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        jplButacas.add(lblH8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
-        jLabel112.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel112.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel112.setText("B9");
-        jLabel112.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel112.setOpaque(true);
-        jLabel112.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel112.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB9.setBackground(new java.awt.Color(255, 255, 255));
+        lblB9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB9.setText("B9");
+        lblB9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB9.setOpaque(true);
+        lblB9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel112MousePressed(evt);
+                lblB9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+        jplButacas.add(lblB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
-        jLabel113.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel113.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel113.setText("C9");
-        jLabel113.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel113.setOpaque(true);
-        jLabel113.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel113.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC9.setBackground(new java.awt.Color(255, 255, 255));
+        lblC9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC9.setText("C9");
+        lblC9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC9.setOpaque(true);
+        lblC9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel113MousePressed(evt);
+                lblC9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        jplButacas.add(lblC9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
-        jLabel114.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel114.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel114.setText("D9");
-        jLabel114.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel114.setOpaque(true);
-        jLabel114.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel114.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD9.setBackground(new java.awt.Color(255, 255, 255));
+        lblD9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD9.setText("D9");
+        lblD9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD9.setOpaque(true);
+        lblD9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel114MousePressed(evt);
+                lblD9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
+        jplButacas.add(lblD9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
 
-        jLabel115.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel115.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel115.setText("E9");
-        jLabel115.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel115.setOpaque(true);
-        jLabel115.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel115.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE9.setBackground(new java.awt.Color(255, 255, 255));
+        lblE9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE9.setText("E9");
+        lblE9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE9.setOpaque(true);
+        lblE9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel115MousePressed(evt);
+                lblE9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+        jplButacas.add(lblE9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
 
-        jLabel116.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel116.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel116.setText("F9");
-        jLabel116.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel116.setOpaque(true);
-        jLabel116.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel116.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF9.setBackground(new java.awt.Color(255, 255, 255));
+        lblF9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF9.setText("F9");
+        lblF9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF9.setOpaque(true);
+        lblF9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel116MousePressed(evt);
+                lblF9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
+        jplButacas.add(lblF9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
-        jLabel117.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel117.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel117.setText("G9");
-        jLabel117.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel117.setOpaque(true);
-        jLabel117.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel117.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG9.setBackground(new java.awt.Color(255, 255, 255));
+        lblG9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG9.setText("G9");
+        lblG9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG9.setOpaque(true);
+        lblG9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel117MousePressed(evt);
+                lblG9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+        jplButacas.add(lblG9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
 
-        jLabel118.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel118.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel118.setText("H9");
-        jLabel118.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel118.setOpaque(true);
-        jLabel118.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel118.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH9.setBackground(new java.awt.Color(255, 255, 255));
+        lblH9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH9.setText("H9");
+        lblH9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH9.setOpaque(true);
+        lblH9.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel118MousePressed(evt);
+                lblH9MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
+        jplButacas.add(lblH9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
-        jLabel119.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel119.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel119.setText("A10");
-        jLabel119.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel119.setOpaque(true);
-        jLabel119.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel119.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA10.setBackground(new java.awt.Color(255, 255, 255));
+        lblA10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA10.setText("A10");
+        lblA10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA10.setOpaque(true);
+        lblA10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel119MousePressed(evt);
+                lblA10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jplButacas.add(lblA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
-        jLabel120.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel120.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel120.setText("B10");
-        jLabel120.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel120.setOpaque(true);
-        jLabel120.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel120.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB10.setBackground(new java.awt.Color(255, 255, 255));
+        lblB10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB10.setText("B10");
+        lblB10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB10.setOpaque(true);
+        lblB10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel120MousePressed(evt);
+                lblB10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
+        jplButacas.add(lblB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
 
-        jLabel121.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel121.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel121.setText("C10");
-        jLabel121.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel121.setOpaque(true);
-        jLabel121.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel121.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC10.setBackground(new java.awt.Color(255, 255, 255));
+        lblC10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC10.setText("C10");
+        lblC10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC10.setOpaque(true);
+        lblC10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel121MousePressed(evt);
+                lblC10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
+        jplButacas.add(lblC10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
-        jLabel122.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel122.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel122.setText("D10");
-        jLabel122.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel122.setOpaque(true);
-        jLabel122.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel122.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD10.setBackground(new java.awt.Color(255, 255, 255));
+        lblD10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD10.setText("D10");
+        lblD10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD10.setOpaque(true);
+        lblD10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel122MousePressed(evt);
+                lblD10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
+        jplButacas.add(lblD10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
 
-        jLabel123.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel123.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel123.setText("E10");
-        jLabel123.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel123.setOpaque(true);
-        jLabel123.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel123.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE10.setBackground(new java.awt.Color(255, 255, 255));
+        lblE10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE10.setText("E10");
+        lblE10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE10.setOpaque(true);
+        lblE10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel123MousePressed(evt);
+                lblE10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+        jplButacas.add(lblE10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
 
-        jLabel124.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel124.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel124.setText("F10");
-        jLabel124.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel124.setOpaque(true);
-        jLabel124.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel124.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF10.setBackground(new java.awt.Color(255, 255, 255));
+        lblF10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF10.setText("F10");
+        lblF10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF10.setOpaque(true);
+        lblF10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel124MousePressed(evt);
+                lblF10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
+        jplButacas.add(lblF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
 
-        jLabel125.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel125.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel125.setText("H16");
-        jLabel125.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel125.setOpaque(true);
-        jLabel125.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel125.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH16.setBackground(new java.awt.Color(255, 255, 255));
+        lblH16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH16.setText("H16");
+        lblH16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH16.setOpaque(true);
+        lblH16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel125MousePressed(evt);
+                lblH16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
+        jplButacas.add(lblH16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
-        jLabel126.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel126.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel126.setText("H10");
-        jLabel126.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel126.setOpaque(true);
-        jLabel126.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel126.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH10.setBackground(new java.awt.Color(255, 255, 255));
+        lblH10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH10.setText("H10");
+        lblH10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH10.setOpaque(true);
+        lblH10.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel126MousePressed(evt);
+                lblH10MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
+        jplButacas.add(lblH10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
-        jLabel127.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel127.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel127.setText("A11");
-        jLabel127.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel127.setOpaque(true);
-        jLabel127.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel127.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA11.setBackground(new java.awt.Color(255, 255, 255));
+        lblA11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA11.setText("A11");
+        lblA11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA11.setOpaque(true);
+        lblA11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel127MousePressed(evt);
+                lblA11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
+        jplButacas.add(lblA11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
-        jLabel128.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel128.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel128.setText("B11");
-        jLabel128.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel128.setOpaque(true);
-        jLabel128.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel128.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB11.setBackground(new java.awt.Color(255, 255, 255));
+        lblB11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB11.setText("B11");
+        lblB11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB11.setOpaque(true);
+        lblB11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel128MousePressed(evt);
+                lblB11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        jplButacas.add(lblB11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
-        jLabel129.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel129.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel129.setText("C11");
-        jLabel129.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel129.setOpaque(true);
-        jLabel129.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel129.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC11.setBackground(new java.awt.Color(255, 255, 255));
+        lblC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC11.setText("C11");
+        lblC11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC11.setOpaque(true);
+        lblC11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel129MousePressed(evt);
+                lblC11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        jplButacas.add(lblC11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
-        jLabel130.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel130.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel130.setText("D11");
-        jLabel130.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel130.setOpaque(true);
-        jLabel130.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel130.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD11.setBackground(new java.awt.Color(255, 255, 255));
+        lblD11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD11.setText("D11");
+        lblD11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD11.setOpaque(true);
+        lblD11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel130MousePressed(evt);
+                lblD11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel130, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
+        jplButacas.add(lblD11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
 
-        jLabel131.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel131.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel131.setText("E11");
-        jLabel131.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel131.setOpaque(true);
-        jLabel131.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel131.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE11.setBackground(new java.awt.Color(255, 255, 255));
+        lblE11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE11.setText("E11");
+        lblE11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE11.setOpaque(true);
+        lblE11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel131MousePressed(evt);
+                lblE11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel131, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+        jplButacas.add(lblE11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
 
-        jLabel132.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel132.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel132.setText("F11");
-        jLabel132.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel132.setOpaque(true);
-        jLabel132.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel132.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF11.setBackground(new java.awt.Color(255, 255, 255));
+        lblF11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF11.setText("F11");
+        lblF11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF11.setOpaque(true);
+        lblF11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel132MousePressed(evt);
+                lblF11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+        jplButacas.add(lblF11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
 
-        jLabel133.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel133.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel133.setText("G11");
-        jLabel133.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel133.setOpaque(true);
-        jLabel133.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel133.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG11.setBackground(new java.awt.Color(255, 255, 255));
+        lblG11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG11.setText("G11");
+        lblG11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG11.setOpaque(true);
+        lblG11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel133MousePressed(evt);
+                lblG11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
+        jplButacas.add(lblG11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
 
-        jLabel134.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel134.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel134.setText("H11");
-        jLabel134.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel134.setOpaque(true);
-        jLabel134.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel134.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH11.setBackground(new java.awt.Color(255, 255, 255));
+        lblH11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH11.setText("H11");
+        lblH11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH11.setOpaque(true);
+        lblH11.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel134MousePressed(evt);
+                lblH11MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel134, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, -1));
+        jplButacas.add(lblH11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, -1));
 
-        jLabel135.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel135.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel135.setText("A12");
-        jLabel135.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel135.setOpaque(true);
-        jLabel135.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel135.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA12.setBackground(new java.awt.Color(255, 255, 255));
+        lblA12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA12.setText("A12");
+        lblA12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA12.setOpaque(true);
+        lblA12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel135MousePressed(evt);
+                lblA12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel135, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        jplButacas.add(lblA12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
-        jLabel136.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel136.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel136.setText("B12");
-        jLabel136.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel136.setOpaque(true);
-        jLabel136.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel136.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB12.setBackground(new java.awt.Color(255, 255, 255));
+        lblB12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB12.setText("B12");
+        lblB12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB12.setOpaque(true);
+        lblB12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel136MousePressed(evt);
+                lblB12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
+        jplButacas.add(lblB12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
 
-        jLabel137.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel137.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel137.setText("C12");
-        jLabel137.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel137.setOpaque(true);
-        jLabel137.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel137.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC12.setBackground(new java.awt.Color(255, 255, 255));
+        lblC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC12.setText("C12");
+        lblC12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC12.setOpaque(true);
+        lblC12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel137MousePressed(evt);
+                lblC12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel137, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
+        jplButacas.add(lblC12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
-        jLabel138.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel138.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel138.setText("D12");
-        jLabel138.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel138.setOpaque(true);
-        jLabel138.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel138.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD12.setBackground(new java.awt.Color(255, 255, 255));
+        lblD12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD12.setText("D12");
+        lblD12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD12.setOpaque(true);
+        lblD12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel138MousePressed(evt);
+                lblD12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
+        jplButacas.add(lblD12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
 
-        jLabel139.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel139.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel139.setText("E12");
-        jLabel139.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel139.setOpaque(true);
-        jLabel139.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel139.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE12.setBackground(new java.awt.Color(255, 255, 255));
+        lblE12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE12.setText("E12");
+        lblE12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE12.setOpaque(true);
+        lblE12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel139MousePressed(evt);
+                lblE12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
+        jplButacas.add(lblE12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
 
-        jLabel140.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel140.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel140.setText("F12");
-        jLabel140.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel140.setOpaque(true);
-        jLabel140.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel140.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF12.setBackground(new java.awt.Color(255, 255, 255));
+        lblF12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF12.setText("F12");
+        lblF12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF12.setOpaque(true);
+        lblF12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel140MousePressed(evt);
+                lblF12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
+        jplButacas.add(lblF12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
 
-        jLabel141.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel141.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel141.setText("G12");
-        jLabel141.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel141.setOpaque(true);
-        jLabel141.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel141.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG12.setBackground(new java.awt.Color(255, 255, 255));
+        lblG12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG12.setText("G12");
+        lblG12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG12.setOpaque(true);
+        lblG12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel141MousePressed(evt);
+                lblG12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel141, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+        jplButacas.add(lblG12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
 
-        jLabel142.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel142.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel142.setText("H12");
-        jLabel142.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel142.setOpaque(true);
-        jLabel142.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel142.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH12.setBackground(new java.awt.Color(255, 255, 255));
+        lblH12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH12.setText("H12");
+        lblH12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH12.setOpaque(true);
+        lblH12.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel142MousePressed(evt);
+                lblH12MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel142, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+        jplButacas.add(lblH12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
 
-        jLabel143.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel143.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel143.setText("A13");
-        jLabel143.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel143.setOpaque(true);
-        jLabel143.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel143.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA13.setBackground(new java.awt.Color(255, 255, 255));
+        lblA13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA13.setText("A13");
+        lblA13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA13.setOpaque(true);
+        lblA13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel143MousePressed(evt);
+                lblA13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel143, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+        jplButacas.add(lblA13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
-        jLabel144.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel144.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel144.setText("B13");
-        jLabel144.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel144.setOpaque(true);
-        jLabel144.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel144.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB13.setBackground(new java.awt.Color(255, 255, 255));
+        lblB13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB13.setText("B13");
+        lblB13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB13.setOpaque(true);
+        lblB13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel144MousePressed(evt);
+                lblB13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel144, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+        jplButacas.add(lblB13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
 
-        jLabel145.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel145.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel145.setText("C13");
-        jLabel145.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel145.setOpaque(true);
-        jLabel145.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel145.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC13.setBackground(new java.awt.Color(255, 255, 255));
+        lblC13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC13.setText("C13");
+        lblC13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC13.setOpaque(true);
+        lblC13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel145MousePressed(evt);
+                lblC13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+        jplButacas.add(lblC13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
 
-        jLabel146.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel146.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel146.setText("D13");
-        jLabel146.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel146.setOpaque(true);
-        jLabel146.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel146.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD13.setBackground(new java.awt.Color(255, 255, 255));
+        lblD13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD13.setText("D13");
+        lblD13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD13.setOpaque(true);
+        lblD13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel146MousePressed(evt);
+                lblD13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
+        jplButacas.add(lblD13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
 
-        jLabel147.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel147.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel147.setText("E13");
-        jLabel147.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel147.setOpaque(true);
-        jLabel147.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel147.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE13.setBackground(new java.awt.Color(255, 255, 255));
+        lblE13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE13.setText("E13");
+        lblE13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE13.setOpaque(true);
+        lblE13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel147MousePressed(evt);
+                lblE13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+        jplButacas.add(lblE13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
 
-        jLabel148.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel148.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel148.setText("F13");
-        jLabel148.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel148.setOpaque(true);
-        jLabel148.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel148.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF13.setBackground(new java.awt.Color(255, 255, 255));
+        lblF13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF13.setText("F13");
+        lblF13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF13.setOpaque(true);
+        lblF13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel148MousePressed(evt);
+                lblF13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
+        jplButacas.add(lblF13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
 
-        jLabel149.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel149.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel149.setText("G13");
-        jLabel149.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel149.setOpaque(true);
-        jLabel149.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel149.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG13.setBackground(new java.awt.Color(255, 255, 255));
+        lblG13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG13.setText("G13");
+        lblG13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG13.setOpaque(true);
+        lblG13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel149MousePressed(evt);
+                lblG13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel149, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, -1));
+        jplButacas.add(lblG13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, -1));
 
-        jLabel150.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel150.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel150.setText("H13");
-        jLabel150.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel150.setOpaque(true);
-        jLabel150.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel150.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH13.setBackground(new java.awt.Color(255, 255, 255));
+        lblH13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH13.setText("H13");
+        lblH13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH13.setOpaque(true);
+        lblH13.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel150MousePressed(evt);
+                lblH13MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel150, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, -1));
+        jplButacas.add(lblH13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, -1));
 
-        jLabel151.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel151.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel151.setText("A14");
-        jLabel151.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel151.setOpaque(true);
-        jLabel151.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel151.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA14.setBackground(new java.awt.Color(255, 255, 255));
+        lblA14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA14.setText("A14");
+        lblA14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA14.setOpaque(true);
+        lblA14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel151MousePressed(evt);
+                lblA14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel151, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+        jplButacas.add(lblA14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
-        jLabel152.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel152.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel152.setText("B14");
-        jLabel152.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel152.setOpaque(true);
-        jLabel152.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel152.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB14.setBackground(new java.awt.Color(255, 255, 255));
+        lblB14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB14.setText("B14");
+        lblB14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB14.setOpaque(true);
+        lblB14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel152MousePressed(evt);
+                lblB14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+        jplButacas.add(lblB14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
-        jLabel153.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel153.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel153.setText("C14");
-        jLabel153.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel153.setOpaque(true);
-        jLabel153.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel153.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC14.setBackground(new java.awt.Color(255, 255, 255));
+        lblC14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC14.setText("C14");
+        lblC14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC14.setOpaque(true);
+        lblC14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel153MousePressed(evt);
+                lblC14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel153, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+        jplButacas.add(lblC14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
 
-        jLabel154.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel154.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel154.setText("D14");
-        jLabel154.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel154.setOpaque(true);
-        jLabel154.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel154.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD14.setBackground(new java.awt.Color(255, 255, 255));
+        lblD14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD14.setText("D14");
+        lblD14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD14.setOpaque(true);
+        lblD14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel154MousePressed(evt);
+                lblD14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel154, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
+        jplButacas.add(lblD14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
-        jLabel155.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel155.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel155.setText("E14");
-        jLabel155.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel155.setOpaque(true);
-        jLabel155.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel155.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE14.setBackground(new java.awt.Color(255, 255, 255));
+        lblE14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE14.setText("E14");
+        lblE14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE14.setOpaque(true);
+        lblE14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel155MousePressed(evt);
+                lblE14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel155, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+        jplButacas.add(lblE14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
 
-        jLabel156.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel156.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel156.setText("F14");
-        jLabel156.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel156.setOpaque(true);
-        jLabel156.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel156.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF14.setBackground(new java.awt.Color(255, 255, 255));
+        lblF14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF14.setText("F14");
+        lblF14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF14.setOpaque(true);
+        lblF14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel156MousePressed(evt);
+                lblF14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel156, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
+        jplButacas.add(lblF14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
 
-        jLabel157.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel157.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel157.setText("G14");
-        jLabel157.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel157.setOpaque(true);
-        jLabel157.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel157.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG14.setBackground(new java.awt.Color(255, 255, 255));
+        lblG14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG14.setText("G14");
+        lblG14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG14.setOpaque(true);
+        lblG14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel157MousePressed(evt);
+                lblG14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel157, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, -1));
+        jplButacas.add(lblG14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, -1));
 
-        jLabel158.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel158.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel158.setText("H14");
-        jLabel158.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel158.setOpaque(true);
-        jLabel158.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel158.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH14.setBackground(new java.awt.Color(255, 255, 255));
+        lblH14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH14.setText("H14");
+        lblH14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH14.setOpaque(true);
+        lblH14.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel158MousePressed(evt);
+                lblH14MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel158, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, -1));
+        jplButacas.add(lblH14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, -1));
 
-        jLabel159.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel159.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel159.setText("A15");
-        jLabel159.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel159.setOpaque(true);
-        jLabel159.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel159.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA15.setBackground(new java.awt.Color(255, 255, 255));
+        lblA15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA15.setText("A15");
+        lblA15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA15.setOpaque(true);
+        lblA15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel159MousePressed(evt);
+                lblA15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel159, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
+        jplButacas.add(lblA15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
 
-        jLabel160.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel160.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel160.setText("B15");
-        jLabel160.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel160.setOpaque(true);
-        jLabel160.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel160.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB15.setBackground(new java.awt.Color(255, 255, 255));
+        lblB15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB15.setText("B15");
+        lblB15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB15.setOpaque(true);
+        lblB15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel160MousePressed(evt);
+                lblB15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel160, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, -1, -1));
+        jplButacas.add(lblB15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, -1, -1));
 
-        jLabel161.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel161.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel161.setText("C15");
-        jLabel161.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel161.setOpaque(true);
-        jLabel161.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel161.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC15.setBackground(new java.awt.Color(255, 255, 255));
+        lblC15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC15.setText("C15");
+        lblC15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC15.setOpaque(true);
+        lblC15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel161MousePressed(evt);
+                lblC15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel161, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, -1));
+        jplButacas.add(lblC15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, -1));
 
-        jLabel162.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel162.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel162.setText("D15");
-        jLabel162.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel162.setOpaque(true);
-        jLabel162.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel162.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD15.setBackground(new java.awt.Color(255, 255, 255));
+        lblD15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD15.setText("D15");
+        lblD15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD15.setOpaque(true);
+        lblD15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel162MousePressed(evt);
+                lblD15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel162, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
+        jplButacas.add(lblD15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
 
-        jLabel163.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel163.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel163.setText("E15");
-        jLabel163.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel163.setOpaque(true);
-        jLabel163.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel163.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE15.setBackground(new java.awt.Color(255, 255, 255));
+        lblE15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE15.setText("E15");
+        lblE15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE15.setOpaque(true);
+        lblE15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel163MousePressed(evt);
+                lblE15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel163, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, -1, -1));
+        jplButacas.add(lblE15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, -1, -1));
 
-        jLabel164.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel164.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel164.setText("F15");
-        jLabel164.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel164.setOpaque(true);
-        jLabel164.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel164.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF15.setBackground(new java.awt.Color(255, 255, 255));
+        lblF15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF15.setText("F15");
+        lblF15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF15.setOpaque(true);
+        lblF15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel164MousePressed(evt);
+                lblF15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel164, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, -1, -1));
+        jplButacas.add(lblF15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, -1, -1));
 
-        jLabel165.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel165.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel165.setText("G15");
-        jLabel165.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel165.setOpaque(true);
-        jLabel165.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel165.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG15.setBackground(new java.awt.Color(255, 255, 255));
+        lblG15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG15.setText("G15");
+        lblG15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG15.setOpaque(true);
+        lblG15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel165MousePressed(evt);
+                lblG15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel165, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
+        jplButacas.add(lblG15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
 
-        jLabel166.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel166.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel166.setText("H15");
-        jLabel166.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel166.setOpaque(true);
-        jLabel166.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel166.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblH15.setBackground(new java.awt.Color(255, 255, 255));
+        lblH15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblH15.setText("H15");
+        lblH15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblH15.setOpaque(true);
+        lblH15.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblH15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel166MousePressed(evt);
+                lblH15MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel166, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
+        jplButacas.add(lblH15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
 
-        jLabel167.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel167.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel167.setText("A16");
-        jLabel167.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel167.setOpaque(true);
-        jLabel167.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel167.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblA16.setBackground(new java.awt.Color(255, 255, 255));
+        lblA16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblA16.setText("A16");
+        lblA16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblA16.setOpaque(true);
+        lblA16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblA16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel167MousePressed(evt);
+                lblA16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel167, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
+        jplButacas.add(lblA16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
 
-        jLabel168.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel168.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel168.setText("B16");
-        jLabel168.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel168.setOpaque(true);
-        jLabel168.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel168.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblB16.setBackground(new java.awt.Color(255, 255, 255));
+        lblB16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblB16.setText("B16");
+        lblB16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblB16.setOpaque(true);
+        lblB16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblB16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel168MousePressed(evt);
+                lblB16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel168, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, -1, -1));
+        jplButacas.add(lblB16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, -1, -1));
 
-        jLabel169.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel169.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel169.setText("C16");
-        jLabel169.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel169.setOpaque(true);
-        jLabel169.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel169.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblC16.setBackground(new java.awt.Color(255, 255, 255));
+        lblC16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblC16.setText("C16");
+        lblC16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblC16.setOpaque(true);
+        lblC16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblC16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel169MousePressed(evt);
+                lblC16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel169, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
+        jplButacas.add(lblC16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
 
-        jLabel170.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel170.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel170.setText("D16");
-        jLabel170.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel170.setOpaque(true);
-        jLabel170.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel170.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblD16.setBackground(new java.awt.Color(255, 255, 255));
+        lblD16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD16.setText("D16");
+        lblD16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblD16.setOpaque(true);
+        lblD16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblD16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel170MousePressed(evt);
+                lblD16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel170, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, -1, -1));
+        jplButacas.add(lblD16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, -1, -1));
 
-        jLabel171.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel171.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel171.setText("E16");
-        jLabel171.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel171.setOpaque(true);
-        jLabel171.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel171.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblE16.setBackground(new java.awt.Color(255, 255, 255));
+        lblE16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblE16.setText("E16");
+        lblE16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblE16.setOpaque(true);
+        lblE16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblE16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel171MousePressed(evt);
+                lblE16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel171, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, -1, -1));
+        jplButacas.add(lblE16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, -1, -1));
 
-        jLabel172.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel172.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel172.setText("F16");
-        jLabel172.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel172.setOpaque(true);
-        jLabel172.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel172.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblF16.setBackground(new java.awt.Color(255, 255, 255));
+        lblF16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblF16.setText("F16");
+        lblF16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblF16.setOpaque(true);
+        lblF16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblF16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel172MousePressed(evt);
+                lblF16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel172, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
+        jplButacas.add(lblF16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
 
-        jLabel173.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel173.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel173.setText("G16");
-        jLabel173.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel173.setOpaque(true);
-        jLabel173.setPreferredSize(new java.awt.Dimension(32, 32));
-        jLabel173.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblG16.setBackground(new java.awt.Color(255, 255, 255));
+        lblG16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblG16.setText("G16");
+        lblG16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblG16.setOpaque(true);
+        lblG16.setPreferredSize(new java.awt.Dimension(32, 32));
+        lblG16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel173MousePressed(evt);
+                lblG16MousePressed(evt);
             }
         });
-        jplButacas.add(jLabel173, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, -1, -1));
-
-        jLabel174.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel174.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel174.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jLabel174.setOpaque(true);
-        jLabel174.setPreferredSize(new java.awt.Dimension(32, 32));
-        jplButacas.add(jLabel174, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
+        jplButacas.add(lblG16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, -1, -1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -2496,440 +2524,365 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         seleccionarButaca(evt);
     }//GEN-LAST:event_lblH5MousePressed
 
-    private void jLabel94MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel94MousePressed
+    private void lblA6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel94MousePressed
+    }//GEN-LAST:event_lblA6MousePressed
 
-    private void jLabel87MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel87MousePressed
+    private void lblB6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel87MousePressed
+    }//GEN-LAST:event_lblB6MousePressed
 
-    private void jLabel88MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel88MousePressed
+    private void lblC6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel88MousePressed
+    }//GEN-LAST:event_lblC6MousePressed
 
-    private void jLabel89MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel89MousePressed
+    private void lblD6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel89MousePressed
+    }//GEN-LAST:event_lblD6MousePressed
 
-    private void jLabel90MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel90MousePressed
+    private void lblE6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel90MousePressed
+    }//GEN-LAST:event_lblE6MousePressed
 
-    private void jLabel91MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel91MousePressed
+    private void lblF6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel91MousePressed
+    }//GEN-LAST:event_lblF6MousePressed
 
-    private void jLabel92MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel92MousePressed
+    private void lblG6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel92MousePressed
+    }//GEN-LAST:event_lblG6MousePressed
 
-    private void jLabel46MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel46MousePressed
+    private void lblH6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH6MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel46MousePressed
+    }//GEN-LAST:event_lblH6MousePressed
 
-    private void jLabel95MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel95MousePressed
+    private void lblA7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel95MousePressed
+    }//GEN-LAST:event_lblA7MousePressed
 
-    private void jLabel96MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel96MousePressed
+    private void lblB7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel96MousePressed
+    }//GEN-LAST:event_lblB7MousePressed
 
-    private void jLabel97MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel97MousePressed
+    private void lblC7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel97MousePressed
+    }//GEN-LAST:event_lblC7MousePressed
 
-    private void jLabel98MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel98MousePressed
+    private void lblD7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel98MousePressed
+    }//GEN-LAST:event_lblD7MousePressed
 
-    private void jLabel99MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel99MousePressed
+    private void lblE7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel99MousePressed
+    }//GEN-LAST:event_lblE7MousePressed
 
-    private void jLabel100MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel100MousePressed
+    private void lblF7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel100MousePressed
+    }//GEN-LAST:event_lblF7MousePressed
 
-    private void jLabel101MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel101MousePressed
+    private void lblG7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel101MousePressed
+    }//GEN-LAST:event_lblG7MousePressed
 
-    private void jLabel102MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel102MousePressed
+    private void lblH7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH7MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel102MousePressed
+    }//GEN-LAST:event_lblH7MousePressed
 
-    private void jLabel103MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel103MousePressed
+    private void lblA8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel103MousePressed
+    }//GEN-LAST:event_lblA8MousePressed
 
-    private void jLabel104MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel104MousePressed
+    private void lblB8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel104MousePressed
+    }//GEN-LAST:event_lblB8MousePressed
 
-    private void jLabel105MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel105MousePressed
+    private void lblC8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel105MousePressed
+    }//GEN-LAST:event_lblC8MousePressed
 
-    private void jLabel106MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel106MousePressed
+    private void lblD8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel106MousePressed
+    }//GEN-LAST:event_lblD8MousePressed
 
-    private void jLabel107MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MousePressed
+    private void lblE8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel107MousePressed
+    }//GEN-LAST:event_lblE8MousePressed
 
-    private void jLabel108MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel108MousePressed
+    private void lblF8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel108MousePressed
+    }//GEN-LAST:event_lblF8MousePressed
 
-    private void jLabel109MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel109MousePressed
+    private void lblG8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel109MousePressed
+    }//GEN-LAST:event_lblG8MousePressed
 
-    private void jLabel111MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel111MousePressed
+    private void lblH8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH8MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel111MousePressed
+    }//GEN-LAST:event_lblH8MousePressed
 
-    private void jLabel86MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel86MousePressed
+    private void lblA9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel86MousePressed
+    }//GEN-LAST:event_lblA9MousePressed
 
-    private void jLabel112MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel112MousePressed
+    private void lblB9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel112MousePressed
+    }//GEN-LAST:event_lblB9MousePressed
 
-    private void jLabel113MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel113MousePressed
+    private void lblC9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel113MousePressed
+    }//GEN-LAST:event_lblC9MousePressed
 
-    private void jLabel114MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel114MousePressed
+    private void lblD9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel114MousePressed
+    }//GEN-LAST:event_lblD9MousePressed
 
-    private void jLabel115MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel115MousePressed
+    private void lblE9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel115MousePressed
+    }//GEN-LAST:event_lblE9MousePressed
 
-    private void jLabel116MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel116MousePressed
+    private void lblF9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel116MousePressed
+    }//GEN-LAST:event_lblF9MousePressed
 
-    private void jLabel117MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel117MousePressed
+    private void lblG9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel117MousePressed
+    }//GEN-LAST:event_lblG9MousePressed
 
-    private void jLabel118MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel118MousePressed
+    private void lblH9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH9MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel118MousePressed
+    }//GEN-LAST:event_lblH9MousePressed
 
-    private void jLabel119MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel119MousePressed
+    private void lblA10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel119MousePressed
+    }//GEN-LAST:event_lblA10MousePressed
 
-    private void jLabel120MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel120MousePressed
+    private void lblB10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel120MousePressed
+    }//GEN-LAST:event_lblB10MousePressed
 
-    private void jLabel121MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel121MousePressed
+    private void lblC10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel121MousePressed
+    }//GEN-LAST:event_lblC10MousePressed
 
-    private void jLabel122MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel122MousePressed
+    private void lblD10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel122MousePressed
+    }//GEN-LAST:event_lblD10MousePressed
 
-    private void jLabel123MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel123MousePressed
+    private void lblE10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel123MousePressed
+    }//GEN-LAST:event_lblE10MousePressed
 
-    private void jLabel124MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel124MousePressed
+    private void lblF10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel124MousePressed
+    }//GEN-LAST:event_lblF10MousePressed
 
-    private void jLabel110MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel110MousePressed
+    private void lblG10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel110MousePressed
+    }//GEN-LAST:event_lblG10MousePressed
 
-    private void jLabel126MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel126MousePressed
+    private void lblH10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH10MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel126MousePressed
+    }//GEN-LAST:event_lblH10MousePressed
 
-    private void jLabel127MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel127MousePressed
+    private void lblA11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel127MousePressed
+    }//GEN-LAST:event_lblA11MousePressed
 
-    private void jLabel128MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel128MousePressed
+    private void lblB11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel128MousePressed
+    }//GEN-LAST:event_lblB11MousePressed
 
-    private void jLabel129MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel129MousePressed
+    private void lblC11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel129MousePressed
+    }//GEN-LAST:event_lblC11MousePressed
 
-    private void jLabel130MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel130MousePressed
+    private void lblD11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel130MousePressed
+    }//GEN-LAST:event_lblD11MousePressed
 
-    private void jLabel131MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel131MousePressed
+    private void lblE11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel131MousePressed
+    }//GEN-LAST:event_lblE11MousePressed
 
-    private void jLabel132MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel132MousePressed
+    private void lblF11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel132MousePressed
+    }//GEN-LAST:event_lblF11MousePressed
 
-    private void jLabel133MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel133MousePressed
+    private void lblG11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel133MousePressed
+    }//GEN-LAST:event_lblG11MousePressed
 
-    private void jLabel134MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel134MousePressed
+    private void lblH11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH11MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel134MousePressed
+    }//GEN-LAST:event_lblH11MousePressed
 
-    private void jLabel135MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel135MousePressed
+    private void lblA12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel135MousePressed
+    }//GEN-LAST:event_lblA12MousePressed
 
-    private void jLabel136MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel136MousePressed
+    private void lblB12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel136MousePressed
+    }//GEN-LAST:event_lblB12MousePressed
 
-    private void jLabel137MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel137MousePressed
+    private void lblC12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel137MousePressed
+    }//GEN-LAST:event_lblC12MousePressed
 
-    private void jLabel138MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel138MousePressed
+    private void lblD12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel138MousePressed
+    }//GEN-LAST:event_lblD12MousePressed
 
-    private void jLabel139MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel139MousePressed
+    private void lblE12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel139MousePressed
+    }//GEN-LAST:event_lblE12MousePressed
 
-    private void jLabel140MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel140MousePressed
+    private void lblF12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel140MousePressed
+    }//GEN-LAST:event_lblF12MousePressed
 
-    private void jLabel141MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel141MousePressed
+    private void lblG12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel141MousePressed
+    }//GEN-LAST:event_lblG12MousePressed
 
-    private void jLabel142MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel142MousePressed
+    private void lblH12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH12MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel142MousePressed
+    }//GEN-LAST:event_lblH12MousePressed
 
-    private void jLabel143MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel143MousePressed
+    private void lblA13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel143MousePressed
+    }//GEN-LAST:event_lblA13MousePressed
 
-    private void jLabel144MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel144MousePressed
+    private void lblB13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel144MousePressed
+    }//GEN-LAST:event_lblB13MousePressed
 
-    private void jLabel145MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel145MousePressed
+    private void lblC13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel145MousePressed
+    }//GEN-LAST:event_lblC13MousePressed
 
-    private void jLabel146MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel146MousePressed
+    private void lblD13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel146MousePressed
+    }//GEN-LAST:event_lblD13MousePressed
 
-    private void jLabel147MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel147MousePressed
+    private void lblE13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel147MousePressed
+    }//GEN-LAST:event_lblE13MousePressed
 
-    private void jLabel148MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel148MousePressed
+    private void lblF13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel148MousePressed
+    }//GEN-LAST:event_lblF13MousePressed
 
-    private void jLabel149MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel149MousePressed
+    private void lblG13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel149MousePressed
+    }//GEN-LAST:event_lblG13MousePressed
 
-    private void jLabel150MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel150MousePressed
+    private void lblH13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH13MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel150MousePressed
+    }//GEN-LAST:event_lblH13MousePressed
 
-    private void jLabel151MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel151MousePressed
+    private void lblA14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel151MousePressed
+    }//GEN-LAST:event_lblA14MousePressed
 
-    private void jLabel152MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel152MousePressed
+    private void lblB14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel152MousePressed
+    }//GEN-LAST:event_lblB14MousePressed
 
-    private void jLabel153MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel153MousePressed
+    private void lblC14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel153MousePressed
+    }//GEN-LAST:event_lblC14MousePressed
 
-    private void jLabel154MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel154MousePressed
+    private void lblD14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel154MousePressed
+    }//GEN-LAST:event_lblD14MousePressed
 
-    private void jLabel155MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel155MousePressed
+    private void lblE14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel155MousePressed
+    }//GEN-LAST:event_lblE14MousePressed
 
-    private void jLabel156MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel156MousePressed
+    private void lblF14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel156MousePressed
+    }//GEN-LAST:event_lblF14MousePressed
 
-    private void jLabel157MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel157MousePressed
+    private void lblG14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel157MousePressed
+    }//GEN-LAST:event_lblG14MousePressed
 
-    private void jLabel158MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel158MousePressed
+    private void lblH14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH14MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel158MousePressed
+    }//GEN-LAST:event_lblH14MousePressed
 
-    private void jLabel159MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel159MousePressed
+    private void lblA15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel159MousePressed
+    }//GEN-LAST:event_lblA15MousePressed
 
-    private void jLabel160MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel160MousePressed
+    private void lblB15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel160MousePressed
+    }//GEN-LAST:event_lblB15MousePressed
 
-    private void jLabel161MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel161MousePressed
+    private void lblC15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel161MousePressed
+    }//GEN-LAST:event_lblC15MousePressed
 
-    private void jLabel162MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel162MousePressed
+    private void lblD15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel162MousePressed
+    }//GEN-LAST:event_lblD15MousePressed
 
-    private void jLabel163MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel163MousePressed
+    private void lblE15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel163MousePressed
+    }//GEN-LAST:event_lblE15MousePressed
 
-    private void jLabel164MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel164MousePressed
+    private void lblF15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel164MousePressed
+    }//GEN-LAST:event_lblF15MousePressed
 
-    private void jLabel165MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel165MousePressed
+    private void lblG15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel165MousePressed
+    }//GEN-LAST:event_lblG15MousePressed
 
-    private void jLabel166MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel166MousePressed
+    private void lblH15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH15MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel166MousePressed
+    }//GEN-LAST:event_lblH15MousePressed
 
-    private void jLabel167MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel167MousePressed
+    private void lblA16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblA16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel167MousePressed
+    }//GEN-LAST:event_lblA16MousePressed
 
-    private void jLabel168MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel168MousePressed
+    private void lblB16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblB16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel168MousePressed
+    }//GEN-LAST:event_lblB16MousePressed
 
-    private void jLabel169MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel169MousePressed
+    private void lblC16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblC16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel169MousePressed
+    }//GEN-LAST:event_lblC16MousePressed
 
-    private void jLabel170MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel170MousePressed
+    private void lblD16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblD16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel170MousePressed
+    }//GEN-LAST:event_lblD16MousePressed
 
-    private void jLabel171MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel171MousePressed
+    private void lblE16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblE16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel171MousePressed
+    }//GEN-LAST:event_lblE16MousePressed
 
-    private void jLabel172MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel172MousePressed
+    private void lblF16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblF16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel172MousePressed
+    }//GEN-LAST:event_lblF16MousePressed
 
-    private void jLabel173MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel173MousePressed
+    private void lblG16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblG16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel173MousePressed
+    }//GEN-LAST:event_lblG16MousePressed
 
-    private void jLabel125MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel125MousePressed
+    private void lblH16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblH16MousePressed
         seleccionarButaca(evt);
-    }//GEN-LAST:event_jLabel125MousePressed
+    }//GEN-LAST:event_lblH16MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel100;
-    private javax.swing.JLabel jLabel101;
-    private javax.swing.JLabel jLabel102;
-    private javax.swing.JLabel jLabel103;
-    private javax.swing.JLabel jLabel104;
-    private javax.swing.JLabel jLabel105;
-    private javax.swing.JLabel jLabel106;
-    private javax.swing.JLabel jLabel107;
-    private javax.swing.JLabel jLabel108;
-    private javax.swing.JLabel jLabel109;
-    private javax.swing.JLabel jLabel110;
-    private javax.swing.JLabel jLabel111;
-    private javax.swing.JLabel jLabel112;
-    private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel114;
-    private javax.swing.JLabel jLabel115;
-    private javax.swing.JLabel jLabel116;
-    private javax.swing.JLabel jLabel117;
-    private javax.swing.JLabel jLabel118;
-    private javax.swing.JLabel jLabel119;
-    private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel122;
-    private javax.swing.JLabel jLabel123;
-    private javax.swing.JLabel jLabel124;
-    private javax.swing.JLabel jLabel125;
-    private javax.swing.JLabel jLabel126;
-    private javax.swing.JLabel jLabel127;
-    private javax.swing.JLabel jLabel128;
-    private javax.swing.JLabel jLabel129;
-    private javax.swing.JLabel jLabel130;
-    private javax.swing.JLabel jLabel131;
-    private javax.swing.JLabel jLabel132;
-    private javax.swing.JLabel jLabel133;
-    private javax.swing.JLabel jLabel134;
-    private javax.swing.JLabel jLabel135;
-    private javax.swing.JLabel jLabel136;
-    private javax.swing.JLabel jLabel137;
-    private javax.swing.JLabel jLabel138;
-    private javax.swing.JLabel jLabel139;
-    private javax.swing.JLabel jLabel140;
-    private javax.swing.JLabel jLabel141;
-    private javax.swing.JLabel jLabel142;
-    private javax.swing.JLabel jLabel143;
-    private javax.swing.JLabel jLabel144;
-    private javax.swing.JLabel jLabel145;
-    private javax.swing.JLabel jLabel146;
-    private javax.swing.JLabel jLabel147;
-    private javax.swing.JLabel jLabel148;
-    private javax.swing.JLabel jLabel149;
-    private javax.swing.JLabel jLabel150;
-    private javax.swing.JLabel jLabel151;
-    private javax.swing.JLabel jLabel152;
-    private javax.swing.JLabel jLabel153;
-    private javax.swing.JLabel jLabel154;
-    private javax.swing.JLabel jLabel155;
-    private javax.swing.JLabel jLabel156;
-    private javax.swing.JLabel jLabel157;
-    private javax.swing.JLabel jLabel158;
-    private javax.swing.JLabel jLabel159;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel160;
-    private javax.swing.JLabel jLabel161;
-    private javax.swing.JLabel jLabel162;
-    private javax.swing.JLabel jLabel163;
-    private javax.swing.JLabel jLabel164;
-    private javax.swing.JLabel jLabel165;
-    private javax.swing.JLabel jLabel166;
-    private javax.swing.JLabel jLabel167;
-    private javax.swing.JLabel jLabel168;
-    private javax.swing.JLabel jLabel169;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel170;
-    private javax.swing.JLabel jLabel171;
-    private javax.swing.JLabel jLabel172;
-    private javax.swing.JLabel jLabel173;
-    private javax.swing.JLabel jLabel174;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2960,26 +2913,11 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel86;
-    private javax.swing.JLabel jLabel87;
-    private javax.swing.JLabel jLabel88;
-    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel90;
-    private javax.swing.JLabel jLabel91;
-    private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
-    private javax.swing.JLabel jLabel94;
-    private javax.swing.JLabel jLabel95;
-    private javax.swing.JLabel jLabel96;
-    private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel98;
-    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -2994,45 +2932,133 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JPanel jplButacas;
     private javax.swing.JLabel lblA1;
+    private javax.swing.JLabel lblA10;
+    private javax.swing.JLabel lblA11;
+    private javax.swing.JLabel lblA12;
+    private javax.swing.JLabel lblA13;
+    private javax.swing.JLabel lblA14;
+    private javax.swing.JLabel lblA15;
+    private javax.swing.JLabel lblA16;
     private javax.swing.JLabel lblA2;
     private javax.swing.JLabel lblA3;
     private javax.swing.JLabel lblA4;
     private javax.swing.JLabel lblA5;
+    private javax.swing.JLabel lblA6;
+    private javax.swing.JLabel lblA7;
+    private javax.swing.JLabel lblA8;
+    private javax.swing.JLabel lblA9;
     private javax.swing.JLabel lblB1;
+    private javax.swing.JLabel lblB10;
+    private javax.swing.JLabel lblB11;
+    private javax.swing.JLabel lblB12;
+    private javax.swing.JLabel lblB13;
+    private javax.swing.JLabel lblB14;
+    private javax.swing.JLabel lblB15;
+    private javax.swing.JLabel lblB16;
     private javax.swing.JLabel lblB2;
     private javax.swing.JLabel lblB3;
     private javax.swing.JLabel lblB4;
     private javax.swing.JLabel lblB5;
+    private javax.swing.JLabel lblB6;
+    private javax.swing.JLabel lblB7;
+    private javax.swing.JLabel lblB8;
+    private javax.swing.JLabel lblB9;
     private javax.swing.JLabel lblC1;
+    private javax.swing.JLabel lblC10;
+    private javax.swing.JLabel lblC11;
+    private javax.swing.JLabel lblC12;
+    private javax.swing.JLabel lblC13;
+    private javax.swing.JLabel lblC14;
+    private javax.swing.JLabel lblC15;
+    private javax.swing.JLabel lblC16;
     private javax.swing.JLabel lblC2;
     private javax.swing.JLabel lblC3;
     private javax.swing.JLabel lblC4;
     private javax.swing.JLabel lblC5;
+    private javax.swing.JLabel lblC6;
+    private javax.swing.JLabel lblC7;
+    private javax.swing.JLabel lblC8;
+    private javax.swing.JLabel lblC9;
     private javax.swing.JLabel lblD1;
+    private javax.swing.JLabel lblD10;
+    private javax.swing.JLabel lblD11;
+    private javax.swing.JLabel lblD12;
+    private javax.swing.JLabel lblD13;
+    private javax.swing.JLabel lblD14;
+    private javax.swing.JLabel lblD15;
+    private javax.swing.JLabel lblD16;
     private javax.swing.JLabel lblD2;
     private javax.swing.JLabel lblD3;
     private javax.swing.JLabel lblD4;
     private javax.swing.JLabel lblD5;
+    private javax.swing.JLabel lblD6;
+    private javax.swing.JLabel lblD7;
+    private javax.swing.JLabel lblD8;
+    private javax.swing.JLabel lblD9;
     private javax.swing.JLabel lblE1;
+    private javax.swing.JLabel lblE10;
+    private javax.swing.JLabel lblE11;
+    private javax.swing.JLabel lblE12;
+    private javax.swing.JLabel lblE13;
+    private javax.swing.JLabel lblE14;
+    private javax.swing.JLabel lblE15;
+    private javax.swing.JLabel lblE16;
     private javax.swing.JLabel lblE2;
     private javax.swing.JLabel lblE3;
     private javax.swing.JLabel lblE4;
     private javax.swing.JLabel lblE5;
+    private javax.swing.JLabel lblE6;
+    private javax.swing.JLabel lblE7;
+    private javax.swing.JLabel lblE8;
+    private javax.swing.JLabel lblE9;
     private javax.swing.JLabel lblF1;
+    private javax.swing.JLabel lblF10;
+    private javax.swing.JLabel lblF11;
+    private javax.swing.JLabel lblF12;
+    private javax.swing.JLabel lblF13;
+    private javax.swing.JLabel lblF14;
+    private javax.swing.JLabel lblF15;
+    private javax.swing.JLabel lblF16;
     private javax.swing.JLabel lblF2;
     private javax.swing.JLabel lblF3;
     private javax.swing.JLabel lblF4;
     private javax.swing.JLabel lblF5;
+    private javax.swing.JLabel lblF6;
+    private javax.swing.JLabel lblF7;
+    private javax.swing.JLabel lblF8;
+    private javax.swing.JLabel lblF9;
     private javax.swing.JLabel lblG1;
+    private javax.swing.JLabel lblG10;
+    private javax.swing.JLabel lblG11;
+    private javax.swing.JLabel lblG12;
+    private javax.swing.JLabel lblG13;
+    private javax.swing.JLabel lblG14;
+    private javax.swing.JLabel lblG15;
+    private javax.swing.JLabel lblG16;
     private javax.swing.JLabel lblG2;
     private javax.swing.JLabel lblG3;
     private javax.swing.JLabel lblG4;
     private javax.swing.JLabel lblG5;
+    private javax.swing.JLabel lblG6;
+    private javax.swing.JLabel lblG7;
+    private javax.swing.JLabel lblG8;
+    private javax.swing.JLabel lblG9;
     private javax.swing.JLabel lblH1;
+    private javax.swing.JLabel lblH10;
+    private javax.swing.JLabel lblH11;
+    private javax.swing.JLabel lblH12;
+    private javax.swing.JLabel lblH13;
+    private javax.swing.JLabel lblH14;
+    private javax.swing.JLabel lblH15;
+    private javax.swing.JLabel lblH16;
     private javax.swing.JLabel lblH2;
     private javax.swing.JLabel lblH3;
     private javax.swing.JLabel lblH4;
     private javax.swing.JLabel lblH5;
+    private javax.swing.JLabel lblH6;
+    private javax.swing.JLabel lblH7;
+    private javax.swing.JLabel lblH8;
+    private javax.swing.JLabel lblH9;
     private javax.swing.JTextPane txtHorario;
     private javax.swing.JTextPane txtPelicula;
     // End of variables declaration//GEN-END:variables
