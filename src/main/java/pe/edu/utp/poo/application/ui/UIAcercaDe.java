@@ -35,6 +35,8 @@ public class UIAcercaDe extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -55,15 +57,19 @@ public class UIAcercaDe extends javax.swing.JInternalFrame {
 
         jLabel4.setText("U24314208");
 
-        jLabel5.setText("UXXX");
+        jLabel5.setText("U23250430");
 
-        jLabel6.setText("UXXX");
+        jLabel6.setText("U23217129");
 
-        jLabel7.setText("Manuel E. E. Guarniz Cruz");
+        jLabel7.setText("Manuel Elmer Esteban Guarniz Cruz");
 
-        jLabel11.setText("XXXX");
+        jLabel11.setText("Gian Carlo Gamboa Villanueva");
 
-        jLabel12.setText("XXXX");
+        jLabel12.setText("Sergio Alberto Rodriguez Espinoza");
+
+        jLabel13.setText("U23201661");
+
+        jLabel14.setText("Mequias Axcel Tapia Chacon ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -82,7 +88,11 @@ public class UIAcercaDe extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel7))))
+                            .addComponent(jLabel7)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel14)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -102,7 +112,11 @@ public class UIAcercaDe extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel12))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -192,6 +206,8 @@ public class UIAcercaDe extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
