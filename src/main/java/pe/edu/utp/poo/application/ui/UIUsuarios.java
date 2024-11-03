@@ -19,7 +19,7 @@ import pe.edu.utp.poo.application.pojo.Usuario;
 public class UIUsuarios extends javax.swing.JInternalFrame {
     
     private String idUsuarioSeleccionado;
-    private UsuarioLogica usuarioLogica;
+    private final UsuarioLogica usuarioLogica;
 
     /**
      * Creates new form UIUsuarios
@@ -36,7 +36,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
         tableModel.setRowCount(0);
         
-        List<Usuario> usuarios = this.usuarioLogica.listaUsuarios();
+        List<Usuario> usuarios = this.usuarioLogica.listar();
         usuarios.forEach(e -> {
             tableModel.addRow(new Object[] {
                 e,
@@ -156,7 +156,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
                         "Confirmar para eliminar", JOptionPane.YES_NO_OPTION);
         
         if (JOptionPane.YES_OPTION == quiereEliminar) {
-            this.usuarioLogica.elimiarUsuario(usuario.getId());
+            this.usuarioLogica.eliminar(usuario.getId());
 
             JOptionPane.showMessageDialog(this, "Registro eliminado con éxito!");
             limpiarCampos();

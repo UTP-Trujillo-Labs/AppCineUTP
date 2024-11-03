@@ -13,22 +13,25 @@ import pe.edu.utp.poo.application.pojo.Usuario;
  *
  * @author manuelguarniz
  */
-public class UsuarioLogica {
-    private Database db;
+public class UsuarioLogica implements ICRUDLogica<Usuario> {
+    private final Database db;
     
     public UsuarioLogica() {
         this.db = new Database();
     }
     
-    public List<Usuario> listaUsuarios() {
+    @Override
+    public List<Usuario> listar() {
         return this.db.listaUsuarios();
     }
     
-    public Usuario getUsuario(String id) {
+    @Override
+    public Usuario obtenerPorId(String id) {
         return this.db.obtenerUsuario(id);
     }
     
-    public Usuario guardarUsuario(Usuario usuario) throws RuntimeException {
+    @Override
+    public Usuario guardar(Usuario usuario) throws RuntimeException {
         if (usuario.getId() == null || "".equalsIgnoreCase(usuario.getId())) {
             usuario.setUsuarioAcceso(autogenerarUsuario(usuario));
             usuario.setClaveAcceso(Util.generateShortUUID());
@@ -43,7 +46,8 @@ public class UsuarioLogica {
         }
     }
     
-    public boolean elimiarUsuario(String id) {
+    @Override
+    public boolean eliminar(String id) {
         Usuario usuario = this.db.obtenerUsuario(id);
         if (usuario == null) {
             throw new RuntimeException("Usuario no existe");

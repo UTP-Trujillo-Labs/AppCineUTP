@@ -82,6 +82,6 @@ public class Usuario extends Persona implements Mantenimiento<Usuario>{
 
     @Override
     public Usuario guardar() {
-        return usuarioLogica.guardarUsuario(this);
+        return usuarioLogica.guardar(this);
     }
 }

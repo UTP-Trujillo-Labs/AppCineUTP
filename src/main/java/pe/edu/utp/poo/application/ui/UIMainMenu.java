@@ -88,6 +88,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmiAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cine UTP APP");
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         javax.swing.GroupLayout jdpMainLayout = new javax.swing.GroupLayout(jdpMain);
