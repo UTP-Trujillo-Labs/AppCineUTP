@@ -15,6 +15,8 @@
                 <Property name="actionCommand" type="java.lang.String" value="ui_inicio_perfil"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmiSalir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
@@ -45,8 +47,27 @@
         <Menu class="javax.swing.JMenu" name="jmiBoleteria">
           <Properties>
             <Property name="text" type="java.lang.String" value="Boleteria"/>
-            <Property name="actionCommand" type="java.lang.String" value="ui_boleteria"/>
+            <Property name="actionCommand" type="java.lang.String" value="ui_boleteria_nuevo"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiBoleteriaNuevo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nueva Venta"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiBoleteriaMantenimiento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mantenimiento"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_boleteria_mantenimiento"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiBoleteriaButacas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Butacas (Tmp)"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_boleteria_butacas"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmHelp">
           <Properties>

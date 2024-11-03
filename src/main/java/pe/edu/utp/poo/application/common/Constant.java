@@ -15,6 +15,9 @@ public class Constant {
     public static final String UI_MANTENIMIENTO_PELICULAS = "ui_mantenimiento_peliculas";
     public static final String UI_INICIO_PERFIL = "ui_inicio_perfil";
     public static final String UI_INICIO_SALIR = "ui_inicio_salir";
+    public static final String UI_BOLETERIA_NUEVO = "ui_boleteria_nuevo";
+    public static final String UI_BOLETERIA_MANTENIMIENTO = "ui_boleteria_mantenimiento";
+    public static final String UI_BOLETERIA_BUTACAS = "ui_boleteria_butacas";
     
     
     public static final String  DEFAULT_LOCALDATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";

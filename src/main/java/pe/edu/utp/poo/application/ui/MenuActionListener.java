@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JDesktopPane;
 import static pe.edu.utp.poo.application.common.Constant.UI_INICIO_SALIR;
 import static pe.edu.utp.poo.application.common.Constant.UI_AYUDA_ACERCA_DE;
+import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_BUTACAS;
+import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_MANTENIMIENTO;
+import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_NUEVO;
 import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_PELICULAS;
 import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_USUARIOS;
 
@@ -18,12 +21,13 @@ import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_USUARI
  * @author manuelguarniz
  */
 public class MenuActionListener implements ActionListener {
+
     private final JDesktopPane mainPanel;
     private UIAcercaDe uiAcercaDe;
     private UIUsuarios uiUsuarios;
     private UIPeliculas uiPelicula;
-            
-    
+    private UISeleccionButacas uiSeleccionButacas;
+
     public MenuActionListener(JDesktopPane panel) {
         this.mainPanel = panel;
     }
@@ -39,18 +43,19 @@ public class MenuActionListener implements ActionListener {
                 uiUsuarios = new UIUsuarios();
                 mainPanel.add(uiUsuarios).setVisible(true);
             }
-            
             case UI_MANTENIMIENTO_PELICULAS -> {
-            
                 uiPelicula=new UIPeliculas();
                 mainPanel.add(uiPelicula).setVisible(true);
             }
-            
+            case UI_BOLETERIA_BUTACAS -> {
+                uiSeleccionButacas = new UISeleccionButacas();
+                mainPanel.add(uiSeleccionButacas).setVisible(true);
+            }
             case UI_INICIO_SALIR -> System.exit(0);
             
             
             default -> System.out.println("No action");
         }
     }
-    
+
 }

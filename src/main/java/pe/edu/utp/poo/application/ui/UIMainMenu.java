@@ -30,6 +30,9 @@ public class UIMainMenu extends javax.swing.JFrame {
         menuActionListener = new MenuActionListener(jdpMain);
         jmiAcercaDe.addActionListener(menuActionListener);
         jmiBoleteria.addActionListener(menuActionListener);
+        jmiBoleteriaNuevo.addActionListener(menuActionListener);
+        jmiBoleteriaMantenimiento.addActionListener(menuActionListener);
+        jmiBoleteriaButacas.addActionListener(menuActionListener);
         jmiPeliculas.addActionListener(menuActionListener);
         jmiSalir.addActionListener(menuActionListener);
         jmiUsuarios.addActionListener(menuActionListener);
@@ -72,11 +75,15 @@ public class UIMainMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmuPerfil = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmiSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmiUsuarios = new javax.swing.JMenuItem();
         jmiPeliculas = new javax.swing.JMenuItem();
         jmiBoleteria = new javax.swing.JMenu();
+        jmiBoleteriaNuevo = new javax.swing.JMenuItem();
+        jmiBoleteriaMantenimiento = new javax.swing.JMenuItem();
+        jmiBoleteriaButacas = new javax.swing.JMenuItem();
         jmHelp = new javax.swing.JMenu();
         jmiAcercaDe = new javax.swing.JMenuItem();
 
@@ -163,6 +170,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmuPerfil.setText("Perfil");
         jmuPerfil.setActionCommand("ui_inicio_perfil");
         jMenu1.add(jmuPerfil);
+        jMenu1.add(jSeparator1);
 
         jmiSalir.setText("Salir");
         jmiSalir.setActionCommand("ui_inicio_salir");
@@ -183,7 +191,19 @@ public class UIMainMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jmiBoleteria.setText("Boleteria");
-        jmiBoleteria.setActionCommand("ui_boleteria");
+        jmiBoleteria.setActionCommand("ui_boleteria_nuevo");
+
+        jmiBoleteriaNuevo.setText("Nueva Venta");
+        jmiBoleteria.add(jmiBoleteriaNuevo);
+
+        jmiBoleteriaMantenimiento.setText("Mantenimiento");
+        jmiBoleteriaMantenimiento.setActionCommand("ui_boleteria_mantenimiento");
+        jmiBoleteria.add(jmiBoleteriaMantenimiento);
+
+        jmiBoleteriaButacas.setText("Butacas (Tmp)");
+        jmiBoleteriaButacas.setActionCommand("ui_boleteria_butacas");
+        jmiBoleteria.add(jmiBoleteriaButacas);
+
         jMenuBar1.add(jmiBoleteria);
 
         jmHelp.setText("Ayuda");
@@ -220,10 +240,14 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JDesktopPane jdpMain;
     private javax.swing.JMenu jmHelp;
     private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenu jmiBoleteria;
+    private javax.swing.JMenuItem jmiBoleteriaButacas;
+    private javax.swing.JMenuItem jmiBoleteriaMantenimiento;
+    private javax.swing.JMenuItem jmiBoleteriaNuevo;
     private javax.swing.JMenuItem jmiPeliculas;
     private javax.swing.JMenuItem jmiSalir;
     private javax.swing.JMenuItem jmiUsuarios;
