@@ -4,6 +4,7 @@
 
 package pe.edu.utp.poo.application;
 
+import pe.edu.utp.poo.application.ui.Acceso;
 import pe.edu.utp.poo.application.ui.UIMainMenu;
 
 /**
@@ -17,7 +18,8 @@ public class AppCineUTP {
      */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            UIMainMenu uiMain = new UIMainMenu();
+            //UIMainMenu uiMain = new UIMainMenu();
+            Acceso uiMain = new Acceso();
             uiMain.setVisible(true);
             uiMain.setLocationRelativeTo(null);
         });
