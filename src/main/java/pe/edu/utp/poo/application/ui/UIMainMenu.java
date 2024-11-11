@@ -52,7 +52,7 @@ public class UIMainMenu extends javax.swing.JFrame {
     
     private void setLocalTime() {
         LocalDateTime now = LocalDateTime.now();
-        lblLocalTime.setText(Util.parseDate(now));
+        lblLocalTime.setText(Util.dateToString(now));
     }
     
 

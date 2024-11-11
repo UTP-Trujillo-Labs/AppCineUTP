@@ -27,6 +27,7 @@ public class MenuActionListener implements ActionListener {
     private UIUsuarios uiUsuarios;
     private UIPeliculas uiPelicula;
     private UISeleccionButacas uiSeleccionButacas;
+    private UIMantenimientoBoleteria uiMantenimientoBoleteria;
 
     public MenuActionListener(JDesktopPane panel) {
         this.mainPanel = panel;
@@ -50,6 +51,10 @@ public class MenuActionListener implements ActionListener {
             case UI_BOLETERIA_BUTACAS -> {
                 uiSeleccionButacas = new UISeleccionButacas();
                 mainPanel.add(uiSeleccionButacas).setVisible(true);
+            }
+            case UI_BOLETERIA_MANTENIMIENTO -> {
+                uiMantenimientoBoleteria = new UIMantenimientoBoleteria();
+                mainPanel.add(uiMantenimientoBoleteria).setVisible(true);
             }
             case UI_INICIO_SALIR -> System.exit(0);
             
