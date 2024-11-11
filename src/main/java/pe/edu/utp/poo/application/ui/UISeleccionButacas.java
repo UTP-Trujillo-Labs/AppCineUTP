@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import pe.edu.utp.poo.application.enums.EstadoBustacaEnum;
 import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Disponible;
 import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.NULL;
+import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Ocupado;
 
 /**
  *
@@ -33,11 +34,11 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         butacas.put("A", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
         butacas.put("B", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
         butacas.put("C", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("D", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("E", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("F", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("D", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Ocupado, Ocupado, Ocupado, Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("E", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Ocupado, Ocupado, Ocupado, Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("F", new EstadoBustacaEnum[] {Ocupado, Ocupado, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
         butacas.put("G", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("H", new EstadoBustacaEnum[] {Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible});
+        butacas.put("H", new EstadoBustacaEnum[] {Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Ocupado, Ocupado});
 
     }
     
