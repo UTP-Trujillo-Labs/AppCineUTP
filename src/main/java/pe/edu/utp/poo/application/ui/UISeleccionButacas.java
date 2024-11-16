@@ -5,7 +5,9 @@
 package pe.edu.utp.poo.application.ui;
 
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import pe.edu.utp.poo.application.enums.EstadoBustacaEnum;
@@ -19,6 +21,7 @@ import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Ocupado;
  */
 public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private Map<String, EstadoBustacaEnum[]> butacas = new HashMap<>();
+    private List<String> butacasSeleccionadas = new ArrayList<>();
 
     /**
      * Creates new form UISeleccionButacas
@@ -70,15 +73,25 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private void seleccionarButaca(java.awt.event.MouseEvent evt) {
         javax.swing.JLabel label = (javax.swing.JLabel) evt.getSource();
         EstadoBustacaEnum estadoActual = EstadoBustacaEnum.parseEnum(label.getBackground());
+        String numeroButaca = label.getText();
+        Integer butacasAdulto = (int) txtButacasAdulto.getValue();
+        Integer butacasNino = (int) txtButacasNino.getValue();
+        
+        if (butacasSeleccionadas.size() >= (butacasAdulto + butacasNino)) {
+            JOptionPane.showMessageDialog(this, "Ya seleccionaste todas las butacas compradas");
+            return;
+        }
         
         switch (estadoActual) {
             case Disponible -> {
                 label.setBackground(EstadoBustacaEnum.Seleccion.getColor());
                 label.setForeground(EstadoBustacaEnum.Seleccion.getColor());
+                this.butacasSeleccionadas.add(numeroButaca);
             }
             case Seleccion -> {
                 label.setBackground(EstadoBustacaEnum.Disponible.getColor());
                 label.setForeground(EstadoBustacaEnum.Disponible.getColor());
+                this.butacasSeleccionadas.remove(numeroButaca);
             }
             default -> {
                 JOptionPane.showMessageDialog(this, "La butaca está ocupada");
@@ -87,17 +100,18 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     }
     
     private void continuar() {
-        Component[] component = jplButacas.getComponents();
-        for (Component c : component) {
-            if (c instanceof javax.swing.JLabel) {
-                javax.swing.JLabel label = (javax.swing.JLabel) c;
-                EstadoBustacaEnum estadoActual = EstadoBustacaEnum.parseEnum(label.getBackground());
-                
-                if (EstadoBustacaEnum.Seleccion.equals(estadoActual)) {
-                    System.out.println("Butaca seleccionada: " + label.getText());
-                }
-            }
-        }
+        this.butacasSeleccionadas.forEach(e -> System.out.println("Butaca seleccionada: " + e));
+//        Component[] component = jplButacas.getComponents();
+//        for (Component c : component) {
+//            if (c instanceof javax.swing.JLabel) {
+//                javax.swing.JLabel label = (javax.swing.JLabel) c;
+//                EstadoBustacaEnum estadoActual = EstadoBustacaEnum.parseEnum(label.getBackground());
+//                
+//                if (EstadoBustacaEnum.Seleccion.equals(estadoActual)) {
+//                    System.out.println("Butaca seleccionada: " + label.getText());
+//                }
+//            }
+//        }
     }
     
     private void reiniciar() {
@@ -124,8 +138,8 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         txtPelicula = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        txtButacasAdulto = new javax.swing.JSpinner();
+        txtButacasNino = new javax.swing.JSpinner();
         jPanel5 = new javax.swing.JPanel();
         btnContinuar = new javax.swing.JButton();
         btnReiniciar = new javax.swing.JButton();
@@ -320,6 +334,11 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Adulto:");
 
+        txtButacasAdulto.setModel(new javax.swing.SpinnerNumberModel(0, null, 20, 1));
+
+        txtButacasNino.setModel(new javax.swing.SpinnerNumberModel(0, null, 20, 1));
+        txtButacasNino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -336,11 +355,11 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtButacasAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtButacasNino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -349,9 +368,9 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtButacasAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)
-                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtButacasNino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
@@ -2929,8 +2948,6 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JPanel jplButacas;
     private javax.swing.JLabel lblA1;
     private javax.swing.JLabel lblA10;
@@ -3060,6 +3077,8 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblH7;
     private javax.swing.JLabel lblH8;
     private javax.swing.JLabel lblH9;
+    private javax.swing.JSpinner txtButacasAdulto;
+    private javax.swing.JSpinner txtButacasNino;
     private javax.swing.JTextPane txtHorario;
     private javax.swing.JTextPane txtPelicula;
     // End of variables declaration//GEN-END:variables

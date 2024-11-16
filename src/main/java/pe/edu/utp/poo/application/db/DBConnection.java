@@ -98,6 +98,28 @@ public class DBConnection {
         return data;
     }
     
+    public Map<String, Object> single() throws SQLException {
+        Map<String, Object> data = new HashMap<>();
+        ResultSet resultSet = statement.executeQuery();
+        System.out.println("query: " + statement);
+        
+        ResultSetMetaData metadata = resultSet.getMetaData();
+        
+        int countColumns = metadata.getColumnCount();
+        String[] columnas = new String[countColumns];
+        
+        for (int index = 0; index < countColumns; index++) {
+            columnas[index] = metadata.getColumnName(index + 1);
+        }
+        
+        resultSet.next();
+
+        for (int index = 0; index < countColumns; index++) {
+            data.put(columnas[index], resultSet.getObject(index + 1));
+        }
+        return data;
+    }
+
     public Integer save() throws SQLException {
         int count = statement.executeUpdate();
         return count;

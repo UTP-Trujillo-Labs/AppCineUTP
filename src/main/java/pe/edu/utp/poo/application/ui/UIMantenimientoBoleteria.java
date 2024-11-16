@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static pe.edu.utp.poo.application.common.Constant.DEFAULT_ELEMENTOS_POR_PAGINA;
+import pe.edu.utp.poo.application.model.Paginacion;
 import pe.edu.utp.poo.application.model.Venta;
 import pe.edu.utp.poo.application.repository.VentaRepositorio;
 
@@ -21,7 +22,7 @@ import pe.edu.utp.poo.application.repository.VentaRepositorio;
  */
 public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
 
-    private List<Venta> ventas = new ArrayList<>();
+//    private List<Venta> ventas = new ArrayList<>();
     private final int maxElements = DEFAULT_ELEMENTOS_POR_PAGINA;
     private Paginacion<Venta> paginacionVenta;
 
@@ -30,96 +31,24 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
      */
     public UIMantenimientoBoleteria() {
         initComponents();
-//        poblarDB();
-        cargarDatos();
-        cargarTabla(0, maxElements);
+        cargarDatos(0, maxElements);
     }
-    
-    private void poblarDB() {
-        try {
-            List<Venta> list = new ArrayList<>();
-            Double precio = 17.0;
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 1, precio * 1));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 4, precio * 4));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 4, precio * 4));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 5, precio * 5));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 1, precio * 1));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 1, precio * 1));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
-            TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
 
-            for (Venta v : list) {
-                VentaRepositorio.getInstance().save(v);
+    private void cargarDatos(int offset, int maximoElementos) {
+        try {
+            if (offset < 0 || (paginacionVenta != null && offset > paginacionVenta.getTotalElementos())) {
+                return;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    private void cargarDatos() {
-        try {
-            ventas = VentaRepositorio.getInstance().findAll();
+            paginacionVenta = VentaRepositorio.getInstance().paginacion(offset, maximoElementos);
+            cargarTabla(paginacionVenta);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "No se cargaron los datos correctamente");
         }
     }
 
-    private void cargarTabla(int offset, int maxElements) {
+    private void cargarTabla(Paginacion<Venta> paginacionVenta) {
         DefaultTableModel tableModel = (DefaultTableModel) tbVentas.getModel();
 
-        paginacionVenta = obtenerDataPaginada(offset, maxElements);
-        
         if (paginacionVenta == null) {
             return;
         } else if (paginacionVenta.getTotalElementos() == 0) {
@@ -144,24 +73,6 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
         actualizarPaginacion(paginacionVenta);
     }
 
-    private Paginacion<Venta> obtenerDataPaginada(int offset, int maximoElementos) {
-        int ultimoElemento = offset + maximoElementos;
-        List<Venta> newList = new ArrayList<>();
-        if (offset < 0) {
-            return paginacionVenta;
-        }
-        if (offset + maximoElementos > ventas.size()) {
-            ultimoElemento = ventas.size();
-        }
-        if (offset < ventas.size()) {
-            newList = ventas.subList(offset, ultimoElemento);
-        } else {
-            return paginacionVenta;
-        }
-
-        return new Paginacion<>(ventas.size(), offset, maximoElementos, newList);
-    }
-
     private void actualizarPaginacion(Paginacion<Venta> paginacion) {
         lblTotalElementos.setText(String.valueOf(paginacion.getTotalElementos()));
         lblPaginaActual.setText(String.valueOf(paginacion.paginaActual()));
@@ -173,7 +84,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
             return;
         }
         int newOffset = paginacionVenta.getOffset() - paginacionVenta.getMaxElementoPorPagina();
-        cargarTabla(newOffset, paginacionVenta.getMaxElementoPorPagina());
+        cargarDatos(newOffset, paginacionVenta.getMaxElementoPorPagina());
     }
 
     private void paginaSiguiente() {
@@ -181,7 +92,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
             return;
         }
         int newOffset = paginacionVenta.getOffset() + paginacionVenta.getMaxElementoPorPagina();
-        cargarTabla(newOffset, paginacionVenta.getMaxElementoPorPagina());
+        cargarDatos(newOffset, paginacionVenta.getMaxElementoPorPagina());
     }
     
     private void actualizarTabla() {
@@ -199,8 +110,8 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
             e.printStackTrace();
         }
         
-        cargarDatos();
-        cargarTabla(paginacionVenta.getOffset(), paginacionVenta.getMaxElementoPorPagina());
+//        cargarDatos();
+        cargarDatos(paginacionVenta.getOffset(), paginacionVenta.getMaxElementoPorPagina());
     }
 
     /**
@@ -462,6 +373,78 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
         actualizarTabla();
     }//GEN-LAST:event_btnVerDetalle1ActionPerformed
 
+    
+    private void poblarDB() {
+        try {
+            List<Venta> list = new ArrayList<>();
+            Double precio = 17.0;
+            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 1, precio * 1));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 4, precio * 4));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 4, precio * 4));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 5, precio * 5));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 1, precio * 1));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 1, precio * 1));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
+            TimeUnit.SECONDS.sleep(1);
+            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+
+            for (Venta v : list) {
+                VentaRepositorio.getInstance().save(v);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPaginaAnterior;
@@ -485,68 +468,68 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbVentas;
     // End of variables declaration//GEN-END:variables
 }
-
-class Paginacion<T> {
-
-    private Integer totalElementos = 0;
-    private Integer offset = 0;
-    private Integer maxElementoPorPagina = DEFAULT_ELEMENTOS_POR_PAGINA;
-    private List<T> elementos = new ArrayList<>();
-
-    public Paginacion() { }
-    public Paginacion(Integer totalElementos, Integer offset, Integer maxElementoPorPagina, List<T> elementos) {
-        this.totalElementos = totalElementos;
-        this.offset = offset;
-        this.maxElementoPorPagina = maxElementoPorPagina;
-        this.elementos = elementos;
-    }
-
-    public Integer getTotalElementos() {
-        return totalElementos;
-    }
-
-    public void setTotalElementos(Integer totalElementos) {
-        this.totalElementos = totalElementos;
-    }
-
-    public Integer getOffset() {
-        return offset;
-    }
-
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public List<T> getElementos() {
-        return elementos;
-    }
-
-    public void setElementos(List<T> elementos) {
-        this.elementos = elementos;
-    }
-
-    public Integer getMaxElementoPorPagina() {
-        return maxElementoPorPagina;
-    }
-
-    public void setMaxElementoPorPagina(Integer maxElementoPorPagina) {
-        this.maxElementoPorPagina = maxElementoPorPagina;
-    }
-
-    public int totalPaginas() {
-        if (maxElementoPorPagina == 0 || totalElementos == 0) {
-            return 0;
-        }
-        return (int) Math.ceil(this.totalElementos / (double) this.maxElementoPorPagina);
-    }
-
-    public int paginaActual() {
-        if (this.offset == 0 || this.maxElementoPorPagina == 0 || this.offset < this.maxElementoPorPagina) {
-            return 1;
-        }
-        return (this.offset / this.maxElementoPorPagina) + 1;
-    }
-}
+//
+//class Paginacion<T> {
+//
+//    private Integer totalElementos = 0;
+//    private Integer offset = 0;
+//    private Integer maxElementoPorPagina = DEFAULT_ELEMENTOS_POR_PAGINA;
+//    private List<T> elementos = new ArrayList<>();
+//
+//    public Paginacion() { }
+//    public Paginacion(Integer totalElementos, Integer offset, Integer maxElementoPorPagina, List<T> elementos) {
+//        this.totalElementos = totalElementos;
+//        this.offset = offset;
+//        this.maxElementoPorPagina = maxElementoPorPagina;
+//        this.elementos = elementos;
+//    }
+//
+//    public Integer getTotalElementos() {
+//        return totalElementos;
+//    }
+//
+//    public void setTotalElementos(Integer totalElementos) {
+//        this.totalElementos = totalElementos;
+//    }
+//
+//    public Integer getOffset() {
+//        return offset;
+//    }
+//
+//    public void setOffset(Integer offset) {
+//        this.offset = offset;
+//    }
+//
+//    public List<T> getElementos() {
+//        return elementos;
+//    }
+//
+//    public void setElementos(List<T> elementos) {
+//        this.elementos = elementos;
+//    }
+//
+//    public Integer getMaxElementoPorPagina() {
+//        return maxElementoPorPagina;
+//    }
+//
+//    public void setMaxElementoPorPagina(Integer maxElementoPorPagina) {
+//        this.maxElementoPorPagina = maxElementoPorPagina;
+//    }
+//
+//    public int totalPaginas() {
+//        if (maxElementoPorPagina == 0 || totalElementos == 0) {
+//            return 0;
+//        }
+//        return (int) Math.ceil(this.totalElementos / (double) this.maxElementoPorPagina);
+//    }
+//
+//    public int paginaActual() {
+//        if (this.offset == 0 || this.maxElementoPorPagina == 0 || this.offset < this.maxElementoPorPagina) {
+//            return 1;
+//        }
+//        return (this.offset / this.maxElementoPorPagina) + 1;
+//    }
+//}
 
 //class Venta {
 //

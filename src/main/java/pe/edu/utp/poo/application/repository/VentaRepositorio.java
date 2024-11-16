@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import pe.edu.utp.poo.application.db.DBConnection;
+import pe.edu.utp.poo.application.model.Paginacion;
 import pe.edu.utp.poo.application.model.Venta;
 
 /**
@@ -39,7 +40,26 @@ public class VentaRepositorio extends CRUDRepository<Venta>{
         return lista;
     }
     
-    
+    public Paginacion<Venta> paginacion(int offset, int numeroElementos) throws SQLException {
+        DBConnection connection = DBConnection.getInstance()
+                .connect();
+        Long refTotalRows = 0l;
+        
+        Map<String, Object> metadata = connection.query("select count(*) totalFilas from Venta").single();
+        
+        Integer totalFilas = metadata.containsKey("totalFilas") ? (int) metadata.get("totalFilas") : 0;
+        
+        List<Map<String, Object>> data = connection
+                .query("select fecha_venta, pelicula, horario, total_asientos, precio_total " +
+                        "from Venta " +
+                        "order by fecha_venta desc " +
+                        "offset ? rows " +
+                        "fetch next ? rows only")
+                .params(offset, numeroElementos)
+                .get();
+        List<Venta> lista = this.binding(data, Venta.class);
+        return new Paginacion<>(totalFilas, offset, numeroElementos, lista);
+    }
     
     public Venta save(Venta venta) throws SQLException {
         int result = DBConnection.getInstance()
