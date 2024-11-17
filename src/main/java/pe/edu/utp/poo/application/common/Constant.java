@@ -19,7 +19,7 @@ public class Constant {
     public static final String UI_BOLETERIA_MANTENIMIENTO = "ui_boleteria_mantenimiento";
     public static final String UI_BOLETERIA_BUTACAS = "ui_boleteria_butacas";
     
-    public static final Integer DEFAULT_ELEMENTOS_POR_PAGINA = 5;
+    public static final Integer DEFAULT_ELEMENTOS_POR_PAGINA = 17;
     
     public static final String  DEFAULT_LOCALDATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String  SHORT_LOCALDATETIME_FORMAT = "yyyy-MM-dd";

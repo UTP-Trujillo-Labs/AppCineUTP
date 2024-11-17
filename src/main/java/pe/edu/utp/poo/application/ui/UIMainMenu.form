@@ -53,6 +53,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jmiBoleteriaNuevo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nueva Venta"/>
+                <Property name="actionCommand" type="java.lang.String" value="ui_boleteria_nuevo"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmiBoleteriaMantenimiento">

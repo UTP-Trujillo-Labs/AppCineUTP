@@ -223,9 +223,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbVentas.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tbVentas);
-        tbVentas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tbVentas.getColumnModel().getColumnCount() > 0) {
             tbVentas.getColumnModel().getColumn(0).setMinWidth(0);
             tbVentas.getColumnModel().getColumn(0).setPreferredWidth(0);
