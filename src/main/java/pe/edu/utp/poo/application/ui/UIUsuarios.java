@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.utp.poo.application.common.Util;
+import pe.edu.utp.poo.application.db.Database;
 import pe.edu.utp.poo.application.enums.RolesEnum;
 import pe.edu.utp.poo.application.lib.UsuarioLogica;
 import pe.edu.utp.poo.application.pojo.Usuario;
@@ -20,13 +21,14 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
     
     private String idUsuarioSeleccionado;
     private final UsuarioLogica usuarioLogica;
+    private final Database database = new Database();
 
     /**
      * Creates new form UIUsuarios
      */
     public UIUsuarios() {
         initComponents();
-        this.usuarioLogica = new UsuarioLogica();
+        this.usuarioLogica = new UsuarioLogica(database);
         cargarDatos();
         desabilitarControles(true);
     }

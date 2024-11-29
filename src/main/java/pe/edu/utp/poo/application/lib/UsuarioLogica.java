@@ -16,8 +16,8 @@ import pe.edu.utp.poo.application.pojo.Usuario;
 public class UsuarioLogica implements ICRUDLogica<Usuario> {
     private final Database db;
     
-    public UsuarioLogica() {
-        this.db = new Database();
+    public UsuarioLogica(Database db) {
+        this.db = db;
     }
     
     @Override
