@@ -5,18 +5,17 @@
 package pe.edu.utp.poo.application.repository;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import pe.edu.utp.poo.application.db.DBConnection;
 import pe.edu.utp.poo.application.model.Paginacion;
-import pe.edu.utp.poo.application.model.Venta;
+import pe.edu.utp.poo.application.model.VentasDemo;
 
 /**
  *
  * @author manuelguarniz
  */
-public class VentaRepositorio extends CRUDRepository<Venta>{
+public class VentaRepositorio extends CRUDRepository<VentasDemo>{
     private static VentaRepositorio instance;
     public VentaRepositorio() {
     }
@@ -26,7 +25,7 @@ public class VentaRepositorio extends CRUDRepository<Venta>{
         }
         return instance;
     }
-    public List<Venta> findAll() throws SQLException {
+    public List<VentasDemo> findAll() throws SQLException {
         
         List<Map<String, Object>> data = DBConnection.getInstance()
                 .connect()
@@ -36,11 +35,11 @@ public class VentaRepositorio extends CRUDRepository<Venta>{
 //                        + "where total_asientos = ? and horario = ?")
 //                .params(3, "7pm")
                 .get();
-        List<Venta> lista = this.binding(data, Venta.class);
+        List<VentasDemo> lista = this.binding(data, VentasDemo.class);
         return lista;
     }
     
-    public Paginacion<Venta> paginacion(int offset, int numeroElementos) throws SQLException {
+    public Paginacion<VentasDemo> paginacion(int offset, int numeroElementos) throws SQLException {
         DBConnection connection = DBConnection.getInstance()
                 .connect();
         Long refTotalRows = 0l;
@@ -57,25 +56,25 @@ public class VentaRepositorio extends CRUDRepository<Venta>{
                         "fetch next ? rows only")
                 .params(offset, numeroElementos)
                 .get();
-        List<Venta> lista = this.binding(data, Venta.class);
+        List<VentasDemo> lista = this.binding(data, VentasDemo.class);
         return new Paginacion<>(totalFilas, offset, numeroElementos, lista);
     }
     
-    public Venta save(Venta venta) throws SQLException {
+    public VentasDemo save(VentasDemo ventasDemo) throws SQLException {
         int result = DBConnection.getInstance()
                 .connect()
                 .query("insert into Venta (fecha_venta, pelicula, horario, total_asientos, precio_total) " +
                         "values (?, ?, ?, ?, ?)")
-                .params(venta.getFechaVenta(),
-                        venta.getPelicula(),
-                        venta.getHorario(),
-                        venta.getTotalAsientos(),
-                        venta.getPrecioTotal())
+                .params(ventasDemo.getFechaVenta(),
+                        ventasDemo.getPelicula(),
+                        ventasDemo.getHorario(),
+                        ventasDemo.getTotalAsientos(),
+                        ventasDemo.getPrecioTotal())
                 .save();
                 
         if (result <= 0) {
             throw new RuntimeException("No se guardó");
         }
-        return venta;
+        return ventasDemo;
     }
 }

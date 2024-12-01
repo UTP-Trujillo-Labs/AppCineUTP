@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static pe.edu.utp.poo.application.common.Constant.DEFAULT_ELEMENTOS_POR_PAGINA;
 import pe.edu.utp.poo.application.model.Paginacion;
-import pe.edu.utp.poo.application.model.Venta;
+import pe.edu.utp.poo.application.model.VentasDemo;
 import pe.edu.utp.poo.application.repository.VentaRepositorio;
 
 /**
@@ -24,7 +24,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
 
 //    private List<Venta> ventas = new ArrayList<>();
     private final int maxElements = DEFAULT_ELEMENTOS_POR_PAGINA;
-    private Paginacion<Venta> paginacionVenta;
+    private Paginacion<VentasDemo> paginacionVenta;
 
     /**
      * Creates new form UIMantenimientoBoleteria
@@ -46,7 +46,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
         }
     }
 
-    private void cargarTabla(Paginacion<Venta> paginacionVenta) {
+    private void cargarTabla(Paginacion<VentasDemo> paginacionVenta) {
         DefaultTableModel tableModel = (DefaultTableModel) tbVentas.getModel();
 
         if (paginacionVenta == null) {
@@ -57,7 +57,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
         int index = paginacionVenta.getOffset();
 
         tableModel.setRowCount(0);
-        for (Venta e : paginacionVenta.getElementos()) {
+        for (VentasDemo e : paginacionVenta.getElementos()) {
             index++;
             tableModel.addRow(new Object[]{
                 e,
@@ -73,7 +73,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
         actualizarPaginacion(paginacionVenta);
     }
 
-    private void actualizarPaginacion(Paginacion<Venta> paginacion) {
+    private void actualizarPaginacion(Paginacion<VentasDemo> paginacion) {
         lblTotalElementos.setText(String.valueOf(paginacion.getTotalElementos()));
         lblPaginaActual.setText(String.valueOf(paginacion.paginaActual()));
         lblTotalPaginas.setText(String.valueOf(paginacion.totalPaginas()));
@@ -102,7 +102,7 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
         
         
         try {
-            Venta v = VentaRepositorio.getInstance().save(new Venta(LocalDateTime.now(), "Monito", "1am", 5, 17.5*5));
+            VentasDemo v = VentaRepositorio.getInstance().save(new VentasDemo(LocalDateTime.now(), "Monito", "1am", 5, 17.5*5));
             if (v != null) {
                 JOptionPane.showMessageDialog(this, "Se guardó con exito");
             }
@@ -374,67 +374,67 @@ public class UIMantenimientoBoleteria extends javax.swing.JInternalFrame {
     
     private void poblarDB() {
         try {
-            List<Venta> list = new ArrayList<>();
+            List<VentasDemo> list = new ArrayList<>();
             Double precio = 17.0;
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "8pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 1, precio * 1));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "8pm", 1, precio * 1));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 4, precio * 4));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "8pm", 4, precio * 4));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "6pm", 1, precio * 1));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "8pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "6pm", 4, precio * 4));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "6pm", 4, precio * 4));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Coco", "8pm", 5, precio * 5));
+            list.add(new VentasDemo(LocalDateTime.now(), "Coco", "8pm", 5, precio * 5));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 1, precio * 1));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "6pm", 1, precio * 1));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "6pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 1, precio * 1));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "8pm", 1, precio * 1));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "6pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Intensamente", "8pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "4pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "2pm", 3, precio * 3));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "5pm", 2, precio * 2));
             TimeUnit.SECONDS.sleep(1);
-            list.add(new Venta(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
+            list.add(new VentasDemo(LocalDateTime.now(), "Vivo", "2pm", 2, precio * 2));
 
-            for (Venta v : list) {
+            for (VentasDemo v : list) {
                 VentaRepositorio.getInstance().save(v);
             }
         } catch (SQLException e) {

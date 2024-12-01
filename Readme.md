@@ -45,7 +45,7 @@
 
 ![1729750610438](image/Readme/1729750610438.png)
 
-5. Boleteria - venta
+5. Boleteria - ventasDemo
 
 ![1729750637691](image/Readme/1729750637691.png)
 
@@ -57,7 +57,7 @@
 
 ![1729750712855](image/Readme/1729750712855.png)
 
-8. Vista previa de la venta (misma ventana que la venta, solo con campos bloqueados)
+8. Vista previa de la ventasDemo (misma ventana que la ventasDemo, solo con campos bloqueados)
 
 ![1729750751749](image/Readme/1729750751749.png)
 
