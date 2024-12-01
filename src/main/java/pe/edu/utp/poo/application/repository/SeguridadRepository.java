@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class SeguridadRepository {
 
-    public Seguridad auth(String usuarioLogin, String clave) {
+    public Seguridad auth(String usuarioLogin, String clave) throws SQLException {
         Seguridad seguridad = null;
         String query = """
                 SELECT t1.usuario_id, t2.nombres, t2.apellidos FROM Seguridad t1
@@ -38,8 +38,6 @@ public class SeguridadRepository {
                 seguridad.setUsuarioLogin(usuarioLogin);
                 seguridad.setUsuario(usuario);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return seguridad;
     }

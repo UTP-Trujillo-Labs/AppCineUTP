@@ -9,6 +9,7 @@ import pe.edu.utp.poo.application.model.Seguridad;
 import pe.edu.utp.poo.application.service.SeguridadService;
 
 import javax.swing.JOptionPane;
+import java.sql.SQLException;
 
 /**
  *
@@ -145,19 +146,23 @@ public class Acceso extends javax.swing.JFrame {
 
         if(usuario.isEmpty() || contraseña.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
-        }else{
-            Seguridad seguridad = new SeguridadService().authenticate(usuario, contraseña);
-            if(seguridad.getUsuario() != null) {
-                String nombres = seguridad.getUsuario().getNombres();
-                String apellidos = seguridad.getUsuario().getApellidos();
-                JOptionPane.showMessageDialog(null,"Bienvenido " + nombres + " " + apellidos);
-                
-                UIMainMenu uiMain = new UIMainMenu();
-                uiMain.setVisible(true);
-                this.dispose();
-                uiMain.setLocationRelativeTo(null);
+        } else{
+            try {
+                Seguridad seguridad = new SeguridadService().authenticate(usuario, contraseña);
+                if(seguridad.getUsuario() != null) {
+                    String nombres = seguridad.getUsuario().getNombres();
+                    String apellidos = seguridad.getUsuario().getApellidos();
+                    JOptionPane.showMessageDialog(null,"Bienvenido " + nombres + " " + apellidos);
 
-            }else{
+                    UIMainMenu uiMain = new UIMainMenu();
+                    uiMain.setVisible(true);
+                    this.dispose();
+                    uiMain.setLocationRelativeTo(null);
+
+                }else{
+                    JOptionPane.showConfirmDialog(null,"Su usuario o contraseña es incorrecto");
+                }
+            } catch (SQLException e) {
                 JOptionPane.showConfirmDialog(null,"Su usuario o contraseña es incorrecto");
             }
         }
