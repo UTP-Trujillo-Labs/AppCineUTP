@@ -64,3 +64,15 @@
 9. Informativo, acerca de
 
 ![1729750509139](image/Readme/1729750509139.png)
+
+## Anexos
+
+#### JDBC
+
+Drivers para conectarse a MSSQl
+
+#### Cifrado
+
+Se implementa cifrado por frase + autenticación por identidad
+
+Ref: https://learn.microsoft.com/en-us/sql/t-sql/functions/encryptbypassphrase-transact-sql?view=sql-server-ver16

@@ -7,7 +7,8 @@ package pe.edu.utp.poo.application.ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
-import javax.swing.Timer;
+import javax.swing.*;
+
 import pe.edu.utp.poo.application.common.Util;
 
 /**
@@ -25,9 +26,13 @@ public class UIMainMenu extends javax.swing.JFrame {
         configMenuItems();
         configTimer();
     }
+
+    public JDesktopPane getPanel() {
+        return this.jdpMain;
+    }
     
     private void configMenuItems() {
-        menuActionListener = new MenuActionListener(this, jdpMain);
+        menuActionListener = new MenuActionListener(this);
         jmiAcercaDe.addActionListener(menuActionListener);
         jmiBoleteria.addActionListener(menuActionListener);
         jmiBoleteriaNuevo.addActionListener(menuActionListener);

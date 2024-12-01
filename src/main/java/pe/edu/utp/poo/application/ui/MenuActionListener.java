@@ -22,9 +22,9 @@ import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_USUARI
  * @author manuelguarniz
  */
 public class MenuActionListener implements ActionListener {
-    private javax.swing.JFrame frmMain;
-
+    private UIMainMenu uiMain;
     private final JDesktopPane mainPanel;
+
     private UIAcercaDe uiAcercaDe;
     private UIUsuarios uiUsuarios;
     private UIPeliculas uiPelicula;
@@ -33,9 +33,9 @@ public class MenuActionListener implements ActionListener {
     private UIBoleteria uiBoleteria;
     private Acceso uiAcceso;
 
-    public MenuActionListener(javax.swing.JFrame frmMain, JDesktopPane panel) {
-        this.frmMain = frmMain;
-        this.mainPanel = panel;
+    public MenuActionListener(UIMainMenu uiMain) {
+        this.uiMain = uiMain;
+        this.mainPanel = uiMain.getPanel();
     }
 
     @Override
@@ -62,14 +62,14 @@ public class MenuActionListener implements ActionListener {
                 mainPanel.add(uiMantenimientoBoleteria).setVisible(true);
             }
             case UI_BOLETERIA_NUEVO -> {
-                uiBoleteria = new UIBoleteria();
+                uiBoleteria = new UIBoleteria(uiMain);
                 mainPanel.add(uiBoleteria).setVisible(true);
             }
             case UI_MAIN_LOGOUT -> {
                 uiAcceso = new Acceso();
                 uiAcceso.setVisible(true);
                 uiAcceso.setLocationRelativeTo(null);
-                frmMain.dispose();
+                uiMain.dispose();
             }
             case UI_INICIO_SALIR -> System.exit(0);
             

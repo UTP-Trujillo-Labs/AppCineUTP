@@ -9,8 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import javax.swing.JOptionPane;
 import pe.edu.utp.poo.application.enums.EstadoBustacaEnum;
+import pe.edu.utp.poo.application.ui.dto.VentaButacasDTO;
+
 import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Disponible;
 import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.NULL;
 import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Ocupado;
@@ -20,16 +23,32 @@ import static pe.edu.utp.poo.application.enums.EstadoBustacaEnum.Ocupado;
  * @author manuelguarniz
  */
 public class UISeleccionButacas extends javax.swing.JInternalFrame {
+    private Consumer<VentaButacasDTO> outputOnClose;
+    private VentaButacasDTO dto;
+
     private Map<String, EstadoBustacaEnum[]> butacas = new HashMap<>();
     private List<String> butacasSeleccionadas = new ArrayList<>();
 
-    /**
-     * Creates new form UISeleccionButacas
-     */
     public UISeleccionButacas() {
-        initComponents();
-        defaultButacas();
-        reloadButacas();
+        this(null, null);
+    }
+    public UISeleccionButacas(VentaButacasDTO dto, Consumer<VentaButacasDTO> outputOnClose) {
+        this.outputOnClose = outputOnClose == null ? (VentaButacasDTO data) -> {} : outputOnClose;
+        this.dto = outputOnClose == null
+                ? new VentaButacasDTO("", "", 0, 0)
+                : dto;
+        this.initComponents();
+        this.setControles();
+        // TODO: Cambiar por defecto a lectura desde base de datos
+        this.defaultButacas();
+        this.reloadButacas();
+    }
+
+    private void setControles() {
+        txtPelicula.setText(dto.getPelicula());
+        txtHorario.setText(dto.getHorario());
+        txtButacasAdulto.setValue(dto.getCantidadAsientosAdulto());
+        txtButacasNino.setValue(dto.getCantidadAsientosNinio());
     }
     
     private void defaultButacas() {
@@ -93,14 +112,19 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                 label.setForeground(EstadoBustacaEnum.Disponible.getColor());
                 this.butacasSeleccionadas.remove(numeroButaca);
             }
-            default -> {
-                JOptionPane.showMessageDialog(this, "La butaca está ocupada");
-            }
+            default -> JOptionPane.showMessageDialog(this, "La butaca está ocupada");
         }
     }
     
     private void continuar() {
         this.butacasSeleccionadas.forEach(e -> System.out.println("Butaca seleccionada: " + e));
+
+        dto.setCantidadAsientosAdulto(Integer.parseInt(txtButacasAdulto.getValue().toString()));
+        dto.setCantidadAsientosNinio(Integer.parseInt(txtButacasNino.getValue().toString()));
+        dto.setButacasReservadas(this.butacasSeleccionadas);
+
+        outputOnClose.accept(dto);
+        this.dispose();
 //        Component[] component = jplButacas.getComponents();
 //        for (Component c : component) {
 //            if (c instanceof javax.swing.JLabel) {
