@@ -4,11 +4,13 @@
  */
 package pe.edu.utp.poo.application.repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface Repository<T> {
-    T save(T t);
-    List<T> list();
-    T findById(Long id);
-    boolean delete(Long id);
+    Long insert(T t) throws SQLException;
+    boolean update(T t) throws SQLException;
+    List<T> list() throws SQLException;
+    T findById(Long id) throws SQLException;
+    boolean delete(Long id) throws SQLException;
 }

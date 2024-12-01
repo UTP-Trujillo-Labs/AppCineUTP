@@ -2,22 +2,24 @@ package pe.edu.utp.poo.application.model;
 
 
 public class Usuario extends Persona {
-    private int usuarioId;
+    private Long usuarioId;
     private String rol;
-    private short edad;
+    private Short edad;
+    private Short estado;
 
     public Usuario() {}
-    public Usuario(String nombres, String apellidos, String numeroDocumento, String rol, short edad) {
+    public Usuario(String nombres, String apellidos, String numeroDocumento, String rol, short edad, Short estado) {
         super(nombres, apellidos, numeroDocumento);
         this.rol = rol;
         this.edad = edad;
+        this.estado = estado;
     }
 
-    public int getUsuarioId() {
+    public Long getUsuarioId() {
         return usuarioId;
     }
 
-    public void setUsuarioId(int usuarioId) {
+    public void setUsuarioId(Long usuarioId) {
         this.usuarioId = usuarioId;
     }
 
@@ -35,5 +37,13 @@ public class Usuario extends Persona {
 
     public void setEdad(short edad) {
         this.edad = edad;
+    }
+
+    public Short getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Short estado) {
+        this.estado = estado;
     }
 }

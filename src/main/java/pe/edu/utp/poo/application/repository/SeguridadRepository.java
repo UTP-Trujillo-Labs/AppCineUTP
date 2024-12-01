@@ -30,7 +30,7 @@ public class SeguridadRepository {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setUsuarioId(rs.getInt("usuario_id"));
+                usuario.setUsuarioId(rs.getLong("usuario_id"));
                 usuario.setNombres(rs.getString("nombres"));
                 usuario.setApellidos(rs.getString("apellidos"));
 

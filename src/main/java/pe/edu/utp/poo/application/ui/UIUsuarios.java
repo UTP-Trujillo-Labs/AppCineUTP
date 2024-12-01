@@ -4,24 +4,29 @@
  */
 package pe.edu.utp.poo.application.ui;
 
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.utp.poo.application.common.Util;
 import pe.edu.utp.poo.application.enums.RolesEnum;
+import pe.edu.utp.poo.application.model.Usuario;
+import pe.edu.utp.poo.application.service.UsuarioService;
 
 /**
  *
  * @author manuelguarniz
  */
 public class UIUsuarios extends javax.swing.JInternalFrame {
-    
+
+    private final UsuarioService usuarioService;
     private String idUsuarioSeleccionado;
 
     /**
      * Creates new form UIUsuarios
      */
     public UIUsuarios() {
+        this.usuarioService = new UsuarioService();
         initComponents();
         cargarDatos();
         desabilitarControles(true);
@@ -31,18 +36,26 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
         tableModel.setRowCount(0);
-        
-//        List<Usuario> usuarios = this.usuarioLogica.listar();
-//        usuarios.forEach(e -> {
-//            tableModel.addRow(new Object[] {
-//                e,
-//                e.getNombres(),
-//                e.getApellidos(),
-//                e.getDni(),
-//                e.getRol(),
-//                e.isEstado() ? "Activo" : "Inactivo",
-//            });
-//        });
+
+        try {
+            List<Usuario> usuarios = this.usuarioService.findAll();
+            usuarios.forEach(e -> {
+                tableModel.addRow(new Object[] {
+                        e,
+                        e.getNombres(),
+                        e.getApellidos(),
+                        e.getNumeroDocumento(),
+                        e.getRol(),
+                        1 == e.getEstado() ? "Activo" : "Inactivo",
+                });
+            });
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error en base de datos");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error lógico");
+        }
     }
     
     private void registrarUsuario() {

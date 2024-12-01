@@ -149,7 +149,7 @@ public class Acceso extends javax.swing.JFrame {
         } else{
             try {
                 Seguridad seguridad = new SeguridadService().authenticate(usuario, contraseña);
-                if(seguridad.getUsuario() != null) {
+                if(seguridad != null && seguridad.getUsuario() != null) {
                     String nombres = seguridad.getUsuario().getNombres();
                     String apellidos = seguridad.getUsuario().getApellidos();
                     JOptionPane.showMessageDialog(null,"Bienvenido " + nombres + " " + apellidos);
