@@ -5,6 +5,9 @@
 package pe.edu.utp.poo.application.ui;
 
 
+import pe.edu.utp.poo.application.model.Seguridad;
+import pe.edu.utp.poo.application.service.SeguridadService;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -137,14 +140,17 @@ public class Acceso extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String Usuario = txtusuario.getText();
-        String Contraseña =txtcontraseña.getText();
+        String usuario = txtusuario.getText();
+        String contraseña =txtcontraseña.getText();
 
-        if(Usuario.isEmpty() || Contraseña.isEmpty()){
+        if(usuario.isEmpty() || contraseña.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
         }else{
-            if(Usuario.equals("usuario1") && Contraseña.equals("1234")){
-                JOptionPane.showMessageDialog(null,"Bienvenido");
+            Seguridad seguridad = new SeguridadService().authenticate(usuario, contraseña);
+            if(seguridad.getUsuario() != null) {
+                String nombres = seguridad.getUsuario().getNombres();
+                String apellidos = seguridad.getUsuario().getApellidos();
+                JOptionPane.showMessageDialog(null,"Bienvenido " + nombres + " " + apellidos);
                 
                 UIMainMenu uiMain = new UIMainMenu();
                 uiMain.setVisible(true);

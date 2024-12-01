@@ -8,10 +8,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.utp.poo.application.common.Util;
-import pe.edu.utp.poo.application.db.Database;
 import pe.edu.utp.poo.application.enums.RolesEnum;
-import pe.edu.utp.poo.application.lib.UsuarioLogica;
-import pe.edu.utp.poo.application.pojo.Usuario;
 
 /**
  *
@@ -20,15 +17,12 @@ import pe.edu.utp.poo.application.pojo.Usuario;
 public class UIUsuarios extends javax.swing.JInternalFrame {
     
     private String idUsuarioSeleccionado;
-    private final UsuarioLogica usuarioLogica;
-    private final Database database = new Database();
 
     /**
      * Creates new form UIUsuarios
      */
     public UIUsuarios() {
         initComponents();
-        this.usuarioLogica = new UsuarioLogica(database);
         cargarDatos();
         desabilitarControles(true);
     }
@@ -38,17 +32,17 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
         tableModel.setRowCount(0);
         
-        List<Usuario> usuarios = this.usuarioLogica.listar();
-        usuarios.forEach(e -> {
-            tableModel.addRow(new Object[] {
-                e,
-                e.getNombres(),
-                e.getApellidos(),
-                e.getDni(),
-                e.getRol(),
-                e.isEstado() ? "Activo" : "Inactivo",
-            });
-        });
+//        List<Usuario> usuarios = this.usuarioLogica.listar();
+//        usuarios.forEach(e -> {
+//            tableModel.addRow(new Object[] {
+//                e,
+//                e.getNombres(),
+//                e.getApellidos(),
+//                e.getDni(),
+//                e.getRol(),
+//                e.isEstado() ? "Activo" : "Inactivo",
+//            });
+//        });
     }
     
     private void registrarUsuario() {
@@ -79,16 +73,16 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         RolesEnum rol = RolesEnum.valueOf(cboRol.getSelectedItem().toString());
         boolean estado = cbxEstado.isSelected();
         
-        Usuario usuario = new Usuario(this.usuarioLogica);
-        usuario.setId(idUsuarioSeleccionado);
-        usuario.setNombres(nombres);
-        usuario.setApellidos(apellidos);
-        usuario.setDni(dni);
-        usuario.setEdad(edad);
-        usuario.setRol(rol);
-        usuario.setEstado(estado);
-        
-        usuario.guardar();
+//        Usuario usuario = new Usuario(this.usuarioLogica);
+//        usuario.setId(idUsuarioSeleccionado);
+//        usuario.setNombres(nombres);
+//        usuario.setApellidos(apellidos);
+//        usuario.setDni(dni);
+//        usuario.setEdad(edad);
+//        usuario.setRol(rol);
+//        usuario.setEstado(estado);
+//
+//        usuario.guardar();
         
         
         JOptionPane.showMessageDialog(this, "Registro con éxito!");
@@ -151,19 +145,19 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Seleccione solo una fila para eliminar.");
             return;
         }
-        Usuario usuario = (Usuario) tableModel.getValueAt(filaSeleccionada, 0);
-        
-        int quiereEliminar = JOptionPane
-                .showConfirmDialog(this, "¿Está seguro que quiere eliminar a " + usuario.getNombres(),
-                        "Confirmar para eliminar", JOptionPane.YES_NO_OPTION);
-        
-        if (JOptionPane.YES_OPTION == quiereEliminar) {
-            this.usuarioLogica.eliminar(usuario.getId());
-
-            JOptionPane.showMessageDialog(this, "Registro eliminado con éxito!");
-            limpiarCampos();
-            tableModel.removeRow(filaSeleccionada);
-        }
+//        Usuario usuario = (Usuario) tableModel.getValueAt(filaSeleccionada, 0);
+//
+//        int quiereEliminar = JOptionPane
+//                .showConfirmDialog(this, "¿Está seguro que quiere eliminar a " + usuario.getNombres(),
+//                        "Confirmar para eliminar", JOptionPane.YES_NO_OPTION);
+//
+//        if (JOptionPane.YES_OPTION == quiereEliminar) {
+//            this.usuarioLogica.eliminar(usuario.getId());
+//
+//            JOptionPane.showMessageDialog(this, "Registro eliminado con éxito!");
+//            limpiarCampos();
+//            tableModel.removeRow(filaSeleccionada);
+//        }
     }
     
     private void seleccionarFila() {
@@ -171,15 +165,15 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         
         if (jtUsuarios.getSelectedRow() != -1) {
         
-            Usuario usuario = (Usuario) tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0);
-
-            idUsuarioSeleccionado = usuario.getId();
-            txtNombres.setText(usuario.getNombres());
-            txtApellidos.setText(usuario.getApellidos());
-            txtDNI.setText(usuario.getDni());
-            txtEdad.setText(String.valueOf(usuario.getEdad()));
-            cboRol.setSelectedItem(usuario.getRol().toString());
-            cbxEstado.setSelected(usuario.isEstado());
+//            Usuario usuario = (Usuario) tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0);
+//
+//            idUsuarioSeleccionado = usuario.getId();
+//            txtNombres.setText(usuario.getNombres());
+//            txtApellidos.setText(usuario.getApellidos());
+//            txtDNI.setText(usuario.getDni());
+//            txtEdad.setText(String.valueOf(usuario.getEdad()));
+//            cboRol.setSelectedItem(usuario.getRol().toString());
+//            cbxEstado.setSelected(usuario.isEstado());
         }
     }
     

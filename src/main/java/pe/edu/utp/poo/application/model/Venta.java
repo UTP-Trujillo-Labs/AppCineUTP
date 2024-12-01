@@ -5,53 +5,61 @@
 package pe.edu.utp.poo.application.model;
 
 import java.time.LocalDateTime;
-import static pe.edu.utp.poo.application.common.Constant.SHORT_LOCALDATETIME_FORMAT;
-import pe.edu.utp.poo.application.common.Util;
-import pe.edu.utp.poo.application.db.annotation.ColumnName;
 
 /**
- *
  * @author manuelguarniz
  */
 public class Venta {
-    @ColumnName("fecha_venta")
-    private LocalDateTime fechaVenta;
-    @ColumnName("pelicula")
-    private String pelicula;
-    @ColumnName("horario")
+    private int ventaId;
+    private int clienteId;
+    private int usuarioId;
+    private int peliculaId;
     private String horario;
-    @ColumnName("total_asientos")
-    private Integer totalAsientos;
-    @ColumnName("precio_total")
-    private Double precioTotal;
+    private LocalDateTime fechaVenta;
 
-    public Venta() {}
-    public Venta(LocalDateTime fechaVenta, String pelicula, String horario, Integer totalAsientos, Double precioTotal) {
-        this.fechaVenta = fechaVenta;
-        this.pelicula = pelicula;
+
+    public Venta() {
+    }
+
+    public Venta(int ventaId, int clienteId, int usuarioId, int peliculaId, String horario, LocalDateTime fechaVenta) {
+        this.ventaId = ventaId;
+        this.clienteId = clienteId;
+        this.usuarioId = usuarioId;
+        this.peliculaId = peliculaId;
         this.horario = horario;
-        this.totalAsientos = totalAsientos;
-        this.precioTotal = precioTotal;
-    }
-
-    public LocalDateTime getFechaVenta() {
-        return fechaVenta;
-    }
-    
-    public String getFechaVentaStr() {
-        return Util.dateToString(fechaVenta, SHORT_LOCALDATETIME_FORMAT);
-    }
-
-    public void setFechaVenta(LocalDateTime fechaVenta) {
         this.fechaVenta = fechaVenta;
     }
 
-    public String getPelicula() {
-        return pelicula;
+    public int getVentaId() {
+        return ventaId;
     }
-    
-    public void setPelicula(String pelicula) {
-        this.pelicula = pelicula;
+
+    public void setVentaId(int ventaId) {
+        this.ventaId = ventaId;
+    }
+
+    public int getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(int clienteId) {
+        this.clienteId = clienteId;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public int getPeliculaId() {
+        return peliculaId;
+    }
+
+    public void setPeliculaId(int peliculaId) {
+        this.peliculaId = peliculaId;
     }
 
     public String getHorario() {
@@ -62,26 +70,11 @@ public class Venta {
         this.horario = horario;
     }
 
-    public Integer getTotalAsientos() {
-        return totalAsientos;
+    public LocalDateTime getFechaVenta() {
+        return fechaVenta;
     }
 
-    public void setTotalAsientos(Integer totalAsientos) {
-        this.totalAsientos = totalAsientos;
+    public void setFechaVenta(LocalDateTime fechaVenta) {
+        this.fechaVenta = fechaVenta;
     }
-
-    public Double getPrecioTotal() {
-        return precioTotal;
-    }
-
-    public void setPrecioTotal(Double precioTotal) {
-        this.precioTotal = precioTotal;
-    }
-
-    @Override
-    public String toString() {
-        return "Venta{" + "fechaVenta=" + fechaVenta + ", pelicula=" + pelicula + ", horario=" + horario + ", totalAsientos=" + totalAsientos + ", precioTotal=" + precioTotal + '}';
-    }
-    
-    
 }
