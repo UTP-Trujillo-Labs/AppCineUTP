@@ -10,6 +10,9 @@ public class SeguridadService {
     public SeguridadService() {
         seguridadRepository = new SeguridadRepository();
     }
+    public Long insert(Seguridad seguridad) throws SQLException {
+        return seguridadRepository.insert(seguridad);
+    }
     public Seguridad authenticate(String username, String password) throws SQLException {
         return seguridadRepository.auth(username, password);
     }

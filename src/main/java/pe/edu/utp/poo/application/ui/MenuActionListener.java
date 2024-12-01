@@ -13,6 +13,7 @@ import static pe.edu.utp.poo.application.common.Constant.UI_AYUDA_ACERCA_DE;
 import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_BUTACAS;
 import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_MANTENIMIENTO;
 import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_NUEVO;
+import static pe.edu.utp.poo.application.common.Constant.UI_MAIN_LOGOUT;
 import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_PELICULAS;
 import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_USUARIOS;
 
@@ -21,6 +22,7 @@ import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_USUARI
  * @author manuelguarniz
  */
 public class MenuActionListener implements ActionListener {
+    private javax.swing.JFrame frmMain;
 
     private final JDesktopPane mainPanel;
     private UIAcercaDe uiAcercaDe;
@@ -29,8 +31,10 @@ public class MenuActionListener implements ActionListener {
     private UISeleccionButacas uiSeleccionButacas;
     private UIMantenimientoBoleteria uiMantenimientoBoleteria;
     private UIBoleteria uiBoleteria;
+    private Acceso uiAcceso;
 
-    public MenuActionListener(JDesktopPane panel) {
+    public MenuActionListener(javax.swing.JFrame frmMain, JDesktopPane panel) {
+        this.frmMain = frmMain;
         this.mainPanel = panel;
     }
 
@@ -60,6 +64,12 @@ public class MenuActionListener implements ActionListener {
             case UI_BOLETERIA_NUEVO -> {
                 uiBoleteria = new UIBoleteria();
                 mainPanel.add(uiBoleteria).setVisible(true);
+            }
+            case UI_MAIN_LOGOUT -> {
+                uiAcceso = new Acceso();
+                uiAcceso.setVisible(true);
+                uiAcceso.setLocationRelativeTo(null);
+                frmMain.dispose();
             }
             case UI_INICIO_SALIR -> System.exit(0);
             

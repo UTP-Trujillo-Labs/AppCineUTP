@@ -5,11 +5,11 @@ public class Seguridad {
     private Usuario usuario;
     private String usuarioLogin;
     private String clave;
-    private boolean activo;
+    private Short activo;
 
     public Seguridad() { }
 
-    public Seguridad(Long seguridadId, Usuario usuario, String usuarioLogin, String clave, boolean activo) {
+    public Seguridad(Long seguridadId, Usuario usuario, String usuarioLogin, String clave, Short activo) {
         this.seguridadId = seguridadId;
         this.usuario = usuario;
         this.usuarioLogin = usuarioLogin;
@@ -49,11 +49,11 @@ public class Seguridad {
         this.clave = clave;
     }
 
-    public boolean isActivo() {
+    public Short getActivo() {
         return activo;
     }
 
-    public void setActivo(boolean activo) {
+    public void setActivo(Short activo) {
         this.activo = activo;
     }
 }

@@ -3,10 +3,7 @@ package pe.edu.utp.poo.application.repository;
 import pe.edu.utp.poo.application.db.Conexion;
 import pe.edu.utp.poo.application.model.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +16,7 @@ public class UsuarioRepository implements Repository<Usuario> {
                 """;
         try (
                 Connection conn = Conexion.getInstance();
-                PreparedStatement ps = conn.prepareStatement(query);
+                PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         ) {
             ps.setString(1, usuario.getNombres());
             ps.setString(2, usuario.getApellidos());
@@ -122,8 +119,7 @@ public class UsuarioRepository implements Repository<Usuario> {
         return usuario;
     }
 
-    @Override
-    public boolean delete(Long id) throws SQLException {
+    public boolean inhabilitar(Long id) throws SQLException {
         String query = """
                 update Usuario set
                 estado = 0
@@ -134,6 +130,26 @@ public class UsuarioRepository implements Repository<Usuario> {
                 PreparedStatement ps = conn.prepareStatement(query);
         ) {
             ps.setLong(1, id);
+            int result = ps.executeUpdate();
+            if (result == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delete(Long id) throws SQLException {
+        String query = """
+                delete from Usuario
+                where usuario_id = ?
+                """;
+        try (
+                Connection conn = Conexion.getInstance();
+                PreparedStatement ps = conn.prepareStatement(query);
+        ) {
+            ps.setLong(1, id);
+
             int result = ps.executeUpdate();
             if (result == 1) {
                 return true;

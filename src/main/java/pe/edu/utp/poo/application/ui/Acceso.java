@@ -160,10 +160,10 @@ public class Acceso extends javax.swing.JFrame {
                     uiMain.setLocationRelativeTo(null);
 
                 }else{
-                    JOptionPane.showConfirmDialog(null,"Su usuario o contraseña es incorrecto");
+                    JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
                 }
             } catch (SQLException e) {
-                JOptionPane.showConfirmDialog(null,"Su usuario o contraseña es incorrecto");
+                JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
