@@ -36,7 +36,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmiAcercaDe.addActionListener(menuActionListener);
         jmiBoleteria.addActionListener(menuActionListener);
         jmiBoleteriaNuevo.addActionListener(menuActionListener);
-        jmiBoleteriaMantenimiento.addActionListener(menuActionListener);
+        jmiBoleteriaButacas.addActionListener(menuActionListener);
         jmiBoleteriaButacas.addActionListener(menuActionListener);
         jmiPeliculas.addActionListener(menuActionListener);
         jmiSalir.addActionListener(menuActionListener);
@@ -89,7 +89,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmiPeliculas = new javax.swing.JMenuItem();
         jmiBoleteria = new javax.swing.JMenu();
         jmiBoleteriaNuevo = new javax.swing.JMenuItem();
-        jmiBoleteriaMantenimiento = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
         jmiBoleteriaButacas = new javax.swing.JMenuItem();
         jmHelp = new javax.swing.JMenu();
         jmiAcercaDe = new javax.swing.JMenuItem();
@@ -209,15 +209,15 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmiBoleteriaNuevo.setActionCommand("ui_boleteria_nuevo");
         jmiBoleteria.add(jmiBoleteriaNuevo);
 
-        jmiBoleteriaMantenimiento.setText("Mantenimiento");
-        jmiBoleteriaMantenimiento.setActionCommand("ui_boleteria_mantenimiento");
-        jmiBoleteria.add(jmiBoleteriaMantenimiento);
-
-        jmiBoleteriaButacas.setText("Butacas (Tmp)");
-        jmiBoleteriaButacas.setActionCommand("ui_boleteria_butacas");
-        jmiBoleteria.add(jmiBoleteriaButacas);
-
         jMenuBar1.add(jmiBoleteria);
+
+        jMenu3.setText("Reportes");
+
+        jmiBoleteriaButacas.setText("Mantenimiento");
+        jmiBoleteriaButacas.setActionCommand("ui_boleteria_mantenimiento");
+        jMenu3.add(jmiBoleteriaButacas);
+
+        jMenuBar1.add(jMenu3);
 
         jmHelp.setText("Ayuda");
         jmHelp.setActionCommand("ui_acerca_de");
@@ -252,6 +252,7 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JDesktopPane jdpMain;
@@ -259,7 +260,6 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenu jmiBoleteria;
     private javax.swing.JMenuItem jmiBoleteriaButacas;
-    private javax.swing.JMenuItem jmiBoleteriaMantenimiento;
     private javax.swing.JMenuItem jmiBoleteriaNuevo;
     private javax.swing.JMenuItem jmiCerrarSesion;
     private javax.swing.JMenuItem jmiPeliculas;
