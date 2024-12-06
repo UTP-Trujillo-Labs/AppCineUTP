@@ -354,6 +354,8 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
 
         cboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Vendedor" }));
 
+        cbxEstado.setSelected(true);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -433,6 +435,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        btnGuardar.setForeground(new java.awt.Color(51, 153, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,6 +457,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
+        btnNuevo.setForeground(new java.awt.Color(51, 153, 255));
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

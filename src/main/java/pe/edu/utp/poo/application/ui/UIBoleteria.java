@@ -82,6 +82,17 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         lblTotalVenta.setText(String.format("%.2f", totalVenta));
     }
     
+    private void limpiarCampos() {
+        txtNombreCliente.setText("");
+        txtApellidosCliente.setText("");
+        txtNumeroDocumento.setText("");
+
+        cboPelicula.setSelectedIndex(0);
+        cboHorario.setSelectedIndex(0);
+        txtTicketsAdulto.setValue(0);
+        txtTicketsNinio.setValue(0);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,9 +121,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         txtNumeroDocumento = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btnLimpiar = new javax.swing.JToggleButton();
-        btnApagar = new javax.swing.JToggleButton();
         btnSeleccionarButacas = new javax.swing.JToggleButton();
-        btnCancelar = new javax.swing.JToggleButton();
         btnImprimir = new javax.swing.JToggleButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -151,13 +160,13 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6)
                     .addComponent(jLabel5)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addGap(12, 12, 12)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cboPelicula, 0, 183, Short.MAX_VALUE)
                     .addComponent(cboHorario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,10 +225,11 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellidosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtApellidosCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(txtNumeroDocumento)
+                    .addComponent(txtNombreCliente))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,8 +258,6 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
             }
         });
 
-        btnApagar.setText("Pagar");
-
         btnSeleccionarButacas.setText("Seleccionar Butacas");
         btnSeleccionarButacas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,9 +265,8 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancelar.setText("Cancelar");
-
-        btnImprimir.setText("Imprimir");
+        btnImprimir.setForeground(new java.awt.Color(51, 153, 255));
+        btnImprimir.setText("Vender");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -269,12 +276,8 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(btnLimpiar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnApagar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSeleccionarButacas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnImprimir)
                 .addContainerGap())
         );
@@ -284,9 +287,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
-                    .addComponent(btnApagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSeleccionarButacas)
-                    .addComponent(btnCancelar)
                     .addComponent(btnImprimir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -405,7 +406,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cboPeliculaActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
+        limpiarCampos();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnSeleccionarButacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasActionPerformed
@@ -414,8 +415,6 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnApagar;
-    private javax.swing.JToggleButton btnCancelar;
     private javax.swing.JToggleButton btnImprimir;
     private javax.swing.JToggleButton btnLimpiar;
     private javax.swing.JToggleButton btnSeleccionarButacas;
