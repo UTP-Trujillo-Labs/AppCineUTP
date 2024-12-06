@@ -9,7 +9,7 @@
             <Property name="text" type="java.lang.String" value="Inicio"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmuPerfil">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiPerfil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Perfil"/>
                 <Property name="actionCommand" type="java.lang.String" value="ui_inicio_perfil"/>

@@ -45,6 +45,7 @@ public class UIMainMenu extends javax.swing.JFrame {
     private void configMenuItems() {
         menuActionListener = new MenuActionListener(this);
         jmiAcercaDe.addActionListener(menuActionListener);
+        jmiPerfil.addActionListener(menuActionListener);
         jmiBoleteria.addActionListener(menuActionListener);
         jmiBoleteriaNuevo.addActionListener(menuActionListener);
         jmiBoleteriaButacas.addActionListener(menuActionListener);
@@ -92,7 +93,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jmuPerfil = new javax.swing.JMenuItem();
+        jmiPerfil = new javax.swing.JMenuItem();
         jmiCerrarSesion = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmiSalir = new javax.swing.JMenuItem();
@@ -194,9 +195,9 @@ public class UIMainMenu extends javax.swing.JFrame {
 
         jMenu1.setText("Inicio");
 
-        jmuPerfil.setText("Perfil");
-        jmuPerfil.setActionCommand("ui_inicio_perfil");
-        jMenu1.add(jmuPerfil);
+        jmiPerfil.setText("Perfil");
+        jmiPerfil.setActionCommand("ui_inicio_perfil");
+        jMenu1.add(jmiPerfil);
 
         jmiCerrarSesion.setText("Cerrar Sesión");
         jmiCerrarSesion.setActionCommand("ui_main_logout");
@@ -282,9 +283,9 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiBoleteriaNuevo;
     private javax.swing.JMenuItem jmiCerrarSesion;
     private javax.swing.JMenuItem jmiPeliculas;
+    private javax.swing.JMenuItem jmiPerfil;
     private javax.swing.JMenuItem jmiSalir;
     private javax.swing.JMenuItem jmiUsuarios;
-    private javax.swing.JMenuItem jmuPerfil;
     private javax.swing.JPanel jpAppName;
     private javax.swing.JPanel jpFooter;
     private javax.swing.JPanel jpLocaltime;

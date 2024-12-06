@@ -32,7 +32,7 @@ public class Acceso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
         } else{
             try {
-                Seguridad seguridad = new SeguridadService().authenticate(usuario, contraseña);
+                Seguridad seguridad = SeguridadService.instancia().authenticate(usuario, contraseña);
                 if(seguridad != null && seguridad.getUsuario() != null) {
                     String nombres = seguridad.getUsuario().getNombres();
                     String apellidos = seguridad.getUsuario().getApellidos();
