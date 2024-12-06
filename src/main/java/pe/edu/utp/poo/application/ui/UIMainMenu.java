@@ -10,27 +10,38 @@ import java.time.LocalDateTime;
 import javax.swing.*;
 
 import pe.edu.utp.poo.application.common.Util;
+import pe.edu.utp.poo.application.model.Usuario;
 
 /**
  *
  * @author manuelguarniz
  */
 public class UIMainMenu extends javax.swing.JFrame {
-    MenuActionListener menuActionListener;
+    private MenuActionListener menuActionListener;
+    private Usuario usuario;
+
+    public UIMainMenu(Usuario usuario) {
+        this.usuario = usuario;
+        initComponents();
+        configMenuItems();
+        configTimer();
+        configUsuarioConectado();
+    }
 
     /**
      * Creates new form ViewMainMenu
      */
     public UIMainMenu() {
-        initComponents();
-        configMenuItems();
-        configTimer();
+        this(null);
     }
 
     public JDesktopPane getPanel() {
         return this.jdpMain;
     }
-    
+
+    private void configUsuarioConectado() {
+        lblUsuario.setText(usuario != null ? "🟢 " + usuario.getNombres() : "🔴");
+    }
     private void configMenuItems() {
         menuActionListener = new MenuActionListener(this);
         jmiAcercaDe.addActionListener(menuActionListener);
@@ -78,6 +89,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jpProgressBar = new javax.swing.JPanel();
         jpLocaltime = new javax.swing.JPanel();
         lblLocalTime = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmuPerfil = new javax.swing.JMenuItem();
@@ -118,20 +130,20 @@ public class UIMainMenu extends javax.swing.JFrame {
             .addGroup(jpAppNameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         jpAppNameLayout.setVerticalGroup(
             jpAppNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAppNameLayout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpProgressBarLayout = new javax.swing.GroupLayout(jpProgressBar);
         jpProgressBar.setLayout(jpProgressBarLayout);
         jpProgressBarLayout.setHorizontalGroup(
             jpProgressBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 858, Short.MAX_VALUE)
         );
         jpProgressBarLayout.setVerticalGroup(
             jpProgressBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,13 +166,17 @@ public class UIMainMenu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        lblUsuario.setText("Usuario");
+
         javax.swing.GroupLayout jpFooterLayout = new javax.swing.GroupLayout(jpFooter);
         jpFooter.setLayout(jpFooterLayout);
         jpFooterLayout.setHorizontalGroup(
             jpFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpFooterLayout.createSequentialGroup()
                 .addComponent(jpAppName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpLocaltime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,6 +187,9 @@ public class UIMainMenu extends javax.swing.JFrame {
             .addComponent(jpAppName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jpProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jpLocaltime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpFooterLayout.createSequentialGroup()
+                .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jMenu1.setText("Inicio");
@@ -271,5 +290,6 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jpLocaltime;
     private javax.swing.JPanel jpProgressBar;
     private javax.swing.JLabel lblLocalTime;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }
