@@ -26,10 +26,12 @@ public class UIPerfil extends javax.swing.JInternalFrame {
     
     private void cargarDatos() {
         Usuario usuario = SeguridadService.instancia().getUsuarioSession();
-        lblNombres.setText(usuario.getNombres());
-        lblApellidos.setText(usuario.getApellidos());
-        lblOS.setText(System.getProperty("os.name") + " - " + System.getProperty("os.arch"));
-        lblDetalleOS.setText(System.getProperty("os.version"));
+        if (usuario != null) {
+            lblNombres.setText(usuario.getNombres());
+            lblApellidos.setText(usuario.getApellidos());
+            lblOS.setText(System.getProperty("os.name") + " - " + System.getProperty("os.arch"));
+            lblDetalleOS.setText(System.getProperty("os.version"));
+        }
     }
 
     /**

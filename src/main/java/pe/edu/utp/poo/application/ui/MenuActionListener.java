@@ -31,7 +31,7 @@ public class MenuActionListener implements ActionListener {
     private UIUsuarios uiUsuarios;
     private UIPeliculas uiPelicula;
     private UISeleccionButacas uiSeleccionButacas;
-    private UIMantenimientoBoleteria uiMantenimientoBoleteria;
+    private UIReporteBoleteria uiMantenimientoBoleteria;
     private UIBoleteria uiBoleteria;
     private Acceso uiAcceso;
 
@@ -64,7 +64,7 @@ public class MenuActionListener implements ActionListener {
                 mainPanel.add(uiSeleccionButacas).setVisible(true);
             }
             case UI_BOLETERIA_MANTENIMIENTO -> {
-                uiMantenimientoBoleteria = new UIMantenimientoBoleteria();
+                uiMantenimientoBoleteria = new UIReporteBoleteria();
                 mainPanel.add(uiMantenimientoBoleteria).setVisible(true);
             }
             case UI_BOLETERIA_NUEVO -> {

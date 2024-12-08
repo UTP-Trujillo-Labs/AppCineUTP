@@ -49,7 +49,6 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmiBoleteria.addActionListener(menuActionListener);
         jmiBoleteriaNuevo.addActionListener(menuActionListener);
         jmiBoleteriaButacas.addActionListener(menuActionListener);
-        jmiBoleteriaButacas.addActionListener(menuActionListener);
         jmiPeliculas.addActionListener(menuActionListener);
         jmiSalir.addActionListener(menuActionListener);
         jmiUsuarios.addActionListener(menuActionListener);
@@ -94,6 +93,7 @@ public class UIMainMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiPerfil = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jmiCerrarSesion = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmiSalir = new javax.swing.JMenuItem();
@@ -198,13 +198,14 @@ public class UIMainMenu extends javax.swing.JFrame {
         jmiPerfil.setText("Perfil");
         jmiPerfil.setActionCommand("ui_inicio_perfil");
         jMenu1.add(jmiPerfil);
+        jMenu1.add(jSeparator2);
 
         jmiCerrarSesion.setText("Cerrar Sesión");
         jmiCerrarSesion.setActionCommand("ui_main_logout");
         jMenu1.add(jmiCerrarSesion);
         jMenu1.add(jSeparator1);
 
-        jmiSalir.setText("Salir");
+        jmiSalir.setText("Cerrar Aplicación");
         jmiSalir.setActionCommand("ui_inicio_salir");
         jMenu1.add(jmiSalir);
 
@@ -275,6 +276,7 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JDesktopPane jdpMain;
     private javax.swing.JMenu jmHelp;
     private javax.swing.JMenuItem jmiAcercaDe;
