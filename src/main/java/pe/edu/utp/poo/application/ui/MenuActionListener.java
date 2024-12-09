@@ -13,6 +13,7 @@ import static pe.edu.utp.poo.application.common.Constant.UI_AYUDA_ACERCA_DE;
 import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_BUTACAS;
 import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_MANTENIMIENTO;
 import static pe.edu.utp.poo.application.common.Constant.UI_BOLETERIA_NUEVO;
+import static pe.edu.utp.poo.application.common.Constant.UI_INICIO_PERFIL;
 import static pe.edu.utp.poo.application.common.Constant.UI_MAIN_LOGOUT;
 import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_PELICULAS;
 import static pe.edu.utp.poo.application.common.Constant.UI_MANTENIMIENTO_USUARIOS;
@@ -25,11 +26,12 @@ public class MenuActionListener implements ActionListener {
     private UIMainMenu uiMain;
     private final JDesktopPane mainPanel;
 
+    private UIPerfil uiPerfil;
     private UIAcercaDe uiAcercaDe;
     private UIUsuarios uiUsuarios;
     private UIPeliculas uiPelicula;
     private UISeleccionButacas uiSeleccionButacas;
-    private UIMantenimientoBoleteria uiMantenimientoBoleteria;
+    private UIReporteBoleteria uiMantenimientoBoleteria;
     private UIBoleteria uiBoleteria;
     private Acceso uiAcceso;
 
@@ -45,6 +47,10 @@ public class MenuActionListener implements ActionListener {
                 uiAcercaDe = new UIAcercaDe();
                 mainPanel.add(uiAcercaDe).setVisible(true);
             }
+            case UI_INICIO_PERFIL -> {
+                uiPerfil = new UIPerfil();
+                mainPanel.add(uiPerfil).setVisible(true);
+            }
             case UI_MANTENIMIENTO_USUARIOS -> {
                 uiUsuarios = new UIUsuarios();
                 mainPanel.add(uiUsuarios).setVisible(true);
@@ -58,7 +64,7 @@ public class MenuActionListener implements ActionListener {
                 mainPanel.add(uiSeleccionButacas).setVisible(true);
             }
             case UI_BOLETERIA_MANTENIMIENTO -> {
-                uiMantenimientoBoleteria = new UIMantenimientoBoleteria();
+                uiMantenimientoBoleteria = new UIReporteBoleteria();
                 mainPanel.add(uiMantenimientoBoleteria).setVisible(true);
             }
             case UI_BOLETERIA_NUEVO -> {

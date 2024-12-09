@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Created-By: UTP Labs - Ing. Sistemas (Alumnos 4to ciclo)
+Main-Class: pe.edu.utp.poo.application.AppCineUTP

@@ -23,6 +23,34 @@ public class Acceso extends javax.swing.JFrame {
     public Acceso() {
         initComponents();
     }
+    
+    private void acceder() {
+        String usuario = txtusuario.getText();
+        String contraseña =txtcontraseña.getText();
+
+        if(usuario.isEmpty() || contraseña.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
+        } else{
+            try {
+                Seguridad seguridad = SeguridadService.instancia().authenticate(usuario, contraseña);
+                if(seguridad != null && seguridad.getUsuario() != null) {
+                    String nombres = seguridad.getUsuario().getNombres();
+                    String apellidos = seguridad.getUsuario().getApellidos();
+                    JOptionPane.showMessageDialog(null,"Bienvenido " + nombres + " " + apellidos);
+
+                    UIMainMenu uiMain = new UIMainMenu(seguridad.getUsuario());
+                    uiMain.setVisible(true);
+                    this.dispose();
+                    uiMain.setLocationRelativeTo(null);
+
+                }else{
+                    JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +95,11 @@ public class Acceso extends javax.swing.JFrame {
         });
 
         txtcontraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtcontraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcontraseñaActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -140,37 +173,16 @@ public class Acceso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String usuario = txtusuario.getText();
-        String contraseña =txtcontraseña.getText();
-
-        if(usuario.isEmpty() || contraseña.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
-        } else{
-            try {
-                Seguridad seguridad = new SeguridadService().authenticate(usuario, contraseña);
-                if(seguridad != null && seguridad.getUsuario() != null) {
-                    String nombres = seguridad.getUsuario().getNombres();
-                    String apellidos = seguridad.getUsuario().getApellidos();
-                    JOptionPane.showMessageDialog(null,"Bienvenido " + nombres + " " + apellidos);
-
-                    UIMainMenu uiMain = new UIMainMenu();
-                    uiMain.setVisible(true);
-                    this.dispose();
-                    uiMain.setLocationRelativeTo(null);
-
-                }else{
-                    JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
-                }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
-            }
-        }
+        this.acceder();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
-        // TODO add your handling code here:
+        this.acceder();
     }//GEN-LAST:event_txtusuarioActionPerformed
+
+    private void txtcontraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraseñaActionPerformed
+        this.acceder();
+    }//GEN-LAST:event_txtcontraseñaActionPerformed
 
 
 

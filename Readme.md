@@ -76,3 +76,20 @@ Drivers para conectarse a MSSQl
 Se implementa cifrado por frase + autenticación por identidad
 
 Ref: https://learn.microsoft.com/en-us/sql/t-sql/functions/encryptbypassphrase-transact-sql?view=sql-server-ver16
+
+## Empaquetado
+
+Se crea un archivo manifiesto `MANIFEST.MF` para especificar la ejecución del jar.
+
+```manifest
+Manifest-Version: 1.0
+Created-By: UTP Labs - Ing. Sistemas (Alumnos 4to ciclo)
+Main-Class: pe.edu.utp.poo.application.AppCineUTP
+
+```
+
+Luego creamos un jar con manifiesto con el siguiente comando:
+
+```shell
+jar -cmf MANIFEST.MF AppCineUTP.jar -C .
+```

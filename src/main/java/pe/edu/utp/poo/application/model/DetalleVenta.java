@@ -1,20 +1,22 @@
 package pe.edu.utp.poo.application.model;
 
 public class DetalleVenta {
-    private int detalleVentaId;
-    private int ventaId;
+    private Integer detalleVentaId;
+    private Integer ventaId;
     private String tipoTickets;
-    private int cantidadTickets;
-    private String asiento;
+    private Double precio;
+    private Integer cantidad;
+    private String descripcion;
 
     public DetalleVenta  () {}
 
-    public DetalleVenta(int detalleVentaId, int ventaId, String tipoTickets, int cantidadTickets, String asiento) {
+    public DetalleVenta(Integer detalleVentaId, Integer ventaId, String tipoTickets, Double precio, Integer cantidad, String descripcion) {
         this.detalleVentaId = detalleVentaId;
         this.ventaId = ventaId;
         this.tipoTickets = tipoTickets;
-        this.cantidadTickets = cantidadTickets;
-        this.asiento = asiento;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.descripcion = descripcion;
     }
 
     public int getDetalleVentaId() {
@@ -41,19 +43,27 @@ public class DetalleVenta {
         this.tipoTickets = tipoTickets;
     }
 
-    public int getCantidadTickets() {
-        return cantidadTickets;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setCantidadTickets(int cantidadTickets) {
-        this.cantidadTickets = cantidadTickets;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public String getAsiento() {
-        return asiento;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setAsiento(String asiento) {
-        this.asiento = asiento;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
 }
