@@ -93,3 +93,25 @@ Luego creamos un jar con manifiesto con el siguiente comando:
 ```shell
 jar -cmf MANIFEST.MF AppCineUTP.jar -C .
 ```
+
+## Estructura
+
+```text
+AppCineUTP
+├── pe.edu.utp.poo.application
+│   ├── /common (comun: reutilizable)
+│   ├── /db (base de datos: conexion)
+│   ├── /enums (lista de datos fija)
+│   ├── /model (clases semejantes a la base de datos)
+│   ├── /repository (clases con logica para acceder a los datos)
+│   ├── /service (clases con logica para combinar y utilizar los datos)
+│   ├── /ui (interfaz grafica)
+│   ├── /util (funcionalidad reutilizable)
+│   └── AppCineUTP.java
+└── pom.xml
+
+```
+
+## Base de datos
+
+![1733720148306](image/Readme/1733720148306.png)
