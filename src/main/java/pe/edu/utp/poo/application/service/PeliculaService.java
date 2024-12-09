@@ -27,10 +27,18 @@ public class PeliculaService {
         return this.peliculaRepository.list();
     }
     
+     public Long insertar(Pelicula pelicula) throws SQLException {
+        return peliculaRepository.insert(pelicula);
+    } 
+     
     
     public boolean actualizar(Pelicula pelicula)throws SQLException{
         return peliculaRepository.update(pelicula);
     }
+    
+    public boolean eliminar(long pelicula_id) throws SQLException {
+    return peliculaRepository.delete(pelicula_id);
+}
     
     
 }

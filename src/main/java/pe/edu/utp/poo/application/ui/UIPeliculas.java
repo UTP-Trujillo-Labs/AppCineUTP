@@ -29,7 +29,7 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
     GestorPeliculas listaPeliculas=new GestorPeliculas();
   
 
-
+    Integer peliculaId=null;
     
     
     
@@ -59,7 +59,9 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
          
          for(Pelicula peliculita:peliculas){
          
-         Object[] nuevaFila = {peliculita.getTitulo(), 
+         Object[] nuevaFila = {
+                peliculita,
+                peliculita.getTitulo(), 
                 peliculita.getAutor(), 
                 peliculita.getDuracion(), 
                 peliculita.getGenero(), 
@@ -72,6 +74,16 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
         }
         
     }
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -124,6 +136,12 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
         });
 
         jLabel3.setText("Autor :");
+
+        txtAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAutorActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Duración :");
 
@@ -214,12 +232,12 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
                             .addComponent(checkNiños)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,10 +256,30 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Titulo", "Autor", "Duración", "Genero", "Para niños"
+                "", "Titulo", "Autor", "Duración", "Genero", "Para niños"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaPeliculas.setColumnSelectionAllowed(true);
+        tablaPeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaPeliculasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaPeliculas);
+        tablaPeliculas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tablaPeliculas.getColumnModel().getColumnCount() > 0) {
+            tablaPeliculas.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaPeliculas.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaPeliculas.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -366,20 +404,31 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
         
         Pelicula peliculita=new Pelicula();
         
+        
+        peliculita.setPeliculaId(peliculaId);
         peliculita.setTitulo(titulo);
         peliculita.setAutor(autor);
         peliculita.setDuracion(Short.parseShort(duracion));
         peliculita.setGenero(genero);
         peliculita.setAptoParaNinos(menores);
         
-        this.peliculaService.guardar(peliculita);
+        if(peliculaId==null){
+          this.peliculaService.insertar(peliculita);
+          
+        }else{
+                
+              this.peliculaService.actualizar(peliculita);
+              
+        }
+        
+        
+        
        
          mostrarDatos();
        
                 
             limpiarCampos();
-            
-        //listaPeliculas.agregarPelicula(peliculita);
+                 
       } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
@@ -403,19 +452,45 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
 
-        int selectedRow=tablaPeliculas.getSelectedRow();
-        if(selectedRow>=0){
-            txtTitulo.setText(tablaPeliculas.getValueAt(selectedRow, 0).toString());
-            txtAutor.setText(tablaPeliculas.getValueAt(selectedRow, 1).toString());
-            txtDuracion.setText(tablaPeliculas.getValueAt(selectedRow, 2).toString());
-            txtGenero.setSelectedItem(tablaPeliculas.getValueAt(selectedRow, 3).toString());
-            checkNiños.setSelected(tablaPeliculas.getValueAt(selectedRow, 4).toString().equals("Sí"));
-            listaPeliculas.eliminarPelicula(selectedRow);
-            ((DefaultTableModel) tablaPeliculas.getModel()).removeRow(selectedRow);
+     DefaultTableModel modelo = (DefaultTableModel) tablaPeliculas.getModel();
+        int comp=  tablaPeliculas.getSelectedRow();
+        
+        if (comp>-1){
             
-        }else {
-                   JOptionPane.showMessageDialog(this, "Selecciona una película para editar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            Pelicula peliculita =(Pelicula) tablaPeliculas.getValueAt(comp, 0);
+            
+            System.out.println(peliculita);
+            
+          
+            txtTitulo.setText(peliculita.getTitulo());
+            txtAutor.setText(peliculita.getAutor());
+            txtDuracion.setText(Short.toString(peliculita.getDuracion()));
+            txtGenero.setSelectedItem(peliculita.getGenero()); 
+            checkNiños.setSelected(peliculita.isAptoParaNinos());
+            
+            peliculaId=peliculita.getPeliculaId();
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+           
+            
         }
+
+        
+      
+        
+        
+         
+        
     }//GEN-LAST:event_botonEditarActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
@@ -431,6 +506,17 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
     }
     
     }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void tablaPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPeliculasMouseClicked
+
+       
+                
+        
+    }//GEN-LAST:event_tablaPeliculasMouseClicked
+
+    private void txtAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAutorActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCancelar;

@@ -1,7 +1,7 @@
 package pe.edu.utp.poo.application.model;
 
 public class Pelicula {
-    private int pelicula_id;
+    private int peliculaId;
     private String titulo;
     private String autor;
     private short duracion;
@@ -11,7 +11,7 @@ public class Pelicula {
     public Pelicula() {}
 
     public Pelicula(int pelicula_id, String titulo, String autor, short duracion, String genero, boolean aptoParaNinos) {
-        this.pelicula_id = pelicula_id;
+        this.peliculaId = pelicula_id;
         this.titulo = titulo;
         this.autor = autor;
         this.duracion = duracion;
@@ -19,12 +19,12 @@ public class Pelicula {
         this.aptoParaNinos = aptoParaNinos;
     }
 
-    public int getPelicula_id() {
-        return pelicula_id;
+    public int getPeliculaId() {
+        return peliculaId;
     }
 
     public void setPeliculaId(int pelicula_id) {
-        this.pelicula_id = pelicula_id;
+        this.peliculaId = pelicula_id;
     }
 
     public String getTitulo() {

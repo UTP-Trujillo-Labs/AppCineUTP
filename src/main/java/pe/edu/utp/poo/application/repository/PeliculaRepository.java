@@ -43,45 +43,40 @@ public class PeliculaRepository implements Repository<Pelicula> {
       return null;
             
     }
+    
+    
 
     @Override
     public boolean update(Pelicula pelicula) throws SQLException {
-        
-                String query = """
-                           UPDATE Pelicula
-                           SET titulo = ?, autor = ?, duracion = ?, genero = ?, apto_para_ninos = ?
-                           WHERE pelicula_id = ?
-                           """;
+                 
+        String sql = """
+                     UPDATE Pelicula SET Titulo =? , Autor =? , Duracion = ?, Genero =? , apto_para_ninos =?
+                                          WHERE pelicula_id = ? """;
 
-            try (Connection conn = Conexion.getInstance();
-                 PreparedStatement actualizar = conn.prepareStatement(query)) {
+        try (Connection conn = Conexion.getInstance();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-               
-                actualizar.setString(1, pelicula.getTitulo());
-                actualizar.setString(2, pelicula.getAutor());
-                actualizar.setShort(3, pelicula.getDuracion());
-                actualizar.setString(4, pelicula.getGenero());
-                actualizar.setBoolean(5, pelicula.isAptoParaNinos());
-                actualizar.setInt(6, pelicula.getPelicula_id());  
+            
+            pstmt.setString(1, pelicula.getTitulo());
+            pstmt.setString(2, pelicula.getAutor());
+            pstmt.setShort(3, pelicula.getDuracion());
+            pstmt.setString(4, pelicula.getGenero());
+            pstmt.setBoolean(5, pelicula.isAptoParaNinos());
+            pstmt.setInt(6, pelicula.getPeliculaId());
 
-                
-                int affectedRows = actualizar.executeUpdate();
+            
+            int rowsUpdated = pstmt.executeUpdate();
 
-                
-                return affectedRows > 0;
+            
+            return rowsUpdated > 0;
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw e;  
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; 
+        }               
                      
     }
 
-    
-    
-    
-    
-    
     
     @Override
     public List<Pelicula> list() throws SQLException {
@@ -124,6 +119,8 @@ public class PeliculaRepository implements Repository<Pelicula> {
     public Pelicula findById(Long id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+   
+    
 
     @Override
     public boolean delete(Long id) throws SQLException {
