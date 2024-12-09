@@ -4,10 +4,19 @@
  */
 package pe.edu.utp.poo.application.ui;
 
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.utp.poo.application.common.peli.GestorPeliculas;
-import pe.edu.utp.poo.application.common.peli.Pelicula;
+import pe.edu.utp.poo.application.model.Pelicula;
+//import pe.edu.utp.poo.application.common.peli.Pelicula;
+
+import pe.edu.utp.poo.application.service.PeliculaService;
 
 
 /**
@@ -16,14 +25,54 @@ import pe.edu.utp.poo.application.common.peli.Pelicula;
  */
 public class UIPeliculas extends javax.swing.JInternalFrame {
 
-    
+    private PeliculaService peliculaService;
     GestorPeliculas listaPeliculas=new GestorPeliculas();
   
 
 
+    
+    
+    
     public UIPeliculas() {
         initComponents();
+        this.peliculaService=new PeliculaService();
+        mostrarDatos();
+   
     }
+    
+    public void traerPelicula(){
+        
+        DefaultTableModel tableModel = (DefaultTableModel) tablaPeliculas.getModel();
+        tableModel.setRowCount(0);
+        
+        
+      
+    }
+    
+    public void mostrarDatos(){
+    
+        DefaultTableModel modelo = (DefaultTableModel) tablaPeliculas.getModel();
+        modelo.setRowCount(0);
+        
+       try{ List<Pelicula> peliculas=this.peliculaService.findAll();
+        
+         
+         for(Pelicula peliculita:peliculas){
+         
+         Object[] nuevaFila = {peliculita.getTitulo(), 
+                peliculita.getAutor(), 
+                peliculita.getDuracion(), 
+                peliculita.getGenero(), 
+                peliculita.isAptoParaNinos()? "Sí" : "No" };
+            modelo.addRow(nuevaFila);
+         
+         }   
+       } catch (SQLException ex) {
+            Logger.getLogger(UIPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     
     
 
@@ -315,22 +364,26 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
         String genero=txtGenero.getSelectedItem().toString();
         boolean menores=checkNiños.isSelected();
         
-        Pelicula peliculita=new Pelicula(titulo,autor,duracion,genero,menores);
+        Pelicula peliculita=new Pelicula();
         
-        DefaultTableModel modelo = (DefaultTableModel) tablaPeliculas.getModel();
-         
-            Object[] nuevaFila = {peliculita.getTitulo(), 
-                peliculita.getAutor(), 
-                peliculita.getDuracion(), 
-                peliculita.getGenero(), 
-                peliculita.isMenores()? "Sí" : "No" };
-            modelo.addRow(nuevaFila);
-            
+        peliculita.setTitulo(titulo);
+        peliculita.setAutor(autor);
+        peliculita.setDuracion(Short.parseShort(duracion));
+        peliculita.setGenero(genero);
+        peliculita.setAptoParaNinos(menores);
+        
+        this.peliculaService.guardar(peliculita);
+       
+         mostrarDatos();
+       
+                
             limpiarCampos();
             
-        listaPeliculas.agregarPelicula(peliculita);
+        //listaPeliculas.agregarPelicula(peliculita);
       } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(UIPeliculas.class.getName()).log(Level.SEVERE, null, ex);
         }
   
     }//GEN-LAST:event_botonGuardarActionPerformed
