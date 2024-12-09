@@ -9,21 +9,19 @@ public class ReporteVenta {
     private String tituloPelicula;
     private String horario;
     private LocalDateTime fechaVenta;
-    private Double precioUnitario;
     private Integer cantidadTickets;
     private Double subtotal;
 
     public ReporteVenta() {
     }
 
-    public ReporteVenta(Integer ventaId, String nombreCliente, String nombreUsuario, String tituloPelicula, String horario, LocalDateTime fechaVenta, Double precioUnitario, Integer cantidadTickets, Double subtotal) {
+    public ReporteVenta(Integer ventaId, String nombreCliente, String nombreUsuario, String tituloPelicula, String horario, LocalDateTime fechaVenta, Integer cantidadTickets, Double subtotal) {
         this.ventaId = ventaId;
         this.nombreCliente = nombreCliente;
         this.nombreUsuario = nombreUsuario;
         this.tituloPelicula = tituloPelicula;
         this.horario = horario;
         this.fechaVenta = fechaVenta;
-        this.precioUnitario = precioUnitario;
         this.cantidadTickets = cantidadTickets;
         this.subtotal = subtotal;
     }
@@ -74,14 +72,6 @@ public class ReporteVenta {
 
     public void setFechaVenta(LocalDateTime fechaVenta) {
         this.fechaVenta = fechaVenta;
-    }
-
-    public Double getPrecioUnitario() {
-        return precioUnitario;
-    }
-
-    public void setPrecioUnitario(Double precioUnitario) {
-        this.precioUnitario = precioUnitario;
     }
 
     public Integer getCantidadTickets() {

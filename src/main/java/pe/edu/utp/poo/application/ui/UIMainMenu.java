@@ -234,7 +234,7 @@ public class UIMainMenu extends javax.swing.JFrame {
 
         jMenu3.setText("Reportes");
 
-        jmiBoleteriaButacas.setText("Mantenimiento");
+        jmiBoleteriaButacas.setText("Ventas");
         jmiBoleteriaButacas.setActionCommand("ui_boleteria_mantenimiento");
         jMenu3.add(jmiBoleteriaButacas);
 

@@ -8,9 +8,13 @@ import pe.edu.utp.poo.application.common.Util;
 import pe.edu.utp.poo.application.model.Paginacion;
 import pe.edu.utp.poo.application.model.ReporteVenta;
 import pe.edu.utp.poo.application.service.ReporteService;
+import pe.edu.utp.poo.application.util.ExcelUtil;
+import pe.edu.utp.poo.application.util.OSUtil;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 
 import static pe.edu.utp.poo.application.common.Constant.DEFAULT_LIMITE_POR_PAGINA;
@@ -36,12 +40,13 @@ public class UIReporteBoleteria extends javax.swing.JInternalFrame {
 
     private void cargarDatos(int offset, int limite) {
         try {
-            if (offset < 0 || (paginacion != null && offset > paginacion.getTotalElementos())) {
+            if (offset < 0 || (paginacion != null && offset >= paginacion.getTotalElementos())) {
                 return;
             }
             paginacion = reporteService.listaPaginada(offset, limite);
             cargarTabla(paginacion);
         } catch (SQLException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(this, "No se cargaron los datos correctamente");
         }
     }
@@ -67,7 +72,6 @@ public class UIReporteBoleteria extends javax.swing.JInternalFrame {
                     e.getHorario(),
                     e.getNombreCliente(),
                     e.getCantidadTickets(),
-                    e.getPrecioUnitario(),
                     e.getSubtotal(),
             });
         }
@@ -103,6 +107,38 @@ public class UIReporteBoleteria extends javax.swing.JInternalFrame {
         }
 
         cargarDatos(paginacion.getOffset(), paginacion.getLimite());
+    }
+
+    private void exportar() {
+        if (paginacion == null) {
+            JOptionPane.showMessageDialog(this, "No hay elementos para exportar");
+            return;
+        }
+        Integer totalElementos = paginacion.getTotalElementos();
+        try {
+            JFileChooser exploradorArchivos = new JFileChooser();
+            exploradorArchivos.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+            int result = exploradorArchivos.showOpenDialog(null);
+
+            if (result == JFileChooser.APPROVE_OPTION) {
+                Paginacion<ReporteVenta> listaCompleta = reporteService.listaPaginada(0, totalElementos);
+
+                File selectedFolder = exploradorArchivos.getSelectedFile();
+                String rutaArchivoFinal = ExcelUtil.export(selectedFolder.getAbsolutePath(), listaCompleta.getElementos());
+
+                System.out.println(rutaArchivoFinal);
+
+                JOptionPane.showMessageDialog(null, "Archivo exportado correctamente: " + rutaArchivoFinal);
+                OSUtil.mostrarArchivo(rutaArchivoFinal);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "No se cargaron los datos correctamente");
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "No logramos crear el archivo excel");
+        }
     }
 
     /**
@@ -203,11 +239,11 @@ public class UIReporteBoleteria extends javax.swing.JInternalFrame {
 
                 },
                 new String[]{
-                        "OBJ", "#", "Fecha", "Pelicula", "Horario", "Cliente", "Cantidad Tickets", "Total Asientos", "Total Pagado"
+                        "OBJ", "#", "Fecha", "Pelicula", "Horario", "Cliente", "Cantidad Tickets", "Total Pagado"
                 }
         ) {
             boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false, false, false, false
+                    false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -347,7 +383,7 @@ public class UIReporteBoleteria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalleActionPerformed
-
+        exportar();
     }//GEN-LAST:event_btnVerDetalleActionPerformed
 
     private void btnPaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaAnteriorActionPerformed

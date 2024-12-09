@@ -73,7 +73,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmiBoleteriaButacas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mantenimiento"/>
+                <Property name="text" type="java.lang.String" value="Ventas"/>
                 <Property name="actionCommand" type="java.lang.String" value="ui_boleteria_mantenimiento"/>
               </Properties>
             </MenuItem>

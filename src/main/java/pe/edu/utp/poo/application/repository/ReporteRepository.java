@@ -30,8 +30,7 @@ public class ReporteRepository implements PaginateRepository<ReporteVenta> {
                         t1.fecha_venta,
                         120
                     ) fecha_venta,
-                    t5.precio_unitario,
-                    t5.cantidad_tickets,
+                    sum(t5.cantidad_tickets) cantidad_tickets,
                     sum(
                         t5.precio_unitario * t5.cantidad_tickets
                     ) subtotal
@@ -49,9 +48,7 @@ public class ReporteRepository implements PaginateRepository<ReporteVenta> {
                     t4.apellidos,
                     t2.titulo,
                     t1.horario,
-                    t1.fecha_venta,
-                    t5.precio_unitario,
-                    t5.cantidad_tickets
+                    t1.fecha_venta
                 order by fecha_venta desc
                 offset
                     ? rows
@@ -75,7 +72,6 @@ public class ReporteRepository implements PaginateRepository<ReporteVenta> {
                 reporteVenta.setTituloPelicula(rs.getString("titulo_pelicula"));
                 reporteVenta.setHorario(rs.getString("horario"));
                 reporteVenta.setFechaVenta(Util.parseDatetime(rs.getString("fecha_venta")));
-                reporteVenta.setPrecioUnitario(rs.getDouble("precio_unitario"));
                 reporteVenta.setCantidadTickets(rs.getInt("cantidad_tickets"));
                 reporteVenta.setSubtotal(rs.getDouble("subtotal"));
 
