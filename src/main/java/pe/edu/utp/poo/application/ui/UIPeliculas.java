@@ -76,18 +76,6 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
     }
     
     
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -420,14 +408,10 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
               this.peliculaService.actualizar(peliculita);
               
         }
-        
-        
-        
-       
+              
          mostrarDatos();
-       
-                
-            limpiarCampos();
+                   
+         limpiarCampos();
                  
       } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -469,42 +453,45 @@ public class UIPeliculas extends javax.swing.JInternalFrame {
             checkNiños.setSelected(peliculita.isAptoParaNinos());
             
             peliculaId=peliculita.getPeliculaId();
+                           
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-           
-            
-        }
-
-        
-      
-        
-        
-         
+        }        
         
     }//GEN-LAST:event_botonEditarActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
 
-        int selectedRow = tablaPeliculas.getSelectedRow();
-    if (selectedRow >= 0) {
-        listaPeliculas.eliminarPelicula(selectedRow);
-        ((DefaultTableModel) tablaPeliculas.getModel()).removeRow(selectedRow);
-    }else{
+         DefaultTableModel modelo = (DefaultTableModel) tablaPeliculas.getModel();
+          int filaSeleccionada=tablaPeliculas.getSelectedRow();
+          
+          if(filaSeleccionada==-1){
+              JOptionPane.showMessageDialog(this, "Selecciona solo una fila para eliminar");
+              return;
+          }
+          
+          try{
+          
+               Pelicula pelicula = (Pelicula) modelo.getValueAt(filaSeleccionada, 0); 
+                int peliculaID = pelicula.getPeliculaId(); 
+                
+              
+              boolean eliminado = peliculaService.eliminar(peliculaID);
+
+             if (eliminado) {
+               modelo.removeRow(filaSeleccionada);
+               JOptionPane.showMessageDialog(this, "Película eliminada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+              }else {
+                  JOptionPane.showMessageDialog(this, "No se pudo eliminar la película.", "Error", JOptionPane.ERROR_MESSAGE);
+              }
+              
+              
+          }catch (Exception e) {
+          
+              e.printStackTrace();
+             JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar eliminar la película.", "Error", JOptionPane.ERROR_MESSAGE);
+          }
         
-        JOptionPane.showMessageDialog(this, "Selecciona una película para eliminar.", "Aviso", JOptionPane.WARNING_MESSAGE);
-        
-    }
-    
+     
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     private void tablaPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPeliculasMouseClicked

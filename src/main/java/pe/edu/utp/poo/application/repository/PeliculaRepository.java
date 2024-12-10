@@ -124,8 +124,23 @@ public class PeliculaRepository implements Repository<Pelicula> {
 
     @Override
     public boolean delete(Long id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-   
+       
+        String query="""
+                     DELETE FROM Pelicula WHERE pelicula_id=?;
+                     """;
+        
+        try(
+                Connection conn=Conexion.getInstance();
+                PreparedStatement ps = conn.prepareStatement(query);
+                ){
+                
+                ps.setLong(1, id);
+                
+                int result=ps.executeUpdate();
+                if(result==1){
+                    return true;
+                }             
+        }
+        return false;      
+    } 
 }
