@@ -1,7 +1,7 @@
 package pe.edu.utp.poo.application.model;
 
 public class Pelicula {
-    private int peliculaId;
+    private Integer peliculaId;
     private String titulo;
     private String autor;
     private short duracion;
@@ -10,7 +10,7 @@ public class Pelicula {
 
     public Pelicula() {}
 
-    public Pelicula(int pelicula_id, String titulo, String autor, short duracion, String genero, boolean aptoParaNinos) {
+    public Pelicula(Integer pelicula_id, String titulo, String autor, short duracion, String genero, boolean aptoParaNinos) {
         this.peliculaId = pelicula_id;
         this.titulo = titulo;
         this.autor = autor;
@@ -23,7 +23,7 @@ public class Pelicula {
         return peliculaId;
     }
 
-    public void setPeliculaId(int pelicula_id) {
+    public void setPeliculaId(Integer pelicula_id) {
         this.peliculaId = pelicula_id;
     }
 
