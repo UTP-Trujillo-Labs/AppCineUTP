@@ -9,6 +9,7 @@ import pe.edu.utp.poo.application.repository.DetalleVentaRepository;
 import pe.edu.utp.poo.application.repository.VentaRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class VentaService {
     private VentaRepository ventaRepository;
@@ -34,5 +35,9 @@ public class VentaService {
     }
     public Integer insertarDetalleButacas(DetalleButaca detalleButaca) throws SQLException {
         return ventaButacaRepository.insert(detalleButaca);
+    }
+
+    public List<String> getButacasPorPeliculaId(Integer peliculaId) throws SQLException {
+        return ventaButacaRepository.listByPeliculaId(peliculaId);
     }
 }

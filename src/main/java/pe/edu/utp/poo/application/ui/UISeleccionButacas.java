@@ -41,7 +41,7 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
         this.setControles();
         // TODO: Cambiar por defecto a lectura desde base de datos
         this.defaultButacas();
-        this.reloadButacas();
+        this.reloadButacas(dto.getButacasReservadas());
     }
 
     private void setControles() {
@@ -53,18 +53,29 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
     
     private void defaultButacas() {
         butacas.clear();
+//        butacas.put("A", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("B", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("C", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("D", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Ocupado, Ocupado, Ocupado, Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("E", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Ocupado, Ocupado, Ocupado, Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("F", new EstadoBustacaEnum[] {Ocupado, Ocupado, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("G", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+//        butacas.put("H", new EstadoBustacaEnum[] {Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Ocupado, Ocupado});
         butacas.put("A", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
         butacas.put("B", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
         butacas.put("C", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("D", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Ocupado, Ocupado, Ocupado, Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("E", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Ocupado, Ocupado, Ocupado, Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("F", new EstadoBustacaEnum[] {Ocupado, Ocupado, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("D", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("E", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
+        butacas.put("F", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
         butacas.put("G", new EstadoBustacaEnum[] {Disponible, Disponible, NULL, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, NULL, Disponible});
-        butacas.put("H", new EstadoBustacaEnum[] {Ocupado, Ocupado, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Ocupado, Ocupado});
+        butacas.put("H", new EstadoBustacaEnum[] {Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible, Disponible});
 
     }
-    
-    private void reloadButacas() {
+
+    private void reloadButacas(List<String> butacasCompradas) {
+        if (butacasCompradas == null) {
+            butacasCompradas = new ArrayList<>();
+        }
         Component[] component = jplButacas.getComponents();
         for (Component c : component) {
             if (c instanceof javax.swing.JLabel) {
@@ -77,6 +88,10 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                            
                 EstadoBustacaEnum estadoButaca = butacas.get(fila)[columna];
 
+                if (butacasCompradas.contains(butaca)) {
+                    estadoButaca = Ocupado;
+                }
+
                 if (EstadoBustacaEnum.NULL.equals(estadoButaca)) {
                     label.setVisible(false);
                 } else {
@@ -86,7 +101,6 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
                 
             }
         }
-        
     }
     
     private void seleccionarButaca(java.awt.event.MouseEvent evt) {
@@ -125,21 +139,10 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
 
         outputOnClose.accept(dto);
         this.dispose();
-//        Component[] component = jplButacas.getComponents();
-//        for (Component c : component) {
-//            if (c instanceof javax.swing.JLabel) {
-//                javax.swing.JLabel label = (javax.swing.JLabel) c;
-//                EstadoBustacaEnum estadoActual = EstadoBustacaEnum.parseEnum(label.getBackground());
-//                
-//                if (EstadoBustacaEnum.Seleccion.equals(estadoActual)) {
-//                    System.out.println("Butaca seleccionada: " + label.getText());
-//                }
-//            }
-//        }
     }
     
     private void reiniciar() {
-        reloadButacas();
+        reloadButacas(dto.getButacasReservadas());
     }
 
     /**
@@ -358,9 +361,9 @@ public class UISeleccionButacas extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Adulto:");
 
-        txtButacasAdulto.setModel(new javax.swing.SpinnerNumberModel(0, null, 20, 1));
+        txtButacasAdulto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
 
-        txtButacasNino.setModel(new javax.swing.SpinnerNumberModel(0, null, 20, 1));
+        txtButacasNino.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         txtButacasNino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

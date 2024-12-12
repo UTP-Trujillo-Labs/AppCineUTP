@@ -81,6 +81,30 @@ public class DetalleButacaRepository implements Repository<DetalleButaca> {
         return list;
     }
 
+    public List<String> listByPeliculaId(Integer peliculaId) throws SQLException{
+        List<String> list = new ArrayList<>();
+        String query = """
+                select t3.numero_butaca from dbo.Venta t1
+                  inner join dbo.Pelicula t2 on t1.pelicula_id = t2.pelicula_id
+                  inner join dbo."Detalle_Butacas" t3 on t1.venta_id = t3.venta_id
+                  where t1.pelicula_id = ?
+                """;
+        try (
+                Connection conn = Conexion.getInstance();
+                PreparedStatement ps = conn.prepareStatement(query);
+        ) {
+            ps.setInt(1, peliculaId);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String numeroButaca = rs.getString("numero_butaca");
+                list.add(numeroButaca);
+            }
+        }
+        return list;
+    }
+
     @Override
     public DetalleButaca findById(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");

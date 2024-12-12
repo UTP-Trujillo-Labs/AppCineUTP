@@ -6,6 +6,7 @@ package pe.edu.utp.poo.application.ui;
 
 import java.sql.SQLException;
 
+import pe.edu.utp.poo.application.common.Util;
 import pe.edu.utp.poo.application.model.*;
 import pe.edu.utp.poo.application.service.SeguridadService;
 import pe.edu.utp.poo.application.service.VentaService;
@@ -37,6 +38,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     private VentaService ventaService;
     private List<String> butacasAdulto;
     private List<String> butacasNinio;
+    private Pelicula peliculaSeleccionada = null;
 
     /**
      * Creates new form UIBoleteria
@@ -48,22 +50,39 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         this.clienteService=new ClienteService();
         this.peliculaService=new PeliculaService();
         this.ventaService=new VentaService();
-        this.mostrarPelicula(); 
+        this.mostrarPelicula();
+        btnSeleccionarButacas.setEnabled(false);
     }
     
     private void abrirSeleccionButacas() {
-        Integer cantidadTicketsAdulto = (Integer) txtTicketsAdulto.getValue();
-        Integer cantidadTicketsNinio = (Integer) txtTicketsNinio.getValue();
+        try {
+            Integer cantidadTicketsAdulto = (Integer) txtTicketsAdulto.getValue();
+            Integer cantidadTicketsNinio = (Integer) txtTicketsNinio.getValue();
 
-        VentaButacasDTO dto = new VentaButacasDTO();
 
-        dto.setCantidadAsientosAdulto(cantidadTicketsAdulto);
-        dto.setCantidadAsientosNinio(cantidadTicketsNinio);
-        dto.setPelicula((String) cboPelicula.getSelectedItem());
-        dto.setHorario((String) cboHorario.getSelectedItem());
+            if (cantidadTicketsAdulto + cantidadTicketsNinio == 0) {
+                JOptionPane.showMessageDialog(this, "Debe comprar almenos un ticket");
+                txtTicketsAdulto.requestFocus();
+                return;
+            }
 
-        uiSeleccionButacas = new UISeleccionButacas(dto, outputOnClose);
-        this.uiMain.getPanel().add(uiSeleccionButacas).setVisible(true);
+
+            VentaButacasDTO dto = new VentaButacasDTO();
+
+            List<String> butacasReservadas = this.ventaService.getButacasPorPeliculaId(peliculaSeleccionada.getPeliculaId());
+
+            dto.setCantidadAsientosAdulto(cantidadTicketsAdulto);
+            dto.setCantidadAsientosNinio(cantidadTicketsNinio);
+            dto.setPelicula((String) cboPelicula.getSelectedItem());
+            dto.setHorario((String) cboHorario.getSelectedItem());
+            dto.setButacasReservadas(butacasReservadas);
+
+            uiSeleccionButacas = new UISeleccionButacas(dto, outputOnClose);
+            this.uiMain.getPanel().add(uiSeleccionButacas).setVisible(true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error en base de datos al cargar las butacas");
+        }
     }
 
     private void fnOutputOnClose(VentaButacasDTO dto) {
@@ -102,6 +121,9 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         }
 
         lblTotalVenta.setText(String.format("%.2f", totalVenta));
+
+        txtTicketsAdulto.setValue(dto.getCantidadAsientosAdulto());
+        txtTicketsNinio.setValue(dto.getCantidadAsientosNinio());
     }
     
     private void limpiarCampos() {
@@ -113,10 +135,18 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         cboHorario.setSelectedIndex(0);
         txtTicketsAdulto.setValue(0);
         txtTicketsNinio.setValue(0);
+
+        DefaultTableModel model = (DefaultTableModel) jtDetalleVenta.getModel();
+        model.setRowCount(0);
     }
     
     private void vender(){
         try {
+
+            if (!this.validarCampos()) {
+                return;
+            }
+
             String nombres=txtNombreCliente.getText();
             String apellidos=txtApellidosCliente.getText();
             String numeroDocumento=txtNumeroDocumento.getText();
@@ -129,7 +159,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
             Integer clienteId = this.clienteService.insertar(cliente);
             Integer usuarioId = SeguridadService.instancia().getUsuarioSession().getUsuarioId();
-            Integer peliculaId = listaPeliculas.get(cboPelicula.getSelectedIndex() - 1).getPeliculaId();
+            Integer peliculaId = peliculaSeleccionada.getPeliculaId();
             String horario = (String) cboHorario.getSelectedItem();
             LocalDateTime fechaVenta = LocalDateTime.now();
 
@@ -196,6 +226,46 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
         
     }
+
+
+    private boolean validarCampos() {
+        String nombres = txtNombreCliente.getText();
+        String apellidos = txtApellidosCliente.getText();
+        String dni = txtNumeroDocumento.getText();
+        Integer numeroTicketsAdulto = (Integer) txtTicketsAdulto.getValue();
+        Integer numeroTicketsNinio = (Integer) txtTicketsNinio.getValue();
+
+        if (Util.isNullOrEmpty(nombres) || nombres.length() <= 1) {
+            JOptionPane.showMessageDialog(this, "Los nombres son inválidos!");
+            txtNombreCliente.requestFocus();
+            return false;
+        }
+
+        if (Util.isNullOrEmpty(apellidos) || apellidos.length() <= 1) {
+            JOptionPane.showMessageDialog(this, "Los apellidos son inválidos!");
+            txtApellidosCliente.requestFocus();
+            return false;
+        }
+
+        if (Util.isNullOrEmpty(dni) || dni.length() != 8) {
+            JOptionPane.showMessageDialog(this, "El DNI es inválidos!");
+            txtNumeroDocumento.requestFocus();
+            return false;
+        }
+
+        if (numeroTicketsAdulto + numeroTicketsNinio == 0) {
+            JOptionPane.showMessageDialog(this, "Debe comprar almenos un ticket");
+            txtTicketsAdulto.requestFocus();
+            return false;
+        }
+
+        if (butacasAdulto == null || butacasNinio == null || butacasAdulto.size() + butacasNinio.size() == 0) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar los asientos a vender");
+            return false;
+        }
+
+        return true;
+    }
     
     private void mostrarPelicula(){
         try {
@@ -205,6 +275,15 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(UIBoleteria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void seleccionarPelicula() {
+        if (cboPelicula.getSelectedItem() != null && cboPelicula.getSelectedIndex() > 0) {
+            peliculaSeleccionada = listaPeliculas.get(cboPelicula.getSelectedIndex() - 1);
+            btnSeleccionarButacas.setEnabled(true);
+        } else {
+            btnSeleccionarButacas.setEnabled(false);
         }
     }
     
@@ -237,7 +316,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         btnLimpiar = new javax.swing.JToggleButton();
         btnSeleccionarButacas = new javax.swing.JToggleButton();
-        btnImprimir = new javax.swing.JToggleButton();
+        btnVender = new javax.swing.JToggleButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtDetalleVenta = new javax.swing.JTable();
@@ -260,6 +339,10 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         jLabel6.setText("Adulto:");
 
         jLabel7.setText("Niño:");
+
+        txtTicketsAdulto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
+
+        txtTicketsNinio.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
 
         cboPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --" }));
         cboPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -385,11 +468,11 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
             }
         });
 
-        btnImprimir.setForeground(new java.awt.Color(51, 153, 255));
-        btnImprimir.setText("Vender");
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+        btnVender.setForeground(new java.awt.Color(51, 153, 255));
+        btnVender.setText("Vender");
+        btnVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
+                btnVenderActionPerformed(evt);
             }
         });
 
@@ -403,7 +486,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSeleccionarButacas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnImprimir)
+                .addComponent(btnVender)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -413,7 +496,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
                     .addComponent(btnSeleccionarButacas)
-                    .addComponent(btnImprimir))
+                    .addComponent(btnVender))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -527,7 +610,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNombreClienteActionPerformed
 
     private void cboPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPeliculaActionPerformed
-        // TODO add your handling code here:
+        seleccionarPelicula();
     }//GEN-LAST:event_cboPeliculaActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -538,9 +621,9 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         abrirSeleccionButacas();
     }//GEN-LAST:event_btnSeleccionarButacasActionPerformed
 
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         vender();
-    }//GEN-LAST:event_btnImprimirActionPerformed
+    }//GEN-LAST:event_btnVenderActionPerformed
 
     private void cboHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboHorarioActionPerformed
         // TODO add your handling code here:
@@ -548,9 +631,9 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnImprimir;
     private javax.swing.JToggleButton btnLimpiar;
     private javax.swing.JToggleButton btnSeleccionarButacas;
+    private javax.swing.JToggleButton btnVender;
     private javax.swing.JComboBox<String> cboHorario;
     private javax.swing.JComboBox<String> cboPelicula;
     private javax.swing.JLabel jLabel1;
