@@ -11,7 +11,7 @@ import static pe.edu.utp.poo.application.common.Constant.FRASE_SECRETA;
 
 public class SeguridadRepository implements Repository<Seguridad> {
 
-    public Long insert(Seguridad usuario) throws SQLException {
+    public Integer insert(Seguridad usuario) throws SQLException {
         String query = """
                 insert into Seguridad (usuario_id, usuario, clave, activo)
                 values (?, ?, EncryptByPassPhrase(?, ?, 1, CONVERT(varbinary, convert(nvarchar, ?))), 1)
@@ -20,7 +20,7 @@ public class SeguridadRepository implements Repository<Seguridad> {
                 Connection conn = Conexion.getInstance();
                 PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         ) {
-            ps.setLong(1, usuario.getUsuario().getUsuarioId());
+            ps.setInt(1, usuario.getUsuario().getUsuarioId());
             ps.setString(2, usuario.getUsuarioLogin());
             ps.setString(3, FRASE_SECRETA);
             ps.setString(4, usuario.getClave());
@@ -30,7 +30,7 @@ public class SeguridadRepository implements Repository<Seguridad> {
             if (result == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
-                return rs.getLong(1);
+                return rs.getInt(1);
             }
         }
         return null;
@@ -50,11 +50,11 @@ public class SeguridadRepository implements Repository<Seguridad> {
 
     @Override
     @Deprecated
-    public Seguridad findById(Long id) throws SQLException {
+    public Seguridad findById(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public Seguridad findByUsuarioId(Long id) throws SQLException {
+    public Seguridad findByUsuarioId(Integer id) throws SQLException {
         Seguridad seguridad = null;
         String query = """
                 select seguridad_id, usuario, activo
@@ -70,7 +70,7 @@ public class SeguridadRepository implements Repository<Seguridad> {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 seguridad = new Seguridad();
-                seguridad.setSeguridadId(rs.getLong("seguridad_id"));
+                seguridad.setSeguridadId(rs.getInt("seguridad_id"));
                 seguridad.setUsuarioLogin(rs.getString("usuario"));
                 seguridad.setActivo(rs.getShort("activo"));
             }
@@ -79,7 +79,7 @@ public class SeguridadRepository implements Repository<Seguridad> {
     }
 
     @Override
-    public boolean delete(Long id) throws SQLException {
+    public boolean delete(Integer id) throws SQLException {
         String query = """
                 delete from Seguridad
                 where seguridad_id = ?
@@ -88,7 +88,7 @@ public class SeguridadRepository implements Repository<Seguridad> {
                 Connection conn = Conexion.getInstance();
                 PreparedStatement ps = conn.prepareStatement(query);
         ) {
-            ps.setLong(1, id);
+            ps.setInt(1, id);
 
             int result = ps.executeUpdate();
             if (result == 1) {
@@ -118,7 +118,7 @@ public class SeguridadRepository implements Repository<Seguridad> {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setUsuarioId(rs.getLong("usuario_id"));
+                usuario.setUsuarioId(rs.getInt("usuario_id"));
                 usuario.setNombres(rs.getString("nombres"));
                 usuario.setApellidos(rs.getString("apellidos"));
 

@@ -23,7 +23,7 @@ import pe.edu.utp.poo.application.model.Pelicula;
 public class PeliculaRepository implements Repository<Pelicula> {
 
     @Override
-    public Long insert(Pelicula pelicula) throws SQLException {
+    public Integer insert(Pelicula pelicula) throws SQLException {
         
       String query="""
                    INSERT INTO Pelicula(titulo,autor,duracion,genero,apto_para_ninos)
@@ -116,14 +116,14 @@ public class PeliculaRepository implements Repository<Pelicula> {
     }
 
     @Override
-    public Pelicula findById(Long id) throws SQLException {
+    public Pelicula findById(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
    
     
 
     @Override
-    public boolean delete(Long id) throws SQLException {
+    public boolean delete(Integer id) throws SQLException {
        
         String query="""
                      DELETE FROM Pelicula WHERE pelicula_id=?;
@@ -134,7 +134,7 @@ public class PeliculaRepository implements Repository<Pelicula> {
                 PreparedStatement ps = conn.prepareStatement(query);
                 ){
                 
-                ps.setLong(1, id);
+                ps.setInt(1, id);
                 
                 int result=ps.executeUpdate();
                 if(result==1){

@@ -5,18 +5,21 @@
 package pe.edu.utp.poo.application.ui;
 
 import java.sql.SQLException;
+
+import pe.edu.utp.poo.application.model.*;
+import pe.edu.utp.poo.application.service.SeguridadService;
+import pe.edu.utp.poo.application.service.VentaService;
 import pe.edu.utp.poo.application.ui.dto.VentaButacasDTO;
 
 import javax.swing.table.DefaultTableModel;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 import javax.swing.JOptionPane;
-import pe.edu.utp.poo.application.model.Cliente;
-import pe.edu.utp.poo.application.model.Pelicula;
+
 import pe.edu.utp.poo.application.service.ClienteService;
 import pe.edu.utp.poo.application.service.PeliculaService;
 
@@ -30,8 +33,11 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     private UISeleccionButacas uiSeleccionButacas;
     private ClienteService clienteService;
     private PeliculaService peliculaService;
-    
-    
+    private List<Pelicula> listaPeliculas = new ArrayList<>();
+    private VentaService ventaService;
+    private List<String> butacasAdulto;
+    private List<String> butacasNinio;
+
     /**
      * Creates new form UIBoleteria
      */
@@ -41,6 +47,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         this.uiMain = uiMain;
         this.clienteService=new ClienteService();
         this.peliculaService=new PeliculaService();
+        this.ventaService=new VentaService();
         this.mostrarPelicula(); 
     }
     
@@ -66,21 +73,21 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
         model.setRowCount(0);
 
-        List<String> bucatasAdulto = dto.getButacasReservadas().subList(0, dto.getCantidadAsientosAdulto());
-        if (!bucatasAdulto.isEmpty()) {
+        butacasAdulto = dto.getButacasReservadas().subList(0, dto.getCantidadAsientosAdulto());
+        if (!butacasAdulto.isEmpty()) {
             double precioAdulto = 34.9;
-            double subTotalVenta = precioAdulto * bucatasAdulto.size();
+            double subTotalVenta = precioAdulto * butacasAdulto.size();
             totalVenta += subTotalVenta;
             model.addRow(new Object[]{
                     1,
-                    String.format("Tickets adulto: %d - Asiento(s): %s", bucatasAdulto.size(), String.join(", ", bucatasAdulto)),
+                    String.format("Tickets adulto: %d - Asiento(s): %s", butacasAdulto.size(), String.join(", ", butacasAdulto)),
                     String.format("S/. %.2f", precioAdulto),
-                    bucatasAdulto.size(),
+                    butacasAdulto.size(),
                     String.format("S/. %.2f", subTotalVenta),
             });
         }
 
-        List<String> butacasNinio = dto.getButacasReservadas().subList(dto.getCantidadAsientosAdulto(), dto.getButacasReservadas().size());
+        butacasNinio = dto.getButacasReservadas().subList(dto.getCantidadAsientosAdulto(), dto.getButacasReservadas().size());
         if (!butacasNinio.isEmpty()) {
             double precioNinio = 29.9;
             double subTotalVenta = precioNinio * butacasNinio.size();
@@ -109,24 +116,75 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     }
     
     private void vender(){
-        txtNombreCliente.getText();
-        txtApellidosCliente.getText();
-        txtNumeroDocumento.getText();
-        
-        String nombres=txtNombreCliente.getText();
-        String apellidos=txtApellidosCliente.getText();
-        String numeroDocumento=txtNumeroDocumento.getText();
-        
-        Cliente cliente=new Cliente();
-        
-        cliente.setNombres(nombres);
-        cliente.setApellidos(apellidos);
-        cliente.setNumeroDocumento(numeroDocumento);
-        
         try {
-            this.clienteService.insertar(cliente);
-            
-            JOptionPane.showMessageDialog(this, "Registro con éxito!");
+            String nombres=txtNombreCliente.getText();
+            String apellidos=txtApellidosCliente.getText();
+            String numeroDocumento=txtNumeroDocumento.getText();
+
+            Cliente cliente=new Cliente();
+
+            cliente.setNombres(nombres);
+            cliente.setApellidos(apellidos);
+            cliente.setNumeroDocumento(numeroDocumento);
+
+            Integer clienteId = this.clienteService.insertar(cliente);
+            Integer usuarioId = SeguridadService.instancia().getUsuarioSession().getUsuarioId();
+            Integer peliculaId = listaPeliculas.get(cboPelicula.getSelectedIndex() - 1).getPeliculaId();
+            String horario = (String) cboHorario.getSelectedItem();
+            LocalDateTime fechaVenta = LocalDateTime.now();
+
+            Integer ticketsAdulto = (Integer) txtTicketsAdulto.getValue();
+            Integer ticketsNinio = (Integer) txtTicketsNinio.getValue();
+
+            Venta venta = new Venta();
+            venta.setClienteId(clienteId);
+            venta.setUsuarioId(usuarioId);
+            venta.setPeliculaId(peliculaId);
+            venta.setHorario(horario);
+            venta.setFechaVenta(fechaVenta);
+
+            Integer ventaId = this.ventaService.insertar(venta);
+
+
+            if (ticketsAdulto > 0 && butacasAdulto != null && !butacasAdulto.isEmpty()) {
+                DetalleVenta detalleVenta = new DetalleVenta();
+                detalleVenta.setVentaId(ventaId);
+                detalleVenta.setTipoTickets("A");
+                detalleVenta.setPrecio(34.9);
+                detalleVenta.setDescripcion(String.format("Tickets adulto: %d - Asiento(s): %s", butacasAdulto.size(), String.join(", ", butacasAdulto)));
+                detalleVenta.setCantidad(ticketsAdulto);
+
+                Integer detalleVentaId = this.ventaService.insertarDetalle(detalleVenta);
+
+                for (String numeroButaca : butacasAdulto) {
+                    DetalleButaca detalleButaca = new DetalleButaca();
+                    detalleButaca.setVentaId(ventaId);
+                    detalleButaca.setDetalleVentaId(detalleVentaId);
+                    detalleButaca.setNumeroButaca(numeroButaca);
+                    this.ventaService.insertarDetalleButacas(detalleButaca);
+                }
+            }
+
+            if (ticketsNinio > 0 && butacasNinio != null && !butacasNinio.isEmpty()) {
+                DetalleVenta detalleVenta = new DetalleVenta();
+                detalleVenta.setVentaId(ventaId);
+                detalleVenta.setTipoTickets("N");
+                detalleVenta.setPrecio(29.9);
+                detalleVenta.setDescripcion(String.format("Tickets niño: %d - Asiento(s): %s", butacasNinio.size(), String.join(", ", butacasNinio)));
+                detalleVenta.setCantidad(ticketsNinio);
+
+                Integer detalleVentaId = this.ventaService.insertarDetalle(detalleVenta);
+
+                for (String numeroButaca : butacasNinio) {
+                    DetalleButaca detalleButaca = new DetalleButaca();
+                    detalleButaca.setVentaId(ventaId);
+                    detalleButaca.setDetalleVentaId(detalleVentaId);
+                    detalleButaca.setNumeroButaca(numeroButaca);
+                    this.ventaService.insertarDetalleButacas(detalleButaca);
+                }
+            }
+
+            JOptionPane.showMessageDialog(this, "La venta se registro con éxito!");
         } catch (SQLException ex) {
             Logger.getLogger(UIBoleteria.class.getName()).log(Level.SEVERE, null, ex);
             
@@ -141,8 +199,8 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     
     private void mostrarPelicula(){
         try {
-            List<Pelicula> lista = this.peliculaService.findAll();
-            for(Pelicula peli : lista){
+            listaPeliculas = this.peliculaService.findAll();
+            for(Pelicula peli : listaPeliculas){
                cboPelicula.addItem(peli.getTitulo());
             }
         } catch (SQLException ex) {

@@ -18,10 +18,10 @@ public class UsuarioService {
     public List<Usuario> findAll() throws SQLException {
         return this.usuarioRepository.list();
     }
-    public Usuario findById(Long id) throws SQLException {
+    public Usuario findById(Integer id) throws SQLException {
         return this.usuarioRepository.findById(id);
     }
-    public boolean deleteById(Long id) throws SQLException {
+    public boolean deleteById(Integer id) throws SQLException {
         Usuario usuario = this.usuarioRepository.findById(id);
         if (usuario != null) {
             Seguridad seguridad = this.seguridadRepository.findByUsuarioId(id);
@@ -32,9 +32,9 @@ public class UsuarioService {
         }
         return false;
     }
-    public Usuario save(Usuario usuario) throws SQLException {
+    public Usuario guardar(Usuario usuario) throws SQLException {
         if (usuario.getUsuarioId() == null) {
-            Long id = this.usuarioRepository.insert(usuario);
+            Integer id = this.usuarioRepository.insert(usuario);
 
             if (id != null) {
                 usuario.setUsuarioId(id);
@@ -45,7 +45,7 @@ public class UsuarioService {
                 seguridad.setActivo((short) 1);
                 seguridad.setClave(usuario.getNumeroDocumento());
                 seguridad.setUsuario(usuario);
-                Long idSeguridad = this.seguridadRepository.insert(seguridad);
+                Integer idSeguridad = this.seguridadRepository.insert(seguridad);
 
                 usuario.setUsuarioId(id);
 

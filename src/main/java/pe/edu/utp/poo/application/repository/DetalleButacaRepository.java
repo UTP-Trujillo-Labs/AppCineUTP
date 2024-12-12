@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DetalleButacaRepository implements Repository<DetalleButaca> {
     @Override
-    public Long insert(DetalleButaca detalleButaca) throws SQLException {
+    public Integer insert(DetalleButaca detalleButaca) throws SQLException {
         String query = """
                 insert into Detalle_Butacas (
                      venta_id,
@@ -31,7 +31,7 @@ public class DetalleButacaRepository implements Repository<DetalleButaca> {
             if (result == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
-                return rs.getLong(1);
+                return rs.getInt(1);
             }
         }
         return null;
@@ -82,12 +82,12 @@ public class DetalleButacaRepository implements Repository<DetalleButaca> {
     }
 
     @Override
-    public DetalleButaca findById(Long id) throws SQLException {
+    public DetalleButaca findById(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Long id) throws SQLException {
+    public boolean delete(Integer id) throws SQLException {
         String query = """
                 delete from Detalle_Butacas
                 where detalle_butacas_id = ?
@@ -96,7 +96,7 @@ public class DetalleButacaRepository implements Repository<DetalleButaca> {
                 Connection conn = Conexion.getInstance();
                 PreparedStatement ps = conn.prepareStatement(query);
         ) {
-            ps.setLong(1, id);
+            ps.setInt(1, id);
 
             int result = ps.executeUpdate();
             if (result == 1) {

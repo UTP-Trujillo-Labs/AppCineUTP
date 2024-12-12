@@ -26,12 +26,15 @@ public class SeguridadService {
         return usuarioSession;
     }
 
-    public Long insert(Seguridad seguridad) throws SQLException {
+    public Integer insert(Seguridad seguridad) throws SQLException {
         return seguridadRepository.insert(seguridad);
     }
 
-    public Seguridad authenticate(String username, String password) throws SQLException {
+    public Seguridad authenticate(String username, String password) throws SQLException, RuntimeException {
         Seguridad seguridad = seguridadRepository.auth(username, password);
+        if (seguridad == null) {
+            throw new RuntimeException("Error en autenticacion de usuario");
+        }
         usuarioSession = seguridad.getUsuario();
         return seguridad;
     }

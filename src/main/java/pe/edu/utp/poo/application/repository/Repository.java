@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface Repository<T> {
-    Long insert(T t) throws SQLException;
+    Integer insert(T t) throws SQLException;
     boolean update(T t) throws SQLException;
     List<T> list() throws SQLException;
-    T findById(Long id) throws SQLException;
-    boolean delete(Long id) throws SQLException;
+    T findById(Integer id) throws SQLException;
+    boolean delete(Integer id) throws SQLException;
 }

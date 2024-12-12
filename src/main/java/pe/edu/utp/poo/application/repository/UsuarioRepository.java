@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UsuarioRepository implements Repository<Usuario> {
     @Override
-    public Long insert(Usuario usuario) throws SQLException {
+    public Integer insert(Usuario usuario) throws SQLException {
         String query = """
                 insert into Usuario (nombres, apellidos, numero_documento, rol, edad, estado)
                 values (?, ?, ?, ?, ?, 1)
@@ -28,7 +28,7 @@ public class UsuarioRepository implements Repository<Usuario> {
             if (result == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
-                return rs.getLong(1);
+                return rs.getInt(1);
             }
         }
         return null;
@@ -78,7 +78,7 @@ public class UsuarioRepository implements Repository<Usuario> {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setUsuarioId(rs.getLong("usuario_id"));
+                usuario.setUsuarioId(rs.getInt("usuario_id"));
                 usuario.setNombres(rs.getString("nombres"));
                 usuario.setApellidos(rs.getString("apellidos"));
                 usuario.setNumeroDocumento(rs.getString("numero_documento"));
@@ -93,7 +93,7 @@ public class UsuarioRepository implements Repository<Usuario> {
     }
 
     @Override
-    public Usuario findById(Long id) throws SQLException {
+    public Usuario findById(Integer id) throws SQLException {
         Usuario usuario = null;
         String query = """
                 select usuario_id, nombres, apellidos, numero_documento, rol, edad
@@ -108,7 +108,7 @@ public class UsuarioRepository implements Repository<Usuario> {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 usuario = new Usuario();
-                usuario.setUsuarioId(rs.getLong("usuario_id"));
+                usuario.setUsuarioId(rs.getInt("usuario_id"));
                 usuario.setNombres(rs.getString("nombres"));
                 usuario.setApellidos(rs.getString("apellidos"));
                 usuario.setNumeroDocumento(rs.getString("numero_documento"));
@@ -119,7 +119,7 @@ public class UsuarioRepository implements Repository<Usuario> {
         return usuario;
     }
 
-    public boolean inhabilitar(Long id) throws SQLException {
+    public boolean inhabilitar(Integer id) throws SQLException {
         String query = """
                 update Usuario set
                 estado = 0
@@ -129,7 +129,7 @@ public class UsuarioRepository implements Repository<Usuario> {
                 Connection conn = Conexion.getInstance();
                 PreparedStatement ps = conn.prepareStatement(query);
         ) {
-            ps.setLong(1, id);
+            ps.setInt(1, id);
             int result = ps.executeUpdate();
             if (result == 1) {
                 return true;
@@ -139,7 +139,7 @@ public class UsuarioRepository implements Repository<Usuario> {
     }
 
     @Override
-    public boolean delete(Long id) throws SQLException {
+    public boolean delete(Integer id) throws SQLException {
         String query = """
                 delete from Usuario
                 where usuario_id = ?
@@ -148,7 +148,7 @@ public class UsuarioRepository implements Repository<Usuario> {
                 Connection conn = Conexion.getInstance();
                 PreparedStatement ps = conn.prepareStatement(query);
         ) {
-            ps.setLong(1, id);
+            ps.setInt(1, id);
 
             int result = ps.executeUpdate();
             if (result == 1) {

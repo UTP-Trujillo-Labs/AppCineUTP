@@ -4,7 +4,11 @@
  */
 package pe.edu.utp.poo.application.model;
 
+import pe.edu.utp.poo.application.common.Util;
+
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
 /**
  * @author manuelguarniz
@@ -72,6 +76,9 @@ public class Venta {
 
     public LocalDateTime getFechaVenta() {
         return fechaVenta;
+    }
+    public String getFechaVentaString() {
+        return Util.dateToString(fechaVenta);
     }
 
     public void setFechaVenta(LocalDateTime fechaVenta) {

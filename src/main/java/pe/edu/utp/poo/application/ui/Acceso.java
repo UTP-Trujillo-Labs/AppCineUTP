@@ -46,7 +46,7 @@ public class Acceso extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | RuntimeException e) {
                 JOptionPane.showMessageDialog(null,"Su usuario o contraseña es incorrecto");
             }
         }

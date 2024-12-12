@@ -1,7 +1,7 @@
 package pe.edu.utp.poo.application.model;
 
 public class Seguridad {
-    private Long seguridadId;
+    private Integer seguridadId;
     private Usuario usuario;
     private String usuarioLogin;
     private String clave;
@@ -9,7 +9,7 @@ public class Seguridad {
 
     public Seguridad() { }
 
-    public Seguridad(Long seguridadId, Usuario usuario, String usuarioLogin, String clave, Short activo) {
+    public Seguridad(Integer seguridadId, Usuario usuario, String usuarioLogin, String clave, Short activo) {
         this.seguridadId = seguridadId;
         this.usuario = usuario;
         this.usuarioLogin = usuarioLogin;
@@ -17,11 +17,11 @@ public class Seguridad {
         this.activo = activo;
     }
 
-    public Long getSeguridadId() {
+    public Integer getSeguridadId() {
         return seguridadId;
     }
 
-    public void setSeguridadId(Long seguridadId) {
+    public void setSeguridadId(Integer seguridadId) {
         this.seguridadId = seguridadId;
     }
 

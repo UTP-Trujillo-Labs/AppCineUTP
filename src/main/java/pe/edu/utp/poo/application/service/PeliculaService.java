@@ -27,7 +27,7 @@ public class PeliculaService {
         return this.peliculaRepository.list();
     }
     
-     public Long insertar(Pelicula pelicula) throws SQLException {
+     public Integer insertar(Pelicula pelicula) throws SQLException {
         return peliculaRepository.insert(pelicula);
     } 
      
@@ -36,7 +36,7 @@ public class PeliculaService {
         return peliculaRepository.update(pelicula);
     }
     
-    public boolean eliminar(long pelicula_id) throws SQLException {
+    public boolean eliminar(Integer pelicula_id) throws SQLException {
     return peliculaRepository.delete(pelicula_id);
 }
     

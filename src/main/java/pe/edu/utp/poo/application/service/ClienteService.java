@@ -19,7 +19,7 @@ public class ClienteService {
        clienteRepository = new ClienteRepository();
     }
     
-    public Long insertar(Cliente cliente) throws SQLException {
+    public Integer insertar(Cliente cliente) throws SQLException {
         return clienteRepository.insert(cliente);
     } 
      

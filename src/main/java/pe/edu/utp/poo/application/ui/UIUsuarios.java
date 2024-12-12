@@ -20,7 +20,7 @@ import pe.edu.utp.poo.application.service.UsuarioService;
 public class UIUsuarios extends javax.swing.JInternalFrame {
 
     private final UsuarioService usuarioService;
-    private Long usuarioIdSeleccionado;
+    private Integer usuarioIdSeleccionado;
 
     /**
      * Creates new form UIUsuarios
@@ -97,7 +97,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             usuario.setRol(rol.name());
             usuario.setEstado((short) (estado ? 1 : 0));
 
-            this.usuarioService.save(usuario);
+            this.usuarioService.guardar(usuario);
 
 
             JOptionPane.showMessageDialog(this, "Registro con éxito!");

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DetalleVentaRepository implements Repository<DetalleVenta> {
     @Override
-    public Long insert(DetalleVenta detalleVenta) throws SQLException {
+    public Integer insert(DetalleVenta detalleVenta) throws SQLException {
         String query = """
                 insert into Detalle_Venta (
                        venta_id,
@@ -34,7 +34,7 @@ public class DetalleVentaRepository implements Repository<DetalleVenta> {
             if (result == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
-                return rs.getLong(1);
+                return rs.getInt(1);
             }
         }
         return null;
@@ -86,12 +86,12 @@ public class DetalleVentaRepository implements Repository<DetalleVenta> {
     }
 
     @Override
-    public DetalleVenta findById(Long id) throws SQLException {
+    public DetalleVenta findById(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Long id) throws SQLException {
+    public boolean delete(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

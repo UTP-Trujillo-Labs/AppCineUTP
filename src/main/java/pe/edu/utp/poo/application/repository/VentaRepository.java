@@ -5,15 +5,35 @@ import pe.edu.utp.poo.application.db.Conexion;
 import pe.edu.utp.poo.application.model.Paginacion;
 import pe.edu.utp.poo.application.model.Venta;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VentaRepository implements PaginateRepository<Venta> {
 
+    public Integer insert(Venta venta) throws SQLException {
+        String query = """
+                insert into Venta ( cliente_id, usuario_id, pelicula_id, horario, fecha_venta )
+                values (?, ?, ?, ?, ?)""";
+        try (
+                Connection conn = Conexion.getInstance();
+                PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        ) {
+            ps.setInt(1, venta.getClienteId());
+            ps.setInt(2, venta.getUsuarioId());
+            ps.setInt(3, venta.getPeliculaId());
+            ps.setString(4, venta.getHorario());
+            ps.setString(5, venta.getFechaVentaString());
+
+            int result = ps.executeUpdate();
+            if (result == 1) {
+                ResultSet rs = ps.getGeneratedKeys();
+                rs.next();
+                return rs.getInt(1);
+            }
+        }
+        return null;
+    }
     @Override
     public Paginacion<Venta> listaPaginada(Integer offset, Integer limite) throws SQLException {
         List<Venta> list = new ArrayList<>();
