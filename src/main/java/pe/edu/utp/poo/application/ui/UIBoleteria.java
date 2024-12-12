@@ -16,7 +16,9 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 import javax.swing.JOptionPane;
 import pe.edu.utp.poo.application.model.Cliente;
+import pe.edu.utp.poo.application.model.Pelicula;
 import pe.edu.utp.poo.application.service.ClienteService;
+import pe.edu.utp.poo.application.service.PeliculaService;
 
 /**
  *
@@ -27,6 +29,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     private UIMainMenu uiMain;
     private UISeleccionButacas uiSeleccionButacas;
     private ClienteService clienteService;
+    private PeliculaService peliculaService;
     
     
     /**
@@ -37,6 +40,8 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         initComponents();
         this.uiMain = uiMain;
         this.clienteService=new ClienteService();
+        this.peliculaService=new PeliculaService();
+        this.mostrarPelicula(); 
     }
     
     private void abrirSeleccionButacas() {
@@ -134,6 +139,17 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         
     }
     
+    private void mostrarPelicula(){
+        try {
+            List<Pelicula> lista = this.peliculaService.findAll();
+            for(Pelicula peli : lista){
+               cboPelicula.addItem(peli.getTitulo());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UIBoleteria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,7 +203,7 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Niño:");
 
-        cboPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --", "Coco", "Intensamente", "Intesamente 2", "Viov" }));
+        cboPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --" }));
         cboPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboPeliculaActionPerformed(evt);
@@ -195,6 +211,11 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         });
 
         cboHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --", "3pm", "5pm", "7pm", "10pm" }));
+        cboHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboHorarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -462,6 +483,10 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         vender();
     }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void cboHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboHorarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboHorarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
