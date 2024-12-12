@@ -1,6 +1,6 @@
 package pe.edu.utp.poo.application.model;
 
-public class Persona {
+public abstract class Persona {
     private String nombres;
 
     private String apellidos;
