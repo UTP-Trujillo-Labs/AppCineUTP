@@ -4,13 +4,19 @@
  */
 package pe.edu.utp.poo.application.ui;
 
+import java.sql.SQLException;
 import pe.edu.utp.poo.application.ui.dto.VentaButacasDTO;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
+import javax.swing.JOptionPane;
+import pe.edu.utp.poo.application.model.Cliente;
+import pe.edu.utp.poo.application.service.ClienteService;
 
 /**
  *
@@ -20,13 +26,17 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     private Consumer<VentaButacasDTO> outputOnClose = this::fnOutputOnClose;
     private UIMainMenu uiMain;
     private UISeleccionButacas uiSeleccionButacas;
+    private ClienteService clienteService;
+    
     
     /**
      * Creates new form UIBoleteria
      */
+    
     public UIBoleteria(UIMainMenu uiMain) {
         initComponents();
         this.uiMain = uiMain;
+        this.clienteService=new ClienteService();
     }
     
     private void abrirSeleccionButacas() {
@@ -91,6 +101,37 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
         cboHorario.setSelectedIndex(0);
         txtTicketsAdulto.setValue(0);
         txtTicketsNinio.setValue(0);
+    }
+    
+    private void vender(){
+        txtNombreCliente.getText();
+        txtApellidosCliente.getText();
+        txtNumeroDocumento.getText();
+        
+        String nombres=txtNombreCliente.getText();
+        String apellidos=txtApellidosCliente.getText();
+        String numeroDocumento=txtNumeroDocumento.getText();
+        
+        Cliente cliente=new Cliente();
+        
+        cliente.setNombres(nombres);
+        cliente.setApellidos(apellidos);
+        cliente.setNumeroDocumento(numeroDocumento);
+        
+        try {
+            this.clienteService.insertar(cliente);
+            
+            JOptionPane.showMessageDialog(this, "Registro con éxito!");
+        } catch (SQLException ex) {
+            Logger.getLogger(UIBoleteria.class.getName()).log(Level.SEVERE, null, ex);
+            
+            JOptionPane.showMessageDialog(this, "Se encontró error en base de datos");
+        }
+        
+        limpiarCampos();
+        
+
+        
     }
     
     /**
@@ -267,6 +308,11 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
 
         btnImprimir.setForeground(new java.awt.Color(51, 153, 255));
         btnImprimir.setText("Vender");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -412,6 +458,10 @@ public class UIBoleteria extends javax.swing.JInternalFrame {
     private void btnSeleccionarButacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasActionPerformed
         abrirSeleccionButacas();
     }//GEN-LAST:event_btnSeleccionarButacasActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        vender();
+    }//GEN-LAST:event_btnImprimirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
