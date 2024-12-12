@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import pe.edu.utp.poo.application.common.peli.GestorPeliculas;
+
 import pe.edu.utp.poo.application.model.Pelicula;
 //import pe.edu.utp.poo.application.common.peli.Pelicula;
 
@@ -26,7 +26,7 @@ import pe.edu.utp.poo.application.service.PeliculaService;
 public class UIPeliculas extends javax.swing.JInternalFrame {
 
     private PeliculaService peliculaService;
-    GestorPeliculas listaPeliculas=new GestorPeliculas();
+   
   
 
     Integer peliculaId=null;
