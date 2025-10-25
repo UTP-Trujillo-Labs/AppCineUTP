@@ -265,6 +265,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbxEstado">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -415,6 +418,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnGuardar">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="99" red="33" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <Events>
@@ -439,6 +445,9 @@
             </Component>
             <Component class="javax.swing.JToggleButton" name="btnNuevo">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="99" red="33" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nuevo"/>
               </Properties>
               <Events>

@@ -64,3 +64,54 @@
 9. Informativo, acerca de
 
 ![1729750509139](image/Readme/1729750509139.png)
+
+## Anexos
+
+#### JDBC
+
+Drivers para conectarse a MSSQl
+
+#### Cifrado
+
+Se implementa cifrado por frase + autenticación por identidad
+
+Ref: https://learn.microsoft.com/en-us/sql/t-sql/functions/encryptbypassphrase-transact-sql?view=sql-server-ver16
+
+## Empaquetado
+
+Se crea un archivo manifiesto `MANIFEST.MF` para especificar la ejecución del jar.
+
+```manifest
+Manifest-Version: 1.0
+Created-By: UTP Labs - Ing. Sistemas (Alumnos 4to ciclo)
+Main-Class: pe.edu.utp.poo.application.AppCineUTP
+
+```
+
+Luego creamos un jar con manifiesto con el siguiente comando:
+
+```shell
+jar -cmf MANIFEST.MF AppCineUTP.jar -C .
+```
+
+## Estructura
+
+```text
+AppCineUTP
+├── pe.edu.utp.poo.application
+│   ├── /common (comun: reutilizable)
+│   ├── /db (base de datos: conexion)
+│   ├── /enums (lista de datos fija)
+│   ├── /model (clases semejantes a la base de datos)
+│   ├── /repository (clases con logica para acceder a los datos)
+│   ├── /service (clases con logica para combinar y utilizar los datos)
+│   ├── /ui (interfaz grafica)
+│   ├── /util (funcionalidad reutilizable)
+│   └── AppCineUTP.java
+└── pom.xml
+
+```
+
+## Base de datos
+
+![1733720148306](image/Readme/1733720148306.png)

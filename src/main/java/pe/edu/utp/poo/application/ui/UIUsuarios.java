@@ -4,62 +4,72 @@
  */
 package pe.edu.utp.poo.application.ui;
 
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.utp.poo.application.common.Util;
 import pe.edu.utp.poo.application.enums.RolesEnum;
-import pe.edu.utp.poo.application.lib.UsuarioLogica;
-import pe.edu.utp.poo.application.pojo.Usuario;
+import pe.edu.utp.poo.application.model.Usuario;
+import pe.edu.utp.poo.application.service.UsuarioService;
 
 /**
  *
  * @author manuelguarniz
  */
 public class UIUsuarios extends javax.swing.JInternalFrame {
-    
-    private String idUsuarioSeleccionado;
-    private UsuarioLogica usuarioLogica;
+
+    private final UsuarioService usuarioService;
+    private Integer usuarioIdSeleccionado;
 
     /**
      * Creates new form UIUsuarios
      */
     public UIUsuarios() {
+        this.usuarioService = new UsuarioService();
         initComponents();
-        this.usuarioLogica = new UsuarioLogica();
         cargarDatos();
-        desabilitarControles(true);
+        this.deshabilitarControles(true);
     }
     
     private void cargarDatos() {
         
         DefaultTableModel tableModel = (DefaultTableModel) jtUsuarios.getModel();
         tableModel.setRowCount(0);
-        
-        List<Usuario> usuarios = this.usuarioLogica.listaUsuarios();
-        usuarios.forEach(e -> {
-            tableModel.addRow(new Object[] {
-                e,
-                e.getNombres(),
-                e.getApellidos(),
-                e.getDni(),
-                e.getRol(),
-                e.isEstado() ? "Activo" : "Inactivo",
+
+        try {
+            List<Usuario> usuarios = this.usuarioService.findAll();
+            usuarios.forEach(e -> {
+                tableModel.addRow(new Object[] {
+                        e,
+                        e.getNombres(),
+                        e.getApellidos(),
+                        e.getNumeroDocumento(),
+                        e.getRol(),
+                        1 == e.getEstado() ? "Activo" : "Inactivo",
+                });
             });
-        });
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error en base de datos");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error lógico");
+        }
     }
     
     private void registrarUsuario() {
-        desabilitarControles(false);
-        limpiarCampos();
+        deshabilitarControles(false);
+        habilitarControlesSeleccionables(false);
+        this.limpiarCampos();
     }
     
     private void modificarUsuario() {
-        desabilitarControles(false);
+        deshabilitarControles(false);
     }
     
     private void cancelarRegistro() {
-        desabilitarControles(true);
+        deshabilitarControles(true);
         limpiarCampos();
     }
     
@@ -68,32 +78,40 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         String apellidos = txtApellidos.getText();
         String dni = txtDNI.getText();
         String edadText = txtEdad.getText();
-        
-        if (!this.validarCampos()) {
-            return;
+
+        try {
+            if (!this.validarCampos()) {
+                return;
+            }
+
+            short edad = Short.parseShort(edadText);
+            RolesEnum rol = RolesEnum.valueOf(cboRol.getSelectedItem().toString());
+            boolean estado = cbxEstado.isSelected();
+
+            Usuario usuario = new Usuario();
+            usuario.setUsuarioId(usuarioIdSeleccionado);
+            usuario.setNombres(nombres);
+            usuario.setApellidos(apellidos);
+            usuario.setNumeroDocumento(dni);
+            usuario.setEdad(edad);
+            usuario.setRol(rol.name());
+            usuario.setEstado((short) (estado ? 1 : 0));
+
+            this.usuarioService.guardar(usuario);
+
+
+            JOptionPane.showMessageDialog(this, "Registro con éxito!");
+
+            deshabilitarControles(true);
+            limpiarCampos();
+            cargarDatos();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error en base de datos");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error lógico");
         }
-        
-        int edad = Integer.parseInt(edadText);
-        RolesEnum rol = RolesEnum.valueOf(cboRol.getSelectedItem().toString());
-        boolean estado = cbxEstado.isSelected();
-        
-        Usuario usuario = new Usuario(this.usuarioLogica);
-        usuario.setId(idUsuarioSeleccionado);
-        usuario.setNombres(nombres);
-        usuario.setApellidos(apellidos);
-        usuario.setDni(dni);
-        usuario.setEdad(edad);
-        usuario.setRol(rol);
-        usuario.setEstado(estado);
-        
-        usuario.guardar();
-        
-        
-        JOptionPane.showMessageDialog(this, "Registro con éxito!");
-        
-        desabilitarControles(true);
-        limpiarCampos();
-        cargarDatos();
     }
     
     private boolean validarCampos() {
@@ -149,18 +167,27 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Seleccione solo una fila para eliminar.");
             return;
         }
-        Usuario usuario = (Usuario) tableModel.getValueAt(filaSeleccionada, 0);
-        
-        int quiereEliminar = JOptionPane
-                .showConfirmDialog(this, "¿Está seguro que quiere eliminar a " + usuario.getNombres(),
-                        "Confirmar para eliminar", JOptionPane.YES_NO_OPTION);
-        
-        if (JOptionPane.YES_OPTION == quiereEliminar) {
-            this.usuarioLogica.elimiarUsuario(usuario.getId());
 
-            JOptionPane.showMessageDialog(this, "Registro eliminado con éxito!");
-            limpiarCampos();
-            tableModel.removeRow(filaSeleccionada);
+        try {
+            Usuario usuario = (Usuario) tableModel.getValueAt(filaSeleccionada, 0);
+
+            int quiereEliminar = JOptionPane
+                    .showConfirmDialog(this, "¿Está seguro que quiere eliminar a " + usuario.getNombres(),
+                            "Confirmar para eliminar", JOptionPane.YES_NO_OPTION);
+
+            if (JOptionPane.YES_OPTION == quiereEliminar) {
+                this.usuarioService.deleteById(usuario.getUsuarioId());
+
+                JOptionPane.showMessageDialog(this, "Registro eliminado con éxito!");
+                limpiarCampos();
+                tableModel.removeRow(filaSeleccionada);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error en base de datos");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Se encontró error lógico");
         }
     }
     
@@ -171,35 +198,44 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         
             Usuario usuario = (Usuario) tableModel.getValueAt(jtUsuarios.getSelectedRow(), 0);
 
-            idUsuarioSeleccionado = usuario.getId();
+            usuarioIdSeleccionado = usuario.getUsuarioId();
             txtNombres.setText(usuario.getNombres());
             txtApellidos.setText(usuario.getApellidos());
-            txtDNI.setText(usuario.getDni());
+            txtDNI.setText(usuario.getNumeroDocumento());
             txtEdad.setText(String.valueOf(usuario.getEdad()));
-            cboRol.setSelectedItem(usuario.getRol().toString());
-            cbxEstado.setSelected(usuario.isEstado());
+            cboRol.setSelectedItem(usuario.getRol());
+            cbxEstado.setSelected(usuario.getEstado() == 1);
+
+            this.habilitarControlesSeleccionables(true);
         }
     }
     
-    private void desabilitarControles(boolean disabilitar) {
-        txtNombres.setEnabled(!disabilitar);
-        txtApellidos.setEnabled(!disabilitar);
-        txtDNI.setEnabled(!disabilitar);
-        txtEdad.setEnabled(!disabilitar);
-        cboRol.setEnabled(!disabilitar);
-        cbxEstado.setEnabled(!disabilitar);
+    private void deshabilitarControles(boolean deshabilitar) {
+        txtNombres.setEnabled(!deshabilitar);
+        txtApellidos.setEnabled(!deshabilitar);
+        txtDNI.setEnabled(!deshabilitar);
+        txtEdad.setEnabled(!deshabilitar);
+        cboRol.setEnabled(!deshabilitar);
+        cbxEstado.setEnabled(!deshabilitar);
         
-        btnNuevo.setEnabled(disabilitar);
-        btnModificar.setEnabled(disabilitar);
-        btnEliminar.setEnabled(disabilitar);
-        btnGuardar.setEnabled(!disabilitar);
-        btnCancelar.setEnabled(!disabilitar);
+        btnNuevo.setEnabled(deshabilitar);
+        btnModificar.setEnabled(deshabilitar);
+        btnEliminar.setEnabled(deshabilitar);
+        btnGuardar.setEnabled(!deshabilitar);
+        btnCancelar.setEnabled(!deshabilitar);
         
-        jtUsuarios.setEnabled(disabilitar);
+        jtUsuarios.setEnabled(deshabilitar);
+
+        this.habilitarControlesSeleccionables(!deshabilitar);
+    }
+
+    private void habilitarControlesSeleccionables(boolean habilitar) {
+        btnModificar.setEnabled(habilitar);
+        btnEliminar.setEnabled(habilitar);
     }
     
     private void limpiarCampos() {
-        idUsuarioSeleccionado = "";
+        usuarioIdSeleccionado = null;
         txtNombres.setText("");
         txtApellidos.setText("");
         txtDNI.setText("");
@@ -318,6 +354,8 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
 
         cboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Vendedor" }));
 
+        cbxEstado.setSelected(true);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -397,6 +435,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        btnGuardar.setForeground(new java.awt.Color(51, 153, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,6 +457,7 @@ public class UIUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
+        btnNuevo.setForeground(new java.awt.Color(51, 153, 255));
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

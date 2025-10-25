@@ -7,32 +7,52 @@ package pe.edu.utp.poo.application.ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
-import javax.swing.Timer;
+import javax.swing.*;
+
 import pe.edu.utp.poo.application.common.Util;
+import pe.edu.utp.poo.application.model.Usuario;
 
 /**
  *
  * @author manuelguarniz
  */
 public class UIMainMenu extends javax.swing.JFrame {
-    MenuActionListener menuActionListener;
+    private MenuActionListener menuActionListener;
+    private Usuario usuario;
+
+    public UIMainMenu(Usuario usuario) {
+        this.usuario = usuario;
+        initComponents();
+        configMenuItems();
+        configTimer();
+        configUsuarioConectado();
+    }
 
     /**
      * Creates new form ViewMainMenu
      */
     public UIMainMenu() {
-        initComponents();
-        configMenuItems();
-        configTimer();
+        this(null);
     }
-    
+
+    public JDesktopPane getPanel() {
+        return this.jdpMain;
+    }
+
+    private void configUsuarioConectado() {
+        lblUsuario.setText(usuario != null ? "🟢 " + usuario.getNombres() : "🔴");
+    }
     private void configMenuItems() {
-        menuActionListener = new MenuActionListener(jdpMain);
+        menuActionListener = new MenuActionListener(this);
         jmiAcercaDe.addActionListener(menuActionListener);
+        jmiPerfil.addActionListener(menuActionListener);
         jmiBoleteria.addActionListener(menuActionListener);
+        jmiBoleteriaNuevo.addActionListener(menuActionListener);
+        jmiBoleteriaButacas.addActionListener(menuActionListener);
         jmiPeliculas.addActionListener(menuActionListener);
         jmiSalir.addActionListener(menuActionListener);
         jmiUsuarios.addActionListener(menuActionListener);
+        jmiCerrarSesion.addActionListener(menuActionListener);
     }
     
     private void configTimer() {
@@ -49,7 +69,7 @@ public class UIMainMenu extends javax.swing.JFrame {
     
     private void setLocalTime() {
         LocalDateTime now = LocalDateTime.now();
-        lblLocalTime.setText(Util.parseDate(now));
+        lblLocalTime.setText(Util.dateToString(now));
     }
     
 
@@ -69,18 +89,26 @@ public class UIMainMenu extends javax.swing.JFrame {
         jpProgressBar = new javax.swing.JPanel();
         jpLocaltime = new javax.swing.JPanel();
         lblLocalTime = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jmuPerfil = new javax.swing.JMenuItem();
+        jmiPerfil = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jmiCerrarSesion = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmiSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmiUsuarios = new javax.swing.JMenuItem();
         jmiPeliculas = new javax.swing.JMenuItem();
         jmiBoleteria = new javax.swing.JMenu();
+        jmiBoleteriaNuevo = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jmiBoleteriaButacas = new javax.swing.JMenuItem();
         jmHelp = new javax.swing.JMenu();
         jmiAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cine UTP APP");
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         javax.swing.GroupLayout jdpMainLayout = new javax.swing.GroupLayout(jdpMain);
@@ -103,20 +131,20 @@ public class UIMainMenu extends javax.swing.JFrame {
             .addGroup(jpAppNameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         jpAppNameLayout.setVerticalGroup(
             jpAppNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAppNameLayout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpProgressBarLayout = new javax.swing.GroupLayout(jpProgressBar);
         jpProgressBar.setLayout(jpProgressBarLayout);
         jpProgressBarLayout.setHorizontalGroup(
             jpProgressBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 858, Short.MAX_VALUE)
         );
         jpProgressBarLayout.setVerticalGroup(
             jpProgressBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,13 +167,17 @@ public class UIMainMenu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        lblUsuario.setText("Usuario");
+
         javax.swing.GroupLayout jpFooterLayout = new javax.swing.GroupLayout(jpFooter);
         jpFooter.setLayout(jpFooterLayout);
         jpFooterLayout.setHorizontalGroup(
             jpFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpFooterLayout.createSequentialGroup()
                 .addComponent(jpAppName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpLocaltime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,15 +188,24 @@ public class UIMainMenu extends javax.swing.JFrame {
             .addComponent(jpAppName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jpProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jpLocaltime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpFooterLayout.createSequentialGroup()
+                .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jMenu1.setText("Inicio");
 
-        jmuPerfil.setText("Perfil");
-        jmuPerfil.setActionCommand("ui_inicio_perfil");
-        jMenu1.add(jmuPerfil);
+        jmiPerfil.setText("Perfil");
+        jmiPerfil.setActionCommand("ui_inicio_perfil");
+        jMenu1.add(jmiPerfil);
+        jMenu1.add(jSeparator2);
 
-        jmiSalir.setText("Salir");
+        jmiCerrarSesion.setText("Cerrar Sesión");
+        jmiCerrarSesion.setActionCommand("ui_main_logout");
+        jMenu1.add(jmiCerrarSesion);
+        jMenu1.add(jSeparator1);
+
+        jmiSalir.setText("Cerrar Aplicación");
         jmiSalir.setActionCommand("ui_inicio_salir");
         jMenu1.add(jmiSalir);
 
@@ -183,8 +224,21 @@ public class UIMainMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jmiBoleteria.setText("Boleteria");
-        jmiBoleteria.setActionCommand("ui_boleteria");
+        jmiBoleteria.setActionCommand("ui_boleteria_nuevo");
+
+        jmiBoleteriaNuevo.setText("Nueva Venta");
+        jmiBoleteriaNuevo.setActionCommand("ui_boleteria_nuevo");
+        jmiBoleteria.add(jmiBoleteriaNuevo);
+
         jMenuBar1.add(jmiBoleteria);
+
+        jMenu3.setText("Reportes");
+
+        jmiBoleteriaButacas.setText("Ventas");
+        jmiBoleteriaButacas.setActionCommand("ui_boleteria_mantenimiento");
+        jMenu3.add(jmiBoleteriaButacas);
+
+        jMenuBar1.add(jMenu3);
 
         jmHelp.setText("Ayuda");
         jmHelp.setActionCommand("ui_acerca_de");
@@ -219,19 +273,26 @@ public class UIMainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JDesktopPane jdpMain;
     private javax.swing.JMenu jmHelp;
     private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenu jmiBoleteria;
+    private javax.swing.JMenuItem jmiBoleteriaButacas;
+    private javax.swing.JMenuItem jmiBoleteriaNuevo;
+    private javax.swing.JMenuItem jmiCerrarSesion;
     private javax.swing.JMenuItem jmiPeliculas;
+    private javax.swing.JMenuItem jmiPerfil;
     private javax.swing.JMenuItem jmiSalir;
     private javax.swing.JMenuItem jmiUsuarios;
-    private javax.swing.JMenuItem jmuPerfil;
     private javax.swing.JPanel jpAppName;
     private javax.swing.JPanel jpFooter;
     private javax.swing.JPanel jpLocaltime;
     private javax.swing.JPanel jpProgressBar;
     private javax.swing.JLabel lblLocalTime;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }
